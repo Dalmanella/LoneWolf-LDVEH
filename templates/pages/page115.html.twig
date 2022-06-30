@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    
+    <p>
+        You stumble into the first building and fall to the floor exhausted. You can smell cooked meat. You notice a small cauldron hanging over the embers of a dying fire, and a large oak table that has been set for a meal. Whoever lived here must have left in a great hurry this very morning. There is water in a jug and a loaf of fresh bread on the table.
+    </p>    
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/sillu10.png') }}" alt="a cauldron over dying embers." />
+    </div>
+  
+    <p>If you decide to take a quick Meal
+        <a class="col-12 mt-5" href="
+       {{ path('page_150', {'heroId':heroId }) }}  
+        ">
+            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+        </a>
+        {# turn to 150.  #}
+    </p>
+    </br>
+    <p>If you decide to search the building. 
+            <a class="col-12 mt-5" href="
+             {{ path('page_177', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 177. #}
+    </p>
+    </br>
+    <p>If you would rather leave now and continue your run. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_83', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 83. #}
+    </p>
+
+    </br>
+</div>
+
+{% endblock %}

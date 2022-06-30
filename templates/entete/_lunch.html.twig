@@ -1,0 +1,31 @@
+<!-- popup ddu pique nique -->
+                    <div class="modal fade" id="casseCroute" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="casseCrouteLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen ">
+                            <div class="modal-content  ">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="casseCrouteLabel" style="font-family:'Dr Sugiyama', cursive;">Lunch Time</h2>
+                                    {# <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                        <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
+                                    </button> #}
+                                    
+                                </div>
+                                <div class="modal-body overflow-auto">
+                                    {% for item in items %}
+                                        {% if item.objType is same as ('meal') %}
+                                            <a  class="btn rounded-circle" 
+                                                href="{{ path( "objEat", {'itemId':item.id,'p':p, 'heroId':heroId} ) }}" 
+                                                
+                                            > 
+                                                <img style="width:80px;" src="{{ asset ('assets/img/item-food.png') }}" alt="food" />
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+ 

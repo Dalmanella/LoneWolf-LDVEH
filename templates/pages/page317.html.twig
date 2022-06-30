@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Instinctively you dive away from the stairs, and land on the stone floor. Your quick reactions have saved your life, for a vast granite block has fallen from the ceiling and crushed the steps, just in front of the lockplate!
+        </br>
+        Shaken but still in one piece, you get to your feet. A shaft of dull grey light is seeping into the chamber from above, where the stone block was. Through a hole in the ceiling you can see a tangle of graveweed and the cloudy sky above. You clamber out of the tomb and head for the arched south gate of the necropolis as fast as possible. The pointed log walls of the city’s outer defence works are now visible.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_61', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 61. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

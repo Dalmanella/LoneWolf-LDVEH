@@ -1,0 +1,29 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight.</p>
+                </br> 
+                    <p> Will you search the body?
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_267', {'heroId':heroId }) }} 
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 267. #}                   
+                    </p>
+                    </br>
+                    <p> Or will you continue along the east path?
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_125', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 125. #}
+                    
+                </p>
+
+        {% endif %}

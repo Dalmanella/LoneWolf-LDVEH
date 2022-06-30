@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+        You are awoken by the sound of troops in the distance. Across the lake you see the black-cloaked figures of Drakkarim and a pack of Doomwolves and their riders. A Kraan appears from above the
+        trees and lands on the roof of the small wooden shack.
+        </br>It is ridden by a creature dressed in red. The Kraan takes off and begins to fly across the lake to where you are hidden.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+
+    {# OPTIONS DE CHOIX SI COMP #}
+        {% if infoHero.kaiCamou %}
+            <p>If you wish to use the Kai Discipline of Camouflage.
+                <a class="col-12 mt-5" href="
+                {{ path('page_114', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 114.  #}
+            </p>
+        {% endif %}
+        </br>
+    <p>If you wish to ride deeper in the forest. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_239', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 239. #}
+    </p>
+    </br>
+    <p>If you wish to fight the creature. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_29', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 29. #}
+    </p>
+
+
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+    It is a small one-man canoe in very poor condition. The wood has split and warped, and the craft appears to be leaking in several places. You quickly patch up the worst of the holes with some clay and bail out the water. This seems to stop the leaking for the moment. Stowing your equipment at the bow, you set off downstream, using a piece of driftwood as a paddle.
+    </br>After a short while, you hear the sound of horses galloping towards you along the left bank.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+
+    {# OPTIONS DE CHOIX SI COMP #}
+        {% if infoHero.kaiSix %}
+            <p>If you wish to use the Kai Discipline of Sixth Sense.
+                <a class="col-12 mt-5" href="
+                {{ path('page_218', {'heroId':heroId }) }}  
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 218.  #}
+            </p>
+        {% endif %}
+        </br>
+    <p>If you wish to hide in the bottom of the canoe. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_75', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 75. #}
+    </p>
+    </br>
+    <p>If you wish to try to attract their attention. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_175', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 175. #}
+    </p>
+
+    {% endfor %}
+</br>
+</div>
+
+{% endblock %}

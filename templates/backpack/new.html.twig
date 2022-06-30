@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Backpack{% endblock %}
+
+{% block body %}
+    <h1>Create new Backpack</h1>
+
+    {{ include('backpack/_form.html.twig') }}
+
+    <a href="{{ path('app_backpack_index') }}">back to list</a>
+{% endblock %}

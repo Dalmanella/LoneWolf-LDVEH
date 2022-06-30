@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+{% set fall = fall(em, heroId,10) %}
+    <p>
+    You suddenly feel a searing pain shoot through your chest as something explodes against you in a shower of red sparks. 
+    </br>You lose 10 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points. 
+    </p>
+    
+    {% for infoHero in hero %}
+        {% if infoHero.endurance < 1 %}
+            <p>Alas, you died. 
+                <a class="col-12 mt-5" href="
+                {{ path('page_351', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 351. #}
+            </p>
+        {% elseif infoHero.endurance > 9 %}
+        </br>Through the smoke, the Sage is preparing to throw more explosives at you.
+            </br>
+            <p> 
+                <a class="col-12 mt-5" href="
+                {{ path('page_80', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 80. #}
+            </p>
+            </br>
+        {% elseif infoHero.endurance < 10 %}
+        </br>Through the smoke, the Sage is preparing to throw more explosives at you.
+            <p>
+                <a class="col-12 mt-5" href="
+                {{ path('page_344', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+            {# turn to 344. #}
+            </p>
+
+        {% endif %}
+    {% endfor %}
+     </br>
+</div>
+
+{% endblock %}

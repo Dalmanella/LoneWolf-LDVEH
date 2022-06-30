@@ -1,0 +1,224 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf page de TEST{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetemenu.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# <div class="d-flex justify-content-center mb-5">
+    <img src={{illu.src}} alt={{illu.alt}} />
+</div> #}
+
+<div class="d-flex justify-content-center mb-5">
+    <img src="{{ asset ('assets/img/sillu11.png') }}" alt=" " />
+</div>
+<p>
+
+</p>
+  </script>
+<h1 style="font-family:'Nanum Brush Script', cursive;"> TESTS </h1>
+  {# <h2> Un seul utilisateur </h2>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">user id</th>
+            <th scope="col">pseudo</th>
+            <th scope="col">email</th>
+            <th scope="col">password</th>
+              
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{utilisateur.id}}</th>
+          <td>{{utilisateur.pseudo}}</td>
+          <td>{{utilisateur.email}}</td>
+          <td>{{utilisateur.password}}</td>      
+        </tr>
+      </tbody>
+    </table>
+
+    </br></br>
+    <div style="font-family:'Nanum Brush Script', cursive;">
+    <h3>
+        {{dump(utilisateur)}}
+    </h3>
+    <h3>Session id: </br>
+      {{dump(session.id)}} 
+    </h3>
+    <h3>variables  </br>
+    <p> app.user: {{ app.user.id }}</p>
+
+    <p>pseudo: {{ app.user.username ?? 'Anonymous user' }}</p>
+    {% if app.debug %}
+        <p>Request method: {{ app.request.method }}</p>
+        <p>Application Environment: {{ app.environment }}</p>
+    {% endif %}
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p> {{ app.user.id }}</p>
+            <p> {{ app.user.pseudo }}</p>
+            <p> {{ app.user.username }}</p>
+            <p> {{ app.user.email }}</p>
+        {% endif %}
+    </h3>
+    </div>
+    </br></br>
+    <h2> tableau des utilisateurs </h2>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">user id</th>
+            <th scope="col">pseudo</th>
+            <th scope="col">email</th>
+            <th scope="col">password</th>
+              
+        </tr>
+      </thead>
+      <tbody> #}
+
+        {# {% for utilisateur in utilisateurs %}
+
+        <tr>
+          <th scope="row">{{utilisateur.id}}</th>
+          <td>{{utilisateur.pseudo}}</td>
+          <td>{{utilisateur.email}}</td>
+          <td>{{utilisateur.password}}</td>
+          
+        </tr>
+
+        {% endfor %} 
+
+    </tbody>
+    </table>
+  #}
+
+</br></br>
+{# 
+  <h2> tableau des héros </h2>
+  <table class="table">
+    <thead>
+      <tr>
+          <th scope="col">user id</th>
+          <th scope="col">héros id</th>
+          <th scope="col">nom</th>
+          <th scope="col">Combat Skill</th>
+          <th scope="col">Endurance</th>
+          <th scope="col">or</th>
+            
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for hero in heroes %}
+
+      <tr>
+        <th scope="row">{{ userId }}</th>
+        <td>{{ hero.id }}</td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.combatSkill}}</td>
+        <td>{{hero.endurance}}</td>
+        <td>{{hero.gold}}</td>
+
+        
+      </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>  #}
+
+<h2> objets du héros </h2>
+
+<table class="table table-striped table-sm col-12">
+  <thead>
+    <tr>
+        <th scope="col">objets</th>
+        <th scope="col">description</th>     
+        <th scope="col">stockage</th>   
+        <th scope="col">id</th>  
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+
+    {% for item in items %}
+
+    <tr>
+      <th scope="row">{{ item.objName}}</th> 
+      <td>{{ item.objDescription }}</td>
+      <td>{{ item.place }}</td>
+      <td>{{ item.id }}</td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table> 
+
+    <h2> Backpack</h2>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">item</th>
+            <th scope="col">description</th>     
+            <th scope="col">Action</th>        
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for item in items %}
+            {% if item.place is same as ('backpack') %}
+        <tr>
+          <th scope="row">{{ item.objName}}</th> 
+          <td>{{ item.objDescription }}</td>
+          <td><button class='btn btn-warning'>Suppr</button></td>
+        </tr>
+          {% endif %} 
+        {% endfor %}
+
+      </tbody>
+    </table> 
+
+    <h2> Hand</h2>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">item</th>
+            <th scope="col">description</th>        
+            <th scope="col">Action</th>     
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for item in items %}
+            {% if item.place is same as ('hand') %}
+        <tr>
+          <th scope="row">{{ item.objName}}</th> 
+          <td>{{ item.objDescription }}</td>
+          <td><button class='btn btn-warning'>Suppr</button></td>
+        </tr>
+          {% endif %} 
+        {% endfor %}
+
+      </tbody>
+    </table> 
+
+{# retour menu #}
+<div class="d-flex text-start">
+  <a class="col-12 mt-5" href="{{ path('menu')}}">
+    <img style="width:100px;" src="{{ asset ('assets/img/ArrowL.png') }}" />
+  </a>
+</div>
+{# retour menu #}
+<div class="d-flex text-end">
+  <a class="col-12 mt-5" href="{{ path('page_351',{'heroId':heroId })}}">
+    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+  </a>
+</div>
+
+{# {{ rollDice()  }} #}
+
+{% endblock %}

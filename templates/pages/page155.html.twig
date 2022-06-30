@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    
+    <p>
+    As you approach, the group of people stop talking. You can see by their expressions that they recognize your green Kai cloak. Slowly, one of the men extends his hand in friendship and says, </br>‘My Lord, we had heard a rumour that the Kai were destroyed. Heaven be praised that it is not so. We feared all was lost.’
+    </br> You do not tell them of the destruction of the monastery, for they are refugees from Toran and have lost everything they owned.
+    </br>Their only hope now is that the Kai Lords will lead an army to victory. You learn that the northern port was attacked from both air and sea, and that the forces of the Darklords far outnumbered the King’s brave garrison. You reassure them that Sommerlund will not fall and wish them luck on their journey ahead.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+
+    <p>
+        <a class="col-12 mt-5" href="
+            {{ path('page_70', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# Turn to 70. #}
+    </p>
+    
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

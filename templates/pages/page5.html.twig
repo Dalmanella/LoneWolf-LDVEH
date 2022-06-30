@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+        After about an hour of walking, the track slowly bears round to the east. You reach a shallow ford where a fast-flowing brook runs on a steep rocky course towards the south. Just beyond the ford is a junction where the track meets a wider path running north to south. Realizing that the north path will take you away from the capital, you turn right at the junction and head south.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_111', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 111. #}
+    </p>
+    
+    </br>
+</div>
+
+{% endblock %}

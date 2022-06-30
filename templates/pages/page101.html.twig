@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        The noise of battle soon fades behind you but the ensuing silence is broken by a voice in your head that accuses you of being a coward, and deserting a fellow human in danger. You try to rid yourself of your nagging conscience by telling yourself that your mission is far more important, and that not only is the life of the young magician in peril but the lives of all your countrymen depend on you reaching the capital alive.
+        </br>
+        Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. But it is too late they have spotted you and you must run as fast as you can.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_281', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 281. #}
+    </p>
+    </br>
+</div>
+
+{% endblock %}

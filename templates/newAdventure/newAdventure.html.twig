@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf création{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetemenu.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# {{form(heroForm)}} #}
+{{form_start(heroForm)}}
+{# <form  name="new_adventure" action="{{ path('page_intro') }}" method="post" class="text-align-center p-0 m-0">  #}
+    {# nom du hero #}
+    <div class="text-align-center mt-1">
+        {# <label for="hero">Votre héros</label> 
+        <input class="fs-3" type="text" id="hero" name="hero" placeholder="Nom"/> #}
+        {{form_label(heroForm.name)}}
+        {{ form_widget(heroForm.name) }}
+        
+    </div>
+    <div class="col-12 mt-1 text-center">
+        <img style="width:60px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+    </div>
+  {# compétence combat & endurance #}
+    <div class="d-inline-flex justify-content-evenly col-12 mt-1 ">
+        <div class=" align-self-center" id="roll">
+          <button
+            type="button"
+            id="rolldice"
+            class="rounded-circle btn-primary m-0 fs-3" 
+            style="width:51px; height:51px;" 
+            onclick="showCarac()"
+          > Roll </button>
+        </div> 
+      
+            
+      {# combat #}
+        <div >
+          <h3 > {{form_label(heroForm.combatSkill )}} </h3>
+          <input class="text-center fs-2" type="text" id="combat" name="combatSkill" placeholder="10"  readonly/>
+        </div>
+      {# endurance #}
+        <div >
+          <h3 > {{form_label(heroForm.endurance)}} </h3>
+          <input class="text-center fs-2" type="text" id="endurance" name="endurance" placeholder="20" readonly/>
+        </div>
+      {# gold #}
+        <div >
+          <h3 > {{form_label(heroForm.gold)}} </h3>
+            <input class="text-center fs-2" type="text" id="gold" name="gold" placeholder="0" readonly/>
+        </div>
+    </div>
+
+
+     
+
+  <div class="col-12 mt-1 text-center">
+    <img style="width:60px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+  </div>
+
+<h2> Disciplines Kais </h2>
+  <div class="col-12 mt-1 text-center">
+    {# compétence liste détaillée #}
+    <!-- Bouton lance popup -->
+    <a class="btn text-decoration-none d-inline justify-content-start paperRoll" data-bs-toggle="modal" data-bs-target="#listeDisciplines">
+      <img class=""  src="{{ asset ('assets/img/ico-paperRoll.png') }}" />
+      <span class="fs-3 " style="font-family:'Nanum Brush Script', cursive;">Detailed Disciplines </span>
+    </a>
+  
+    <!-- popup disciplines -->
+      <div class="modal fade" id="listeDisciplines" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="listeDisciplinesLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="listeDisciplinesLabel" style="font-family:'Dr Sugiyama', cursive;">Les Disciplines Kai</h2>
+              <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                  <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
+              </button>
+            </div>
+            <div class="modal-body">
+              {{ include('disciplinesKai/_disciplinesKai.html.twig') }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {# choix des 5 disciplines Kai #}
+      <h3 > Choisissez 5 disciplines Kai </h3>
+            
+      <div class="d-flex justify-content-around">
+          <div >
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiSix) }}    {{form_label(heroForm.kaiSix)}} </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiTrack) }}  {{form_label(heroForm.kaiTrack)}}  </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiHeal) }}   {{form_label(heroForm.kaiHeal)}}</div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiCamou) }}  {{form_label(heroForm.kaiCamou)}} </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiWeapon) }} {{form_label(heroForm.kaiWeapon)}} </div>
+          </div>
+          <div class=" text-start mx-3"> 
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiMBlast) }}  {{form_label(heroForm.kaiMBlast)}} </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiMShield) }} {{form_label(heroForm.kaiMShield)}} </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiAnimal) }}  {{form_label(heroForm.kaiAnimal)}}  </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiHunt) }}    {{form_label(heroForm.kaiHunt)}} </div>
+            <div class="d-flex align-bottom">  {{ form_widget(heroForm.kaiMoM) }}     {{form_label(heroForm.kaiMoM)}}  </div>
+          </div>
+      </div>
+ 
+    {# champs masqués autocomplétés #}
+    <div hidden >      
+      {{ form_widget(heroForm.endMax,  {'attr': {'value': '$(#endurance.val())' }}) }}
+      {{ form_widget(heroForm.endurance, {'attr': {'value': '$(#endurance.val())' }}) }}
+      {{ form_widget(heroForm.combatSkill, {'attr': {'value': '$(#combat.val())' }}) }}  
+      {{ form_widget(heroForm.specialBag, {'attr': {'value': 1 }}) }} 
+      {{ form_widget(heroForm.backpack, {'attr': {'value': 1 }}) }}
+      {{ form_widget(heroForm.gold, {'attr': {'value': '$(#gold).val())' }}) }}
+      {{ form_widget(heroForm.page, {'attr': {'value': null }}) }}
+      {{ form_widget(heroForm.weapon)}} 
+
+      
+  </div>
+{# <input  id="comptage" name="comptage" type="text"> </input>  #}
+{# bouton validation #}    
+    <div class="validation_bouton " id="validation_bouton" style="display:none;">
+       
+      {{form_label(heroForm.validation, {'attr': { 'class':"btn btn-primary p-0 fs-2"  }} )}}
+      {{ form_widget(heroForm.validation) }}
+    
+    </div>
+     
+{# </form> #}
+{{ form_end(heroForm) }}
+</br> </br>
+ 
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        For half an hour or more you press on through the forest, through the rich vegetation and ferns. You happen upon a small clear stream where you stop for a few minutes to wash your face and drink of the cold, fresh water.
+    </br>
+    Feeling revitalized, you cross the stream and press on. You soon notice the smell of wood smoke which seems to be drifting towards you from the north.
+    </p>
+    </br>
+    <p>If you wish to investigate the smell of wood smoke. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_128', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 128. #}
+    </p>
+    </br>
+    <p>If you would rather avoid the source of this smoke. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_347', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 347. #}
+    </p>
+
+
+   </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Fatigued by your exertions, you stop to rest for a few minutes at a fallen tree. You notice a large bundle, beneath the trunk.
+    </p>
+    </br>
+    </br>
+    <p>If you wish to examine the contents of the bundle. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_315', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 315. #}
+    </p>
+    </br>
+    <p>If you wish to leave it where it is and continue your mission. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_213', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 213. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

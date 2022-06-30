@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+
+<div>
+    <p>
+    The Key fits and the lock opens. You pull back the door to find yourself face to face with a strange old man. In his right hand is a staff. Suddenly a bolt of lightning shoots from the staff and hits you square in the chest. 
+You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points.</p>
+{% set choc = fall(em,heroId,6)%}
+{% for infoHero in hero %}
+    {% if infoHero.endurance < 1 %}
+        <p>Your life ends here.
+                </br>
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                        {# turn to 351. #}
+        </p>
+    {% else %} 
+        <p> 
+            Gasping with pain, you knock the old man aside and run up the steep staircase towards daylight. You are halfway up the stairs when he fires another bolt at you.
+        </p>
+        {% set rand = random(0,9) %}
+        {% if rand < 6 %}
+            <p>
+                the bolt misses you and shatters part of the wall.
+            </p>
+            </br>            
+                <p>
+                        <a class="col-12 mt-5" href="
+                        {{ path('page_106', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a>
+                    {# turn to 106. #}
+                </p>
+        {% else %} 
+            {% set choc = fall(em,heroId,4)%}
+            <p>
+                you have been hit in the back you lose a further 4 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points.
+            </p>
+            {% if infoHero.endurance < 1 %}
+                <p>Your life ends here.
+                    </br>
+                        <a class="col-12 mt-5" href="
+                            {{ path('page_351', {'heroId':heroId }) }} 
+                            ">
+                                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                            {# turn to 351. #}
+                </p>
+            {% else %}
+                <p>
+                    You survive, you stagger out into the daylight and curse your bad luck. It was only by an unlucky chance you discovered the secret temple of a sect of evil druids. You are very lucky to have escaped with your life. You quickly rejoin the path which now disappears over the hill.
+                </p>
+                </br>            
+                <p>
+                        <a class="col-12 mt-5" href="
+                        {{ path('page_106', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a>
+                    {# turn to 106. #}
+                </p>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+     </br>
+</div>
+
+{% endblock %}

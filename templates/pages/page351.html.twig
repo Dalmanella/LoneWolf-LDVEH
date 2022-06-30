@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+{# <h1 style="font-family:'Nanum Brush Script', cursive;"> 351 </h1> #}
+<p class="fs-3">
+
+Your life and your mission end here.
+
+</p>
+<div class="d-flex justify-content-center mb-5 " id="skull-end">
+    <a class="skull" href="{{ path('menu', {'heroId':heroId }) }}"> 
+        <img src="{{ asset ('assets/img/skull.png') }}" />
+        <h2 id="fin"> The End </h2>
+    </a>
+
+</br></br>    
+</div>
+
+{% endblock %}

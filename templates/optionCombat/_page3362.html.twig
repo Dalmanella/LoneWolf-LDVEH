@@ -1,0 +1,16 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight and free the ranger. 
+                
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_117', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 117. #}
+                </p>
+                
+                    
+                
+        {% endif %}

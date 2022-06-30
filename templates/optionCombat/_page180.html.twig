@@ -1,0 +1,30 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You defeat the Leader. 
+                </br>You now must face the First Soldier.
+                </br>  
+                       <a  class="col-38 mt-5"
+                            href="
+                            {{ path('page_1802', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 1802. #}
+                    
+                </p>
+        {% endif %}
+</br>
+<p>If you wish to evade the combat.
+                
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_fuite', {'heroId':heroId , 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':pageOrigine}) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to fuite. #}
+                    
+        </p>

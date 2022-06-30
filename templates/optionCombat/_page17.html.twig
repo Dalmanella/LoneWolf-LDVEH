@@ -1,0 +1,37 @@
+</br>
+             
+        
+
+        {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You kill the creature and quickly descend the far side of the hill to avoid the Giaks.
+                </br>  
+                {% set where = random(9)%}
+                    {% if where == 0 %}
+                        <a  class="col-12 mt-5"
+                            href="{{ path('page_53', {'heroId':heroId }) }}"
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 53. #}
+                    
+                    {% elseif where > 2 and where < 10 %}
+                        <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_316', {'heroId':heroId }) }} 
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 316. #}
+                    {% else %}
+                        <a  class="col-12 mt-5"
+                            href="{{ path('page_274', {'heroId':heroId }) }}"
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 274. #}
+                    {% endif %}
+
+                </p>
+        {% endif %}

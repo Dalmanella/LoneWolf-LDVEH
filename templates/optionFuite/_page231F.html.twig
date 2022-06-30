@@ -1,0 +1,15 @@
+</br>
+    {% if endL > 0 %}
+        {% set combattre = null %} 
+                    <p>You dash through the front door.
+                        <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_7', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 7. #}
+                    </p>
+                    </br>
+    {% endif %}

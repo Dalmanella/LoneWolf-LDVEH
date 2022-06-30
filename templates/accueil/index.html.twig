@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf Accueil{% endblock %}
+
+{% block body %}
+
+<div class="col-8 text-center">
+    <img class="img-fluid" src="{{ asset ('assets/img/wolf.png') }}" alt="wolf face symbole" />
+    <h1> Lone Wolf </h1>
+</div>
+<div class="text-center">
+    <h2> Flight from the dark </h2>
+    <h3 > Joe Dever and Gary Chalk </h3>
+</div >
+
+<p class="connexion mt-3" style="font-family:'Dr Sugiyama', cursive;" >Connexion</p>
+
+{% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="form-group mt-2 px-2">
+
+    <form 
+        action=            
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                 "{{ path('menu') }}" 
+            {% else %} 
+                "{{ path('accueil') }}"
+            {% endif %} 
+        method="post" 
+        class="form"
+    >
+        <label for="username">Pseudo</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="_password"/>
+
+        {# If you want to control the URL the user is redirected to on success #}
+        <input type="hidden" name="_target_path" value="/menu"/>
+
+        <div class="d-block">
+            <button type="submit" class="btn btn-primary p-0"><img style="width:51px;" src="{{ asset ('assets/img/pawprint-brown.png') }}" alt="login button"/></button>
+        </div>
+    </form>
+</br></br>
+</div>
+<div>
+ <a href="{{ path('inscription') }}" class="text-info mt-4 fs-4 ">Inscription</a>
+
+ 
+</br></br>
+</div>
+{% endblock %}
+{% block footer %}
+        <div class="sticky-bottom">
+            <img style="width:70px;" src="{{ asset ('assets/img/decoBas.png') }}" />
+            </br></br>
+{% endblock %}

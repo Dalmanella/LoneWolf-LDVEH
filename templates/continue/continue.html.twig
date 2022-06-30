@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf création{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetemenu.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+<h2 class="mt-5 mb-3 "> Your Lonewolf heroes </h2>
+<div class="mt-1 text-center">
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+          <th scope="col">  </th>
+          <th scope="col">Hero</th>
+          <th scope="col">Combat Skill</th>
+          <th scope="col">Endurance</th>
+          <th scope="col">Gold</th>
+          <th scope="col">  </th>
+            
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for hero in heroes %}
+
+      <tr>
+        
+        <td>{% if hero.endurance > 0 %}
+          {# concatenation de page_ et du dernier numero de page visitée #}
+          {% set p = "page_" ~ hero.page %}
+          <a 
+            class="btn" 
+            id="new_adventure_validation" 
+            href="{{ path( p, {'heroId':hero.id} ) }}" >          
+          </a>
+        {% endif %}  
+        </td>
+        <th scope="row">{{hero.name}}</th>
+        <td>{{hero.combatSkill}}</td>
+        <td>{{hero.endurance}}</td>
+        <td>{{hero.gold}}</td>
+        <td >
+          {# Bouton-SUPPR  #}
+          <a 
+            class="btn-heroDelete"             
+            href="{{ path( "heroDel", {'heroId':hero.id} ) }}" 
+          >  
+            <img 
+            style="width:51px; height:51px"
+             src="{{ asset ('assets/img/ico-skullTrash.png') }}" alt="trash - delete hero" />      
+          </a>
+        </td>
+      </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table> 
+  </br></br>
+</div>
+
+{# image de séparation de zoneq #}
+  {# 
+    <div class="col-12 mt-1 text-center">
+      <img style="width:60px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+    </div> 
+  #}
+
+</br></br>
+{# retour menu #}
+<div class="mb-5 ">
+  <a class="col-8 mt-5" href="{{ path('menu')}}">
+    <img style="width:100px;" src="{{ asset ('assets/img/ArrowL.png') }}" />
+  </a>
+  
+</div>
+    
+
+
+
+
+
+{% endblock %}

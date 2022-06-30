@@ -1,0 +1,11 @@
+{# templates/bundles/TwigBundle/Exception/error500.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Page not found</h1>
+
+    <p>c'est un test! Des éléments manque à votre personnage.
+        The requested page couldn't be located. Checkout for any URL
+        misspelling or <a href="{{ path('accueil') }}">retour à l'accueil</a>.
+    </p>
+{% endblock %}

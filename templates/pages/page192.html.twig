@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You see the razor-fanged mouth of a Doomwolf and hear the hideous cries of the Giaks. Two of them are coming straight for you. You are saved from certain death when your horse jumps at the approaching beasts, knocking them both to the ground. You lash out at the Giak and open a large wound in his head... and then suddenly, as if by a miracle, you’re through and racing on down the highway, clear of the rest of the pack.
+        </br>
+        But a shadow follows you. It is a Kraan and it has started to dive. Its target is you.
+    </p>
+    </br>
+    <p>If you veer off the highway towards the cover of the trees. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_171', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 171. #}
+    </p>
+    </br>
+    <p>If you press on regardless of the Kraan, and gallop flat out down the highway. 
+            <a class="col-12 mt-5" href="
+             {{ path('page_120', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 120. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

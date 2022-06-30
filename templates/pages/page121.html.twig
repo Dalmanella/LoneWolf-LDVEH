@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <!--Illustration VIII -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill8.png') }}" alt="Perched on his outstretched arm is the black raven that you saw earlier." />
+    </div>
+    <p>
+        After a few minutes walking you see a stranger, clad in red, standing in the centre of the track ahead. He has his back towards you, and his head is covered by the hood of his robes. Perched on his outstretched arm is the black raven that you saw earlier.
+    </p>
+    </br>
+    <p>If you wish to call the stranger.
+            <a class="col-12 mt-5" href="
+            {{ path('page_342', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+                {# turn to 342.  #}
+    </p>
+    </br>
+    <p>If you wish to approach the stranger cautiously. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_309', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 309. #}
+    </p>
+    </br>
+    <p>If you would rather draw your weapon and attack. 
+            <a class="col-12 mt-5" href="
+             {{ path('page_283', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 283. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

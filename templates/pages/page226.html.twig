@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        At first the descent is quite easy, but you soon find it difficult to see clearly and your legs feel very weak. The ‘Sleeptooth’ scratches are affecting you, and suddenly you pitch forward and slip headfirst into darkness.
+    </p>
+{% set rand = random(9) %}
+    
+    </br>
+        {% if rand < 5 %}
+            <p>
+                <a class="col-12 mt-5" href="
+                {{ path('page_277', {'heroId':heroId }) }}
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 277. #}
+            </p>
+
+        {% else %}
+            <p>
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_338', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                {# turn to 338. #}
+            </p>
+        {% endif %}
+
+    
+    </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Backpack{% endblock %}
+
+{% block body %}
+    <h1>Edit Backpack</h1>
+
+    {{ include('backpack/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_backpack_index') }}">back to list</a>
+
+    {{ include('backpack/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+        You are in a clearing where several trees have been cut down to make a rickety watchtower. Below the tower are three paths leading off in different directions.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+
+    <p>If you take the south path. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_14', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 14. #}
+    </p>
+    </br>
+    <p>If you take the east path. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_252', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 252. #}
+    </p>
+    </br>
+    <p>If you take the southwest path. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_215', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 215. #}
+    </p>
+    </br>
+    <p>If you decide to climb the watchtower. 
+            <a class="col-12 mt-5" href="
+             {{ path('page_36', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 36. #}
+    </p>
+
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

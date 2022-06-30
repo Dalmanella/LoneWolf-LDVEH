@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+    If you concentrate on the keyhole, you could move the mechanism of the lock and open it. You can then make the pin levitate and free it from the lockplate, avoiding falling prey to any traps that may be set off as the door unlocks.
+    </p>
+    
+    {% for infoHero in hero %}    
+        {% if infoHero.kaiMoM %}
+        </br>
+            <p>If you wish to use your Kai Discipline of Mind Over Matter to open this lock and levitate the pin.
+                <a class="col-12 mt-5" href="
+                {{ path('page_87', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 87.  #}
+            </p>
+        {% endif %}
+    {% endfor %}
+    </br>
+    <p>If you wish to remove the pin. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_337', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 337. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

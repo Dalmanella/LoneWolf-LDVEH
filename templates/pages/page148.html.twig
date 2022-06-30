@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id17 = false %}
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+   
+
+
+
+{# variable actualisée quand l'objet a été ramassé #}
+        {% if item.id is same as 17 %}
+            {% set id17 = true %}
+        {% endif %}
+    {% endfor %}
+<div>
+    <p>
+        Kicking open the door, you dive into the farmhouse.
+     A Kraan soars overhead, letting out a shriek of victory, a victim hanging in its claws. 
+     Getting to your feet, you find yourself alone. But propped against the fireplace is a Warhammer. 
+    {% if id17 is same as false %}
+                </br></br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take the Warhammer you need to drop one of your weapon.
+                {% else %}
+                    You may take this Weapon if you wish.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':17,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                            style="width:80px; "
+                            src="{{ asset ('assets/img/item-warhammer.png') }}"
+                            alt="a sword" />      
+                    </a>
+                {% endif %} 
+            {% endif %}
+    </p>
+    </br>
+    <p>If you want to stay in the farmhouse.
+        <a class="col-12 mt-5" href="
+        {{ path('page_81', {'heroId':heroId }) }}  
+        ">
+            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+        </a>
+        {# turn to 81.  #}
+    </p>
+    
+        </br>
+    <p>If you would feel safer in the forest, you can make a dash. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_320', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 320. #}
+    </p>
+    </br>
+    <p>If you wish to search the room further. 
+        <a class="col-12 mt-5" href="
+        {{ path('page_199', {'heroId':heroId }) }}
+        ">
+            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+        </a>
+        {# turn to 199. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

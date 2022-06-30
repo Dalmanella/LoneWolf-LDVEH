@@ -1,0 +1,40 @@
+    /**
+    * @Route("/page342/{heroId}", name="page_342")
+    */
+        public function viewPage342(Request $request, $heroId) 
+        {    
+            $p=342;
+            // hors combat
+                $info = $this->getInfoPage($p,$heroId ) ;
+
+                $hero = $info["hero"];
+                $items = $info["items"];
+                $pagesVues = $info["pagesVues"];
+                $isLunch = $info["isLunch"];
+                
+            //Combat
+                //ennemy
+                $ennemyId= X;
+
+            // malus / bonus spécifique au combat
+                $circonstance = 0;
+
+                $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
+
+                $CR = $baston["CR"];
+                $CS = $baston["CS"];
+                $fightId = $baston["fightId"];
+                $ennemy = $baston["ennemy"];
+
+            return $this->render('pages/page342.html.twig',[
+                'items'=>$items, 
+                'hero'=>$hero, 
+                'heroId'=>$heroId, 
+                "p"=>$p, 
+                'isLunch'=>$isLunch,
+                'ennemy'=>$ennemy,
+                "CS"=>$CS,
+                "CR"=>$CR,
+                'fightId'=>$fightId,
+            ]);
+        }

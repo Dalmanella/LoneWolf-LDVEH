@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill5.png') }}" alt="The log wall has collapsed in several places where the Darklords are attacking." />
+    </div>
+    <p>
+        You climb the wooded bank of the river and see the log walls of the fieldworks disappearing into the distance.
+A battle rages about two miles away and the log wall has collapsed in several places where the Darklords are attacking.
+Most of the fieldworks ahead are unmanned, the soldiers having left to supply reinforcements for the raging battle.
+There is a gate in the log wall. 
+</p>
+    </br>
+    <p>If you wish to approach the gate. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_288', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 288. #}
+    </p>
+    </br>
+    <p>If you would prefer to climb over the wall instead. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_221', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 221. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

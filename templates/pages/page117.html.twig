@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+    The man is badly injured and near to death. 
+    {% for infoHero in hero %}    
+            {% if infoHero.kaiHeal %}
+                Using your Kai Discipline of Healing, you ease the pain of his wounds but he has been so seriously hurt he is beyond repair by your skills alone.
+            {% endif %}
+    {% endfor %}
+    He soon lapses into unconsciousness. 
+    </br>
+    You try to make him as comfortable as possible beneath a large forest oak, before leaving and pressing on through the thick woodland towards the northeast.
+    </p>
+    </br>
+    <p> 
+       <a class="col-12 mt-5" href="
+        {{ path('page_330', {'heroId':heroId }) }} 
+        ">
+            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+        </a>     
+        {# turn to 330. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

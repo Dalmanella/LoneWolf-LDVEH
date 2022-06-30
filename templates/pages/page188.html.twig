@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+ {% set end = null %}
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+    {% for infoHero in hero %}
+        {% set end = infoHero.endurance %}
+        
+    {% endfor %}
+
+<div>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/sillu22.png') }}" alt="" />
+    </div>
+    <p>
+        You can see the shadow of the Kraan getting larger all around you. It suddenly strikes, pitching you forward onto your face with the power of its attack.
+
+{% if rand > 6 %}
+    you have been wounded in both arms and lose 3 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points 
+    {% if end < 1 %}
+            <a class="col-12 mt-5" href="
+            {{ path('page_351', {'heroId':heroId }) }} 
+            ">you died.
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a> 
+            {# turn to 351.  #}
+        </p>
+    {% else %} 
+        and run to the trees.
+        </br></br>
+            <a class="col-12 mt-5" href="
+            {{ path('page_303', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 303. #}
+        </p>
+    {% endif %}
+
+{% else %} 
+    the Kraan has ripped away your Backpack. You have lost the Pack and all the Equipment that was inside it.
+    </br></br>
+    <a class="col-12 mt-5" href="
+            {{ path('page_303', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 303. #}
+        </p>
+{% endif %}
+
+     </br>
+</div>
+
+{% endblock %}

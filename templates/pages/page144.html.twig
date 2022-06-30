@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+{% for infoHero in hero %}
+<div>
+    <p>
+    You fight your way through the press of bodies along the main street towards the citadel in the distance. 
+    City folk are rushing to and fro in the grip of panic, as the cries of Kraan are heard circling high above.
+
+    </br>
+    In the crush, 
+    {% if infoHero.backpack == 1 and bpItemsCount > 0 %}
+        one item is stolen from your Backpack.
+    {% else %} 
+        {% if infoHero.backpack == 0 %}
+            as you no longer have a Backpack, 
+        {% endif %}
+        you lose a Weapon.
+    {% endif %}
+
+    </br>
+    A runaway horse and cart career past and knock you into a doorway. 
+    You are stunned and you lose 2 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points.
+{% if infoHero.endurance < 1 %}
+    <p>Your life ends here.
+                </br>
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                        {# turn to 351. #}
+    </p>
+{% else %}
+
+    As you stagger to your feet, the door bursts open and a decrepit old man attacks you with a meat cleaver. He is quite insane and you must fight him or take evasive action.
+    </p>
+    </br>
+    <p>If you choose to fight. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_63', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 63. #}
+    </p>
+    </br>
+    <p>If you wish to evade a fight. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_217', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 217. #}
+    </p>
+
+{% endif %}
+{% endfor %}
+     </br>
+</div>
+
+{% endblock %}

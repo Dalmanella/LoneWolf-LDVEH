@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Raising your boot to kick away the dead snake, your heart skips a beat as you realize that it was a Red Marshviper. There is no known cure for its venomous bite! You decide that to go any further in this direction would be suicide. Carefully retracing your steps, you eventually reach firm ground and continue on your mission.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_95', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 95. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

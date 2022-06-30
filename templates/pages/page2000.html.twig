@@ -1,0 +1,187 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero2000.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id33 = false %}
+    {% set id34 = false %}
+    {% set id13 = false %}
+
+    
+    
+
+{# controle de l'espace disponible dans le backpack ou en main #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %}
+
+    {# variable actualisée quand l'objet a été ramassé #}
+        {% if item.id is same as 33 %}
+            {% set id33 = true %}
+        {% endif %}
+        {% if item.id is same as 34 %}
+            {% set id34 = true %}
+        {% endif %}
+        {% if item.id is same as 13 %}
+            {% set id13 = true %}
+        {% endif %}
+
+    {% endfor %}
+
+<div>
+    <p>
+        It seems that whoever lived here left in a great hurry—and they must have left quite recently. A half-eaten meal still remains on the table, and a mug of dark jala is still warm to the touch.
+        Searching a chest and small wardrobe, you find a Backpack, food (enough for two Meals), and a Dagger.
+        </br>
+        
+        </br></br>You can take these items: 
+        
+        {% for infoHero in hero %}
+            {% if infoHero.backpack is same as 0 %}
+                </br></br>
+                Take backpack.
+                <a 
+                    class="btn btn-disciplines rounded-circle"             
+                    href="{{ path( "Add_Backpack", {'p':p, 'heroId':heroId} ) }}"  
+                >  
+                    <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/ico-backpack.png') }}"
+                        alt="a sword" />      
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        {% if id33 is same as false %}
+            </br></br>
+            {% if bpItemsCount is same as 8 %}
+                If you want to take this Food you need to drop one of your backpack's item.
+            {% else %}
+                Take one Meal.
+                <a 
+                    class="btn btn-disciplines rounded-circle"             
+                    href="{{ path( "objAdd", {'itemId':33,'p':p, 'heroId':heroId} ) }}"  
+                >  
+                    <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-food.png') }}"
+                        alt="a sword" />      
+                </a>
+            {% endif %} 
+        {% endif %}
+        
+        {% if id34 is same as false %}
+            </br></br> 
+            {% if bpItemsCount is same as 8 %}
+                If you want to take this Food you need to drop one of your backpack's item.
+            {% else %}
+                Take one Meal.
+                <a 
+                    class="btn btn-disciplines rounded-circle"             
+                    href="{{ path( "objAdd", {'itemId':34,'p':p, 'heroId':heroId} ) }}"  
+                >  
+                    <img 
+                    style="width:80px; "
+                    src="{{ asset ('assets/img/item-food.png') }}"
+                    alt="a sword" />      
+                </a>
+            {% endif %} 
+        {% endif %}
+        
+        {% if id13 is same as false %}
+            </br></br> 
+            {% if handItemCount is same as 2 %}
+                If you want to take this Dagger you need to drop one of your weapon.
+            {% else %}
+                Take the Dagger.
+                <a 
+                    class="btn btn-disciplines rounded-circle"             
+                    href="{{ path( "objAdd", {'itemId':13,'p':p, 'heroId':heroId} ) }}"  
+                >  
+                    <img 
+                    style="width:80px; "
+                    src="{{ asset ('assets/img/item-dagger.png') }}"
+                    alt="a sword" />      
+                </a>
+            {% endif %}
+        {% endif %}
+        </br>
+      
+
+    </p>
+    </br>
+
+
+    {# ici le test: {{isLunch}} #}
+            
+    </br>
+    {% if isLunch == 0 %}
+    {# faire un pique-nique #}
+            <div id="manger" >
+                Vous avez faim et vous devez manger.
+                    <!-- Bouton lance popup -->
+                        <button type="button" onclick="cliquer();" class="btn-disciplines fs-3" data-bs-toggle="modal" data-bs-target="#casseCroute"> <img class="me-3 img-fluid" src="{{ asset ('assets/img/item-food.png') }}" /> </button>
+                        {# modal en fragment #}
+                            {{ include('entete/_lunch.html.twig' , {'heroId':heroId}) }}   
+            </div>
+
+            
+        </br>
+    {% else %}
+    {# ouvrir les choix une fois le pique nique fini ou une fois si pas de nourriture dispo #}
+            {% for infoHero in hero %}
+
+            {% if infoHero.endurance > 0 %}
+                <div id="suite" >
+                        <p >You continue your mission. 
+                                <a class="col-12 mt-5" 
+                                href="
+                                {{ path('page_15', {'p':p,'heroId':heroId }) }}
+                                ">
+                                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                                </a>
+                                {# turn to 15. #}
+                        </p>
+                </div>
+            {% else %}
+                <p>Vous êtes mort!
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }}
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                        {# turn to 351. #}
+                </p>
+        {% endif %}
+
+                
+            {% endfor %}
+    {% endif %}
+    
+   
+    
+</div>
+{# <script>
+   if ( clickCount == 0){
+    document.getElementById('suite').setAttribute('style', "display:none;" );
+    document.getElementById('manger').setAttribute('style', "display:block;" );
+    
+                    
+    }else{
+    document.getElementById('manger').setAttribute('style', "display:none;" );
+    document.getElementById('suite').setAttribute('style', "display:block;" );
+    }
+</script> #}
+{% endblock %}

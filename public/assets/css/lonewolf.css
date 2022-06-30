@@ -1,0 +1,164 @@
+/* 
+    font-family: 'Dr Sugiyama', cursive;
+    font-family: 'La Belle Aurore', cursive;
+    font-family: 'Nanum Brush Script', cursive; 
+*/
+body{
+  width:70% !important;
+}
+
+.symbol{
+    font-family: 'Dr Sugiyama', cursive;
+    font-size: 1.5rem;
+  }
+  .majuscules{
+    font-family:'Dr Sugiyama', cursive;
+  }
+  .carac{
+    padding: 0 4vw;
+    margin: 2px 4vw;
+    border-radius: 75px;
+    background-color: rgb(243, 240, 236) ;
+  }
+  .skill{
+    font-family: 'Nanum Brush Script', cursive;
+  }
+  .connexion{
+    font-size: 6vw;
+  }
+  
+  #menuList a{
+      cursor: pointer;
+  }
+  .kaiWisdom a{
+    border:1px solid #693c11ad;
+    border-radius: 10px;
+  }
+  .kaiWisdom :hover{
+    color: #915a03 !important; 
+    cursor: pointer !important;
+
+  }
+
+  .paperRoll img{
+    width:25vw;
+    max-width: 100px;  
+    color:#693B11;  
+  }
+
+  .paperRoll span{
+    color:#693B11;
+  }
+
+  .paperRoll :hover{
+    color: #915a03;  
+    width:30vw;
+    max-width: 120px;    
+  }
+
+  .icone {
+    max-width:100px;
+    max-height: 100px;
+  }
+  
+  .icone:hover{
+    max-width: 105px;
+    max-height: 110px;
+  }
+  
+  #combat, #endurance, #gold{
+    border-radius:100%;
+    width:51px;
+    height:51px;
+    
+  }
+  
+  #new_adventure_validation{
+    background-color: var(--bs-primary); 
+    background-image: url("../img/pawprint-brown-ico.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-radius: 100%;
+    width:51px;
+    height:51px;
+  }
+  #new_adventure_validation:hover{
+    background-color: #915a03;
+    border: 2px solid #704501; 
+    background-image: url("../img/pawprint-brown-ico.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-radius: 100%;
+    width:51px;
+    height:51px;
+  }
+  
+  .btn-disciplines{
+    background: none;
+    width: fit-content ;
+    border: none;
+    color: #693B11;
+    margin: 0;
+    padding: 2px;
+    border-radius: 75px;
+    width: 25vw;
+    max-width:fit-content;
+  }
+
+  .btn-disciplines:hover{
+    color: #904907;  
+    width: fit-content;
+    box-shadow: 10px 10px 30px 10px inset #693c118f;
+  }
+
+  .ruinSearch{
+    text-decoration-line: none !important;
+  }
+
+  .table{
+    width:100% !important;
+    align-self: center;
+  }
+  .table tr{
+    border-top-color:#693B11 ;
+    border-bottom-color:#693B11;
+    background-color: rgba(253, 253, 245, 0.685);
+    color:#693B11 !important;
+  }
+
+  .table td{
+    font-family: 'Nanum Brush Script', cursive; 
+  }
+  
+  .btn-heroDelete img{
+    background-color: rgba(161, 4, 4, 0.781);
+    /* width:51px;
+    height:51px; */
+    border-radius: 100%;
+  }
+
+  /* #btn-heroDelete img{
+    background: none;
+    
+  }  */
+
+  .btn-heroDelete :hover{
+    background-color: rgba(245, 71, 71);
+    padding: auto 0;
+    /* width:51px;
+    height:51px; */
+    border-radius: 100%;
+  }
+
+  #fin{
+    font-size: 8vw;
+  }
+  .skull{
+    text-decoration-line: none;
+  }
+
+  .btn-musique{
+    height:40px; 
+    margin-bottom: 5vw;
+
+  }

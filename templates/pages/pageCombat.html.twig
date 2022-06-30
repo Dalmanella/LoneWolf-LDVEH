@@ -1,0 +1,230 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf combat{% endblock %}
+{% block header %}
+    {{ include('entete/_entetefight.html.twig') }}    
+{% endblock %}
+
+
+{% block body %}
+
+
+
+{% for infoHero in hero %}
+  
+    {% for combat in combats %}  
+       {% set startEndL = combat.startEnd %}
+        <div class="fs-2 d-block w-70" style=" font-family: 'Nanum Brush Script', cursive; ">
+       </br>
+        <div class="">
+            <h2> Fight for your life </h2>
+           {# combat: {{fightId}} | combat skill{{CS}} #}
+                          </br>
+                        <div class='d-flex justify-content-between'>
+                            <div class="text-success">
+                                <h3 > {{infoHero.name}}</h3>
+                                <h3>Endurance {{combat.endL}}</h3>
+                                {# <h3 > Combat Skill {{CS}}  </h3> #}
+                            </div>
+                                                    
+                            <div class="text-danger">
+                                <h3 > {{ennemyName}}</h3>
+                                <h3 > Endurance {{combat.endE}} </h3>
+                                {# <h3 > Combat Skill  {{ennemyCS}} </h3> #}
+                            </div>
+                        </div>
+                    
+        </div>
+        
+{% if tour < 1 %}
+    {% for item in items %} {# potion de force dans l'inventaire? #}
+        {% if item.id == 2 %}
+        <!-- Bouton lance popup -->
+            <button type="button" class="btn-disciplines fs-3" data-bs-toggle="modal" data-bs-target="#strengthPotion"> <img class="me-3 img-fluid" style="height: 51px;" src="{{ asset ('assets/img/item-potion.png') }}" /><p> Strength potion</p> </button>
+             
+             </br>            
+        <!-- popup potion de force -->
+                    <div class="modal fade" id="strengthPotion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="strengthPotionLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen ">
+                            <div class="modal-content  ">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="strengthPotionLabel" style="font-family:'Dr Sugiyama', cursive;">Take a potion</h2>
+                                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                        <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
+                                    </button>
+                                    
+                                </div>
+                                <div class="modal-body overflow-auto">
+                                    
+                                            <a  class="btn rounded-circle fs-4" 
+                                                href="{{ path( "objDrink", {'itemId':item.id,'p':p, 'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'pO':pageOrigine} ) }}" 
+                                            > 
+                                                <img style="width:100px;" src="{{ asset ('assets/img/item-potion.png') }}" alt="Strength Potion" />
+                                            </br> Drink potion, COMBAT SKILL +2 for the fight.
+                                            </a>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if endE <= 0 %}
+    {% set combattre = null %} 
+{% else %}
+        {% set combattre = combattre(em, hero, cT, CR, fightId ) %} 
+{% endif %}
+       
+        {% if ( pageOrigine == 231 or pageOrigine == 339 ) and tour > 3 %}
+        {% else %}
+
+            {% if endL > 0 and endE > 0 %}
+            
+            <a 
+            class="btn btn-disciplines fs-1"
+            href="{{ path('page_combat',{'heroId':heroId,'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId, 'p':pageOrigine }) }}"
+            type="button" 
+            id="combattre"      
+            >combattre</a>
+            </br>
+            {% endif %}
+        {% endif %}
+
+        {% if endL <= 0 %}
+             {% set combattre = null %} 
+                <p>Your life ends here.
+                </br>
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                        {# turn to 351. #}
+                </p>
+            </br>
+        {% endif %}
+        
+        
+     {# choix en fonction de la page de combat d'origine    #}
+        {% if pageOrigine == 17 %}
+            {{ include('optionCombat/_page17.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 29 %}
+            {{ include('optionCombat/_page29.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 34 %}
+            {{ include('optionCombat/_page34.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 43 %}
+            {{ include('optionCombat/_page43.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 55 %}
+            {{ include('optionCombat/_page55.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 63 %}
+            {{ include('optionCombat/_page63.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 72 %}
+            {{ include('optionCombat/_page72.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 112 %}
+            {{ include('optionCombat/_page112.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 1122 %}
+            {{ include('optionCombat/_page1122.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 133 %}
+            {{ include('optionCombat/_page133.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 136 %}
+            {{ include('optionCombat/_page136.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 1362 %}
+            {{ include('optionCombat/_page1362.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 138 %}
+            {{ include('optionCombat/_page138.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 1382 %}
+            {{ include('optionCombat/_page1382.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 169 %}
+            {{ include('optionCombat/_page169.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 170 %}
+            {{ include('optionCombat/_page170.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 180 %}
+            {{ include('optionCombat/_page180.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 1802 %}
+            {{ include('optionCombat/_page1802.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 1803 %}
+            {{ include('optionCombat/_page1803.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 191 %}
+            {{ include('optionCombat/_page191.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 208 %}
+            {{ include('optionCombat/_page208.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 220 %}
+            {{ include('optionCombat/_page220.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 227 %}
+            {{ include('optionCombat/_page227.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 229 %}
+            {{ include('optionCombat/_page229.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 231 or pageOrigine == 339 %}
+            {{ include('optionCombat/_page231.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 246 %}
+            {{ include('optionCombat/_page246.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 253 %}
+            {{ include('optionCombat/_page253.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 2532 %}
+            {{ include('optionCombat/_page2532.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 2533 %}
+            {{ include('optionCombat/_page2533.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 2534 %}
+            {{ include('optionCombat/_page2534.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 255 %}
+            {{ include('optionCombat/_page255.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 260 %}
+            {{ include('optionCombat/_page260.html.twig') }} 
+        {% endif %}{% if pageOrigine == 2602 %}
+            {{ include('optionCombat/_page2602.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 283 or pageOrigine == 342 %}
+            {{ include('optionCombat/_page283.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 336 %}
+            {{ include('optionCombat/_page336.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 3362 %}
+            {{ include('optionCombat/_page3362.html.twig') }} 
+        {% endif %}
+        {% if pageOrigine == 340 %}
+            {{ include('optionCombat/_page340.html.twig') }} 
+        {% endif %}
+        
+
+        </br></br>
+    </div>
+
+    {% endfor %}  
+{% endfor %}   
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        In a cloud of dust and loose rocks you career down the steep hillside. The Kraan is still circling above as if waiting to direct the Giaks after you.
+    </p>
+    </br>
+    {% set rand = random(9) %}
+        {% if rand < 2 %}
+            <p>
+                <a class="col-12 mt-5" href="
+                {{ path('page_53', {'heroId':heroId }) }}
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 53.  #}
+            </p>
+        {% elseif rand > 4 %}
+        
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_316', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 316. #}
+    </p>
+    {% else %}
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_274', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 274. #}
+    </p>
+    {% endif %}
+
+  
+     </br>
+</div>
+
+{% endblock %}

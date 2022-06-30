@@ -1,0 +1,25 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight. </p>
+                </br>  
+                <p>You may explore the cave further
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_33', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 33. #}
+                </p>
+                </br>
+                <p>Or you may leave and descend the hill. 
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_248', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 248. #}
+                </p>
+                    
+                
+        {% endif %}

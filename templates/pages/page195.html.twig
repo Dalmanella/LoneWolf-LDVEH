@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Wiping the bear’s blood from your weapon, you notice the mouth of a cave hidden behind the rock from which the bear attacked.
+    </p>
+    </br>
+    <p>If you wish to investigate this cave further. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_59', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 59. #}
+    </p>
+    </br>
+    <p>If you wish to press on. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_106', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 106. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

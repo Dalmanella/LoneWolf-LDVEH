@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        As you get nearer to the men, you call to them. As they turn to face you, your skin turns cold 
+        and your heart pounds, for they are Drakkarim in disguise. Suddenly they charge at you. 
+        Forced to the ground, you are tied up with ropes and dragged behind them along a track.
+        </br>
+        They take your Backpack and Weapons, but do not search your cloak or find your Gold Crowns. 
+        </br>
+        They cackle menacingly to themselves, and talk at great length of the tortures that await you at 
+        their camp.
+
+    </p>
+    </br>
+    {% for infoHero in hero %}
+        {% if infoHero.kaiMoM %}
+            <p>You have the Kai Discipline of Mind Over Matter.
+                <a class="col-12 mt-5" href="
+                {{ path('page_258', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 258.  #}
+            </p>
+        {% else %}
+                <p>
+                    <a class="col-12 mt-5" href="
+                     {{ path('page_127', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 127. #}
+            </p>
+        {% endif %}
+    
+    {% endfor %}
+     </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    
+    <p>
+    Knocking aside the leader, you sprint off along the highway. Then behind you the ominous click of a crossbow being cocked sends a shiver down your spine.
+    
+    {% set rand = random(9) %}
+    
+    </p>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/sillu20.png') }}" alt="a man with a crossbow" />
+    </div>
+    
+    
+    {% if rand < 5 %}
+        <p>
+                <a class="col-12 mt-5" href="
+                 {{ path('page_181', {'heroId':heroId }) }}  
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 181. #}
+        </p>
+    {% else %}
+        <p>
+                <a class="col-12 mt-5" href="
+                 {{ path('page_145', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+            {# turn to 145. #}
+        </p>
+    {% endif %}
+
+</br> 
+</div>
+
+{% endblock %}

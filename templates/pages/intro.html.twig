@@ -1,0 +1,247 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf introduction{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id30 = false %}
+    {% set id31 = false %}
+    {% set idItemId = false %}
+    
+{# controle de l'espace disponible dans le backpack ou en main #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    
+  {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %}
+  {% endfor %}
+{# Bouton « search ruins » Attribution aléatoire automatique. #}
+    {% set rand = random(9) %}
+    {# {% set rand = 4 %} #}
+    {% if rand == 1 %}
+          {% set itemId = 20 %}
+        {% elseif rand == 2 %}
+          {% set itemId = 23 %}
+        {% elseif rand == 4 %}
+          {% set itemId = 24 %}
+        {% elseif rand == 5 %}
+          {% set itemId = 15 %}
+        {% elseif rand == 6 %}
+          {% set itemId = 25 %}
+        {% elseif rand == 7 %}
+          {% set itemId = 21 %}
+        {% elseif rand == 8 %}
+          {% set itemId = 14 %}
+        {% elseif rand == 0 %}
+          {% set itemId = 22 %}
+    {% endif %}
+
+{# variable actualisée quand l'objet a été ramassé #}
+     {% for item in items %}
+        {% if item.id is same as 20 %}
+                {% set id30 = true %}
+        {% endif %}
+        {% if item.id is same as 30 %}
+            {% set id30 = true %}
+        {% endif %}
+        {% if item.id is same as 31 %}
+            {% set id31 = true %}
+        {% endif %}
+        {% if item.id is same as 22 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 14 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 21 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 25 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 15 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 24 %}
+            {% set IditemId = true %}
+        {% endif %}
+        {% if item.id is same as 23 %}
+            {% set IditemId = true %}
+        {% endif %}
+    {% endfor %}    
+{% for me in hero %}
+
+<h2 class="mt-5">The Story So Far...</h2>
+    <p >
+      In the northern land of Sommerlund, it has been the custom for many centuries to send the children of the Warrior Lords to the monastery of Kai. There they are taught the skills and disciplines of their noble fathers. The Kai monks are masters of their art, and the children in their charge love and respect them in spite of the hardships of their training. For one day when they have finally learnt the secret skills of the Kai, they will return to their homes equipped in mind and body to defend themselves against the constant threat of war from the Darklords of the west.
+      In olden times, during the Age of the Black Moon, the Darklords waged war on Sommerlund. The conflict was a long and bitter trial of strength that ended in victory for the Sommlending at the great battle of Maakengorge. King Ulnar and the allies of Durenor broke the Darklord armies at the pass of Moytura and forced them back into the bottomless abyss of Maakengorge. Vashna, mightiest of the Darklords, was slain upon the sword of King Ulnar, called ‘Sommerswerd’, the sword of the sun. Since that age, the Darklords have vowed vengeance upon Sommerlund and the House of Ulnar.
+      Now it is in the morning of the feast of Fehmarn, when all of the Kaï Lords are present at the monastery for the celebrations. Suddenly a great black cloud comes from out of the western skies. So many are the numbers of the black-winged beasts that fill the sky, that the sun is completely hidden. The Darklords, ancient enemy of the Sommlending are attacking. War has begun. 
+      </br>
+      On this fateful morning, you, Silent Wolf (the name given to you by the Kai) have been sent to collect firewood in the forest as a punishment for your inattention in class. As you are preparing
+      to return, you see to your horror a vast cloud of black leathery creatures swoop down and engulf the monastery.
+      Dropping the wood, you race to the battle that has already begun. But in the unnatural dark, you stumble and strike your head on a low tree branch. As you lose consciousness, the last thing that you see in the poor light are the walls of the monastery crashing to the ground.
+      Many hours pass before you awake. With tears in your eyes you now survey the scene of destruction. Raising your face to the clear sky, you swear vengeance on the Darklords for the massacre of the Kai warriors, and with a sudden flash of realization you know what you must do. You must set off on a perilous journey to the capital city to warn the King of the terrible threat that now faces his people. For you are now the last of the Kai you are now the Lone Wolf.
+      </br>
+      You are dressed in the green tunic and cloak of a Kai initiate. You have little with you to arm yourself for survival.
+      All you possess is an Axe and a Backpack containing 1 Meal. Hanging from your waist is a leather pouch containing {{me.gold}} gold crowns.
+      </br>
+      You discover amongst the smoking ruins of the monastery, a Map of Sommerlund showing the capital city of Holmgard and the land of Durenor, far to the east.
+      You place the Map inside your tunic for safety.
+      </br>
+
+      
+    </p>
+  
+{# Ramassage du butin dans les ruines #}
+
+    {% if rand == 9 and me.goldTake == 0 %}
+      {% set coins = 12 %}
+      <div class=" align-self-center" id="roll">
+          <a 
+            
+            href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"
+            class="ruinSearch m-0 fs-3" 
+            style="width:fit-content;"  
+            
+          > You also find:</br>
+            12 gold Crowns.
+            <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-pouch.png') }}"
+                              alt="Gold Crowns" /> 
+          </a>
+      </div> 
+    {% elseif rand == 3 and me.isItem == 0 and me.goldTake == 0 %}
+        <div class=" align-self-center" id="roll">
+            <a 
+              href="{{ path( "addMeals", {'p':p, 'heroId':heroId} ) }}"
+              class=" ruinSearch m-0 fs-3" 
+              style="width:fit-content;"  
+              
+            > You also find:</br>
+              two meals.
+              
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-food.png') }}"
+                              alt="two meals" />
+            </a>
+        </div> 
+        
+    {% elseif me.isItem == 0 and me.goldTake == 0 %}
+      <div class=" align-self-center" id="roll">
+            <a 
+              href="{{ path( "objAdd", {'itemId':itemId,'p':p, 'heroId':heroId} ) }}"
+              class=" m-0 fs-3 ruinSearch" 
+              style="width:fit-content;"  
+            > 
+            {% if itemId == 20 %}
+              You also find:</br>
+              A Kai lord Sword.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-sword2.png') }}"
+                              alt="A Kai lord sword." 
+              />
+            {% elseif itemId == 23 %}
+              You also find:</br>
+              A Helmet.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-helmet.png') }}"
+                              alt="a helmet." 
+              />
+            {% elseif itemId == 24 %}
+              You also find:</br>
+              A Chainmail Waistcoat.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-chainmail.png') }}"
+                              alt="A chainmail." 
+              />
+            {% elseif itemId == 15 %}
+              You also find:</br>
+              A Mace.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-mace.png') }}"
+                              alt="A mace." 
+              />
+            {% elseif itemId == 25 %}
+              You also find:</br>
+              one Healing Potion.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-potion.png') }}"
+                              alt="Healing potion." 
+              />
+            {% elseif itemId == 21 %}
+              You also find:</br>
+              A Quarterstaff.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-quarterstaff.png') }}"
+                              alt="A quarterstaff." 
+              />
+            {% elseif itemId == 14 %}
+              You also find:</br>
+              A Spear.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-spear.png') }}"
+                              alt="A spear." 
+              />
+            {% elseif itemId == 22 %}
+              You also find:</br>
+              A Broadsword.
+              <img 
+                              style="width:80px; "
+                              src="{{ asset ('assets/img/item-bsword.png') }}"
+                              alt="A broadsword." 
+              />
+            {% endif %}
+            </a>
+        </div> 
+    {% endif %}
+
+<a class="text-decoration-none kaiWisdom" data-bs-toggle="modal" data-bs-target="#kaiWisdom"><h3 class="mt-1 kaiWisdom">Kai Wisdom</h3></a>
+<div class="modal fade" id="kaiWisdom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="kaiWisdomLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="kaiWisdomLabel" style="font-family:'Dr Sugiyama', cursive;">Kai Wisdom</h2>
+            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
+            </button>
+          </div>
+          <div class="modal-body">
+            Your mission will be one of great danger, for the Darklords and their servants are a cruel and fierce enemy who give and expect no mercy. Use the map to help you steer a correct course for the capital. Make notes as you progress through the story, for they will be of great help in future adventures.
+            Many things that you find will aid you during the adventure. Some Special Items will be of use in future Lone Wolf adventures and others may be red herrings of no real use at all, so be selective in what you decide to keep.
+            There are many routes to the King, but only one involves a minimum of danger. With a wise choice of Kai Disciplines and a great deal of courage, any player should be able to complete the mission, no matter how weak their initial <span style="font-family: 'Nanum Brush Script', cursive; ">COMBAT SKILL</span> or <span style="font-family: 'Nanum Brush Script', cursive; ">ENDURANCE</span> points score.
+            The honour and memory of the Kai Lords will go with you on your perilous journey.
+            Good luck!
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="d-flex text-end">
+  <a class="col-12 mt-5" href="{{ path('page_1', {'heroId':heroId }) }}">
+    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+  </a>
+  </br></br>
+</div>
+
+{% endfor %}
+
+{% endblock %}

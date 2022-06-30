@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <!--Illustration XIII -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill13.png') }}" alt="A tall man dressed in white robes stands before you, a bowl of herbs in his hands." />
+    </div>
+    <p>
+        When you awake, the pain is but a memory. A tall man dressed in white robes stands before you, a bowl of herbs in his hands. Placing the leaves into a kettle of boiling water, he then turns to greet you.
+        </br>
+        ‘You have passed close to death and have seen his face, Kai Lord, but the Grey One has not claimed you for his flock. You are healed in body but I sense that you are wounded in spirit. What is it that troubles you so?’
+        </br>
+        You recognize the man to be one of the King’s senior physicians, for the gold embroidered emblem of a dove upon his sleeve is the sign of his respected vocation. You tell the aged cleric of the events at the monastery and of your perilous journey to the King. 
+        </br>
+        Raising you gently from the bed by your arm, he bids you follow him. You notice that you are in a lavishly decorated room which leads out through a long corridor lined with tapestries. It slowly dawns on you just where you are. 
+        </br>
+        This is the citadel of Holmgard and you are about to meet the King.
+    </p>
+    </br>
+    <p> 
+            <a class="col-12 mt-5" href="
+            {{ path('page_350', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 350. #}
+    </p>
+
+
+
+     </br>
+</div>
+
+{% endblock %}

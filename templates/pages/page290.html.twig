@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# variable initialisée pour tester si l'objet a été ramassé #}    
+    {% set idStaff = false %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {# variable actualisée quand l'objet a été ramassé ou déjà possédé #}
+        {% if item.id == 21 %}
+            {% set idStaff = true %}
+        {% endif %}
+    {% endfor %}
+
+<div>
+    <!--Illustration -->
+        <div class="d-flex justify-content-center mb-5">
+            <img src="{{ asset ('assets/img/sillu29.png') }}" alt="a Quarterstaff wrapped in leather inside a long box." />
+        </div>
+    <p>
+        Inside the long box is a Quarterstaff wrapped in leather. 
+        {% if idStaff == true %}
+                </br>You already have a Quarterstaff.
+        {% endif %}
+        {% if idStaff is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take the Quarterstaff you need to drop one of your weapon.</br>
+                {% else %}
+                    Take the Quarterstaff.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':21,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-quarterstaff.png') }}"
+                        alt="a staff" />      
+                    </a>
+                    </br>
+                {% endif %}
+        {% endif %}
+       
+        </br>
+        You close the box and descend the ladder to the clearing below, taking care to use only the sound
+        rungs. 
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_140', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 140. #}
+    </p>
+
+
+   
+     </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        The cold corridor suddenly makes an abrupt turning towards the east. You notice a greenish glow that lights the tunnel in the far distance. As you creep nearer you can see that the corridor opens out into a larger chamber.
+        </br>
+        The strange light seems to emanate from a large bowl resting upon the top of a granite throne. On a plinth in front of the throne stands a statue. It looks like a winged serpent curved in the shape of an ‘S’.
+    </p>
+    </br>
+    <p>If you wish to sit on the throne.
+        <a class="col-12 mt-5" href="
+        {{ path('page_161', {'heroId':heroId }) }} 
+        ">
+            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+        </a>
+        {# turn to 161.  #}
+    </p>
+    </br>
+    <p>If you wish to examine the statue. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_133', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 133. #}
+    </p>
+    </br>
+    <p>If you wish to look for an exit from this chamber. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_257', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 257. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

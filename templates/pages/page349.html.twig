@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        He is a young blond-haired youth with deep brooding eyes. His face is lined with exhaustion and the grime of battle, and his long sky-blue robes bear evidence of living rough in the wilds. He shakes your hand and bows. ‘My eternal thanks, Kai Lord. My powers are nearly drained. Had you not come to my aid, I fear I would have ended my days atop a Giak lance.’
+        </br>
+        He is weak and unsteady on his feet. You take his arm and sit him down upon a fallen pillar where you listen intently to what he has to say.
+        </br>
+        ‘My name is Banedon. I am journeyman to the Brotherhood of the Crystal Star, which is the Magicians’ Guild of Toran. My Guildmaster has sent me to your monastery with this urgent message.’ He removes a vellum envelope from inside his robes and hands it to you.
+        </br>
+        ‘As you see, I have opened the letter and read its contents. When the war started, I was on the highway with two travelling companions. The Kraan attacked us and we lost each other in the forest during our escape.’
+        </br>
+        The letter is a warning to the Kai Lords that the Darklords have mustered a vast army beyond the Durncrag Range. The Guildmaster urges the Kai to cancel the celebrations of Fehmarn and prepare for war.
+        </br>
+        ‘I fear we were betrayed,’ says Banedon, his head bowed in sorrow.
+        </br>
+        ‘One of my order, a brother called Vonotar, had explored the forbidden mysteries of the Black Art. Ten days ago he denounced the Brotherhood and killed one of our Elders. He has since disappeared. It is rumoured that he now aids the Darklords.’
+        </br>
+        You tell Banedon what has happened at the monastery, and of your mission to warn the King. Silently, he removes a gold chain from around his neck and hands it to you. On the chain is a small Crystal Star Pendant. ‘It is the symbol of my Brotherhood, and we are both truly brothers in this hour of darkness. It is a talisman of good fortune, may it protect you on your road ahead.’
+        </br>
+        You thank him, place the chain around your neck and slip the Crystal Star inside your shirt.
+        </br>
+        Banedon bids you farewell. ‘We must leave this place lest the Giaks return with more of their loathsome kind to put an end to us. I must return to my Guild. I bid you farewell, my brother. May the luck of the gods go with you.’
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_293', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 293. #}
+    </p>
+
+
+
+     </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+    {# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id40 = false %}
+    {% set id41 = false %}
+    {% set id42 = false %}
+    {% set id43 = false %}
+    {% set idSword = false %}
+
+    {# controle de l'espace disponible dans le backpack ou en main #}
+
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %}
+
+    {# variable actualisée quand l'objet a été ramassé #}
+        {% if item.id is same as 40 %}
+            {% set id40 = true %}
+        {% endif %}
+        {% if item.id is same as 41 %}
+            {% set id41 = true %}
+        {% endif %}
+        {% if item.id is same as 42 %}
+            {% set id42 = true %}
+        {% endif %}
+        {% if item.id is same as 43 %}
+            {% set id43 = true %}
+        {% endif %}
+        {% if item.id == 18 or item.id == 20 %}
+            {% set idSword = true %}
+        {% endif %}
+
+    {% endfor %}
+
+{% set coins = 40 %}
+
+<div>
+    <p>
+        The caravan is out of control and is bumping wildly through the rough ground that borders the highway. With difficulty you eventually steer the frightened horses back onto the road and halt the caravan.
+        </br>
+        A quick search of the interior reveals {{coins}} Gold Crowns, a Sword, and enough Food for 4 Meals. 
+{# If you wish to keep any of these items, mark them on your Action Chart. #}
+
+{% for infoHero in hero %}
+
+            {% if infoHero.gold < 50 and infoHero.goldTake == 0 %}
+                </br></br>
+                
+                Take gold.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
+                    >  
+                        <img 
+                            style="width:80px; "
+                            src="{{ asset ('assets/img/item-pouch.png') }}"
+                            alt="Gold Crowns" />      
+                    </a>
+                   
+            {% endif %}
+        {% if infoHero.backpack == 1 %}
+            {% if id40 is same as false %}
+                </br></br>
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Food you need to drop one of your backpack's item.
+                {% else %}
+                    Take one Meal.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':40,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                            style="width:80px; "
+                            src="{{ asset ('assets/img/item-food.png') }}"
+                            alt="a meal" />      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            
+            {% if id41 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Food you need to drop one of your backpack's item.
+                {% else %}
+                    Take one Meal.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':41,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-food.png') }}"
+                        alt="a meal" />      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            {% if id42 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Food you need to drop one of your backpack's item.
+                {% else %}
+                    Take one Meal.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':42,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-food.png') }}"
+                        alt="a meal" />      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            {% if id43 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Food you need to drop one of your backpack's item.
+                {% else %}
+                    Take one Meal.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':43,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-food.png') }}"
+                        alt="a meal" />      
+                    </a>
+                {% endif %} 
+            {% endif %}
+        {% endif %}    
+    {% endfor %}
+        </br>
+        {% if idSword == true %}
+                </br>You already have a sword.</br>
+        {% endif %}
+        {% if idSword is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take a sword you need to drop one of your weapon.
+                
+                {% else %}
+                    Take a sword.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':18,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-sword1.png') }}"
+                        alt="a sword" />      
+                    </a>
+                    </br></br>
+                {% endif %}
+        {% endif %}
+
+    </br>The fatigue of your ordeal finally catches up with you.
+    </br>You must eat a Meal after which you fall into a deep sleep.
+{% for infoHero in hero %}
+    {% if isLunch == 1 %}
+    </br>
+        <p>
+                <a class="col-12 mt-5" href="
+                {{ path('page_64', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+            {# turn to 64. #}
+        </p>
+
+    {% endif %}
+{% endfor %}
+</br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        The lid of the sarcophagus slips to the floor with a dull crunch. You are looking at the remains of an ancient king, who lies still surrounded by his treasure. An ornate crown is still in position on his skull. The jaw of the skeleton is wide open and the darkness of the mouth seems strangely bottomless. 
+        </br>
+        A distant rumbling can now be heard from deep in the earth.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+
+    {# OPTIONS DE CHOIX SI COMP #}
+        {% if infoHero.kaiMshield %}
+            <p>You have the Kai Discipline of Mindshield.
+                <a class="col-12 mt-5" href="
+                {{ path('page_166', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 166.  #}
+            </p>
+        {% else %}
+            </br>
+            <p>You do not have the Kai Discipline of Mindshield.
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_9', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 9. #}
+            </p>
+        {% endif %}
+    {% endfor %}    
+    </br>
+</div>
+
+{% endblock %}

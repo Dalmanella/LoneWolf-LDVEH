@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You are winded but not hurt. You have fallen fifteen feet or so through the roof of an underground tomb. The walls are sheer and you cannot climb them. An arched tunnel leads out of the tomb towards the east, in front of which lies the sarcophagus of some ancient noble.
+
+    </br>
+    {% for infoHero in hero %}
+
+    {# OPTIONS DE CHOIX SI COMP #}
+        {% if infoHero.kaiSix %}
+            <p>If you wish to use the Kai Discipline of Sixth Sense.
+            {#        lien vers la page suivante           #}
+                <a class="col-12 mt-5" href="
+                {# changer les num de page ci dessous #}
+               {{ path('page_65', {'heroId':heroId }) }}   
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 65.  #}
+            </p>
+        {% endif %}
+        </br>
+    <p>If you wish to open the sarcophagus to see if it contains any treasure. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_242', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 242. #}
+    </p>
+    </br>
+    <p>If you wish to leave via the tunnel. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_104', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 104. #}
+    </p>
+
+
+    {% endfor %}
+     </br>
+</div>
+
+{% endblock %}

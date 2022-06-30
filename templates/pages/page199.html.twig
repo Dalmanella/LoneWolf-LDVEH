@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id44 = false %}
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %}
+
+        {# variable actualisée quand l'objet a été ramassé ou déjà possédé #}
+        {% if item.id is same as 44 %}
+            {% set id44 = true %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Most of the cupboards and drawers are empty. Whoever lived here took nearly everything they owned with them, but you do manage to scrape together enough fruit in the cellar for one Meal.
+    </p>
+    
+    {% for infoHero in hero %}
+        {% if infoHero.backpack == 1 %}
+            {% if id44 is same as false %}
+                
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Food you need to drop one of your backpack's item.
+                {% else %}
+                    Take one Meal.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':44,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                            style="width:80px; "
+                            src="{{ asset ('assets/img/item-food.png') }}"
+                            alt="a meal" />      
+                    </a>
+                {% endif %} 
+                </br>  </br>   
+            {% endif %}
+        {% endif %} 
+     {% endfor %}      
+     
+    <p> 
+            <a class="col-12 mt-5" href="
+           {{ path('page_81', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 81. #}
+    </p>
+    
+    </br>
+</div>
+
+{% endblock %}

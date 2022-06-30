@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf Inscription{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetemenu.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5">Inscription</h1>
+
+    {{ form_start(inscriptionForm) }}
+        {{ form_row(inscriptionForm.pseudo) }}
+        {{ form_row(inscriptionForm.email) }}
+        {{ form_row(inscriptionForm.plainPassword, {label: 'Password'}) }}
+        {# {{ form_row(inscriptionForm.agreeTerms) }} #}
+
+        <button type="submit" class="btn btn-primary rounded-circle p-0 fs-2"><img style="width:51px;" src="{{ asset ('assets/img/pawprint-brown.png') }}" alt="validation button"/></button>
+    {{ form_end(inscriptionForm) }}
+
+    <a href="{{ path('accueil') }}" class="text-info mt-4 fs-4 ">Connexion</a>
+ 
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight. 
+                </br>You now must face the fourth Doomwolf.
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_2534', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 2534. #}
+                    
+                </p>
+        {% endif %}

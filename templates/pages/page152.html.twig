@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <!--Illustration X -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill10.png') }}" alt="The herbalist offers you a selection of special potions." />
+    </div>
+    <p>
+        The herbalist offers you a selection of special potions. Some increase your strength; some induce invisibility; some give you great powers of stealth; and others give you the power of turning your-self into a gaseous form. The man pulls open the bottom drawer of the counter to reveal a magnificent wand. He says that it is a powerful weapon against all evil creatures, and that it will make you invulnerable in battle. He points to the mystical inscriptions which cover the black staff.
+    </p>
+    </br>
+    <p>If you wish to lean over the counter and read the strange inscriptions. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_49', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 49. #}
+    </p>
+    </br>
+    <p>If you are more interested in the potions. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_231', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 231. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

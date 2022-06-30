@@ -1,0 +1,15 @@
+/**
+* @Route("/page344/{heroId}", name="page_344")
+*/
+    public function viewPage344(Request $request, $heroId) 
+    {    
+        $p=344;
+        $info = $this->getInfoPage($p,$heroId ) ;
+
+        $hero = $info["hero"];
+        $items = $info["items"];
+        $pagesVues = $info["pagesVues"];
+        $isLunch = $info["isLunch"];
+            
+        return $this->render('pages/page344.html.twig',['items'=>$items, 'hero'=>$hero, 'heroId'=>$heroId, "p"=>$p, 'isLunch'=>$isLunch]);
+    }

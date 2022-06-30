@@ -1,0 +1,229 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id9 = false %}
+    {% set id8 = false %}
+    {% set id46 = false %}
+    {% set id47 = false %}
+    {% set id48 = false %}
+    {% set id49 = false %}
+    {% set id50 = false %}
+    {% set id51 = false %}
+    {% set idSword = false %}
+
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+
+        {# variable actualisée quand l'objet a été ramassé ou déjà possédé #}
+        {% if item.id is same as 8 %}
+            {% set id8 = true %}
+        {% endif %}
+        {% if item.id is same as 9 %}
+            {% set id9 = true %}
+        {% endif %}
+        {% if item.id is same as 46 %}
+            {% set id46 = true %}
+        {% endif %}
+        {% if item.id is same as 47 %}
+            {% set id47 = true %}
+        {% endif %}
+        {% if item.id is same as 47 %}
+            {% set id48 = true %}
+        {% endif %}
+        {% if item.id is same as 47 %}
+            {% set id49 = true %}
+        {% endif %}
+        {% if item.id is same as 47 %}
+            {% set id50 = true %}
+        {% endif %}
+        {% if item.id is same as 47 %}
+            {% set id51 = true %}
+        {% endif %}
+        {% if item.id == 16 %}
+            {% set idSword = true %}
+        {% endif %}
+    {% endfor %}
+
+<div>
+    <p>
+        The trees start to thin out, and just ahead you can make out the silhouette of an old log cabin beneath an oak tree. This hut seems to have been abandoned and there is little of apparent value left behind. 
+        </br>
+        Opening a small chest near the main door, you discover bunches of twigs that have been tied together with strong twine.
+        One end of the bundle has been coated with pitch. They are Torches.
+        </br>
+        Next to the chest is a Short Sword and a Tinderbox. 
+
+        {% for infoHero in hero %}
+            {% if infoHero.backpack == 1 %}
+                {% if id8 is same as false %}
+                </br></br>
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Tinderbox you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':8,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take the Tinderbox.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+                {% if id9 is same as false %}
+                    </br></br>
+                    {% if bpItemsCount is same as 8 %}
+                        If you want to take this Torch you need to drop one of your backpack's item.
+                    {% else %}
+                        
+                        <a 
+                            class="btn btn-disciplines rounded-circle"             
+                            href="{{ path( "objAdd", {'itemId':9,'p':p, 'heroId':heroId} ) }}"  
+                        >  
+                            Take a Torch.      
+                        </a>
+                    {% endif %} 
+                {% endif %}
+            
+            {% if id46 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':46,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            {% if id47 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':47,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+
+            {% if id48 is same as false %}
+                </br></br>
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':48,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            
+            {% if id49 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':49,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+
+            {% if id50 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':50,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+            {% if id51 is same as false %}
+                </br></br> 
+                {% if bpItemsCount is same as 8 %}
+                    If you want to take this Torch you need to drop one of your backpack's item.
+                {% else %}
+                    
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':51,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        Take a Torch.      
+                    </a>
+                {% endif %} 
+            {% endif %}
+        {% endif %}    
+        {% endfor %}
+        {% if idSword == true %}
+                </br></br>You already have a Short sword.</br></br>
+        {% endif %}
+        {% if idSword is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take the short Sword you need to drop one of your weapon.
+                </br></br>
+                {% else %}
+                    Take the Short Sword.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':16,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-shsword.png') }}"
+                        alt="a sword" />      
+                    </a>
+                    </br></br>
+                {% endif %}
+        {% endif %}
+
+    Closing the door of the cabin, you head off along an overgrownpath towards the northeast.
+</p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_103', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 103. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

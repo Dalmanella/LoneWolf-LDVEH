@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You walk for nearly ten minutes along a dark and winding corridor, and then start to climb a steep staircase to a small wooden door. The man presses a secret catch and the door opens. You enter a large, plushly decorated bedroom with a huge marble bath that takes up one corner of the room. The man suggests that you refresh yourself here whilst he seeks an audience with the King.
+        </br>
+        You quickly bathe and change into some white robes that have been left out on a large marble table. Shortly, the man returns and leads you through a long corridor lined with exquisite tapestries.
+        </br>
+        You finally arrive at a large door guarded by two soldiers wearing silver armour.
+        </br>
+        You are about to meet the King.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_350', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 350. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

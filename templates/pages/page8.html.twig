@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+        Your Kai Sixth Sense warns there is a fierce battle raging in the south.
+        </br>Your common sense tells you that the south is also the quickest route to the capital.
+
+    </p>
+    </br>
+    {% for infoHero in hero %}
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_70', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowL.png') }}" />
+            </a>
+            {# turn to 70. #}
+    </p>
+    
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

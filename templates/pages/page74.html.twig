@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+    The Kraan and its riders land on the track barely ten feet from where you are hidden.
+    The Giaks leap from the scaly backs of the Kraan and move towards you, their spears raised to strike. You have been seen.
+    
+    
+    </p>
+    </br>
+    <p>If you decide to fight them. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_138', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 138. #}
+    </p>
+    </br>
+    <p>If you decide to run deeper into the forest without delay.
+            <a class="col-12 mt-5" href="
+            {{ path('page_281', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 281 #}
+    </p>
+    </br>
+</div>
+
+{% endblock %}

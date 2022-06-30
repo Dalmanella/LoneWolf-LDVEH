@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You walk for over an hour, during which time you keep a constant vigil for any sign of Kraan in the sky above. You have twice spotted their tell-tale shadows in the sky and on both occasions your quick wits have saved you from capture. 
+        </br>
+        You are now very hungry and must eat a Meal. 
+        </p>
+
+{% for infoHero in hero %}
+    {% if isLunch == 1 %}        
+        </br>
+        {% if infoHero.endurance < 1 %}
+            <p>You are starving to death. 
+                <a class="col-12 mt-5" href="
+                {{ path('page_351', {'heroId':heroId }) }}
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 351. #}
+            </p>
+        {% else %}
+            <p> You may now continue on your journey.
+
+                <a class="col-12 mt-5" href="
+                {{ path('page_13', {'heroId':heroId }) }}
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 13. #}
+            </p>
+        {% endif %}
+    {% endif %}    
+{% endfor %}
+     </br>
+</div>
+
+{% endblock %}

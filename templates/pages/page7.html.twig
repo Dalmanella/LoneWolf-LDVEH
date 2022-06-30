@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill1.png') }}" alt="From here you can see the magniﬁcent view of the rooftops and spires of Holmgard." />
+    </div>
+    <p>
+        For what seems an eternity, the rush of the crowd carries you along like a leaf on a fast-flowing stream. You desperately fight to stay on your feet, but you feel weak and dizzy from your ordeal, and your legs are as heavy as lead. Suddenly, you catch a glimpse of a long, narrow stone stairway that leads up to the roof of an inn.
+        </br>
+        Gathering the last reserves of your strength, you dive for the stairs and climb slowly up to the top. From here you can see the magnificent view of the rooftops and spires of Holmgard, with the high stone walls of the citadel gleaming in the sun.
+        </br>
+        The houses and buildings of the capital are built very close to each other, and it is possible to jump from one roof to the next. In fact many of the citizens of Holmgard used to use the 'Roofways'(as they are known) when the heavy autumn rains made the unpaved parts of the streets too muddy for walking. But after many accidents, a royal decree forbade their use.
+        </br>
+        After careful thought, you decide to use the 'Roofways', as they are your only chance of reaching the King. You have hopped, skipped, and jumped across several streets and you are only one street away from the citadel when you come to the end of a row of rooftops.
+        </br>
+        The jump to the next row is much further than anything you have tried before, and your stomach begins to feel as if it were full of butterflies. Determined to reach the citadel, you turn and take a long run-up to the jump. With blood pounding in your ears, you sprint to the edge of the roof and leap into space, your eyes fixed on the opposite rooftop.
+    </p>
+    </br>
+    {% set page = random(9) %}
+    {% if page < 3 %}
+        <p>            
+           
+           <a class="col-12 mt-5" href="
+            {{ path('page_108', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a> 
+            {# turn to 108.  #}
+        </p>
+    {% else %}
+    <p>
+            
+           <a class="col-12 mt-5" href="
+            {{ path('page_25', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a> 
+            {# turn to 25. #}
+    </p>
+    {% endif %}
+    </br>
+</div>
+
+{% endblock %}

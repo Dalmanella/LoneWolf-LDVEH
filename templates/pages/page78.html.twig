@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        As the caravan careers past, you leap for the tailboard and manage to hold fast. Pulling yourself upright, you find that you are standing on the bottom rung of a ladder leading to the rear door of the wagon. Suddenly the top half of the door flies open and you are confronted by the angry face of a bodyguard.
+    </p>
+    </br>
+    <p>If you decide to inform him that you are a Kai Lord with an urgent message for the King.
+            <a class="col-12 mt-5" href="
+            {{ path('page_132', {'heroId':heroId }) }}  
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 132.  #}
+    </p>        
+        </br>
+    <p>If you decide to offer him Gold Crowns for safe passage to the capital 
+            <a class="col-12 mt-5" href="
+            {{ path('page_12', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 12. #}
+    </p>
+    </br>
+    <p>If you decide to attack the guard with your weapon. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_220', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 220. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

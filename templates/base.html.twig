@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Lonewolf: Flight from the dark{% endblock %}</title>
+        <link rel="icon" href="{{ asset ('assets/img/favicon.ico') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset ('assets/css/bootstrap.css') }}" >
+            <link rel="stylesheet" href="{{ asset ('assets/css/lonewolf.css') }}" >
+            <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=La+Belle+Aurore&family=Nanum+Brush+Script&display=swap" rel="stylesheet"> 
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+           <script src="{{ asset ('assets/js/bootstrap.js') }}"></script>
+           <script src="{{ asset ('assets/js/compCount.js') }}"></script>
+           <script src="{{ asset ('assets/js/weapSkill.js') }}"></script>
+           <script src="{{ asset ('assets/js/heroCarac.js') }}"></script>
+           <script src="{{ asset ('assets/js/randomChance.js') }}"></script>
+           <script src="{{ asset ('assets/js/randomLast.js') }}"></script>
+           
+
+        {% endblock %}
+        {% block scripts %}
+        {% endblock %}
+    </head>
+    <body class="container-lg row justify-content-around mx-auto text-center mt-3">
+        {% block header %}
+        {% endblock %}
+
+        {% for message in app.flashes('success') %}
+          <div class="alert alert-success">
+            {{ message }}
+          </div>
+        {% endfor %}
+        {% for message in app.flashes('echec') %}
+          <div class="alert alert-danger">
+            {{ message }}
+          </div>
+        {% endfor %}
+        
+        {% block body %}
+        {% endblock %}
+
+        {% block footer %}
+        <div class="sticky-bottom">
+            <img style="width:70px;" src="{{ asset ('assets/img/decoBas.png') }}" />
+            </br></br>
+            {# {{ include('test/_verifSession.html.twig') }} #}
+            {{ include('test/_music.html.twig') }}
+        </div>
+        {% endblock %}
+        
+
+        
+       
+    </body>
+</html>
+

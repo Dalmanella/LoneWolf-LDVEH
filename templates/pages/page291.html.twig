@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id13 = false %}
+    {% set id14 = false %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+
+        {# variable actualisée quand l'objet a été ramassé ou déjà possédé #}
+        {% if item.id is same as 13 %}
+            {% set id13 = true %}
+        {% endif %}
+        {% if item.id is same as 14 %}
+            {% set id14 = true %}
+        {% endif %}
+    {% endfor %}
+
+{% set coins = 6 %}
+
+<div>
+    <p>
+        The two Giaks lie at your feet, their bodies twisted and lifeless. A quick search reveals 6 Gold Crowns, 2 Spears and a Dagger.
+        </br>
+        You may keep the Gold and take a weapon if you wish. 
+    {% for infoHero in hero %}
+
+            {% if infoHero.gold < 50 and infoHero.goldTake == 0 %}
+                </br></br>
+                
+                Take gold.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
+                    >  
+                        <img 
+                            style="width:80px; "
+                            src="{{ asset ('assets/img/item-pouch.png') }}"
+                            alt="Gold Crowns" />      
+                    </a>
+                   
+            {% endif %}
+    {% endfor %}
+    {% if id13 == true %}
+                </br>You already have a dagger.
+    {% endif %}
+    {% if id13 is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take the dagger you need to drop one of your weapon.
+                {% else %}
+                    Take the dagger.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':13,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-dagger.png') }}"
+                        alt="a dagger" />      
+                    </a>
+                    </br>
+                {% endif %}
+    {% endif %}
+    {% if id14 == true %}
+                </br>You already have a spear.
+    {% endif %}
+    {% if id14 is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take a spear you need to drop one of your weapon.
+                {% else %}
+                    Take a spear.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':14,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-spear.png') }}"
+                        alt="a spear" />      
+                    </a>
+                    </br>
+                {% endif %}
+    {% endif %}
+
+    </br>
+    The Kraan flew off during your battle, and the track is now deserted. You adjust your Backpack and continue your mission.
+
+
+
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_272', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 272. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

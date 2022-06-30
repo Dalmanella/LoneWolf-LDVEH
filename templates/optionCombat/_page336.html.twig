@@ -1,0 +1,17 @@
+</br>
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight. 
+                </br>You now must face the second Giak.
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_3362', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 3362. #}
+                    
+                </p>
+        {% endif %}

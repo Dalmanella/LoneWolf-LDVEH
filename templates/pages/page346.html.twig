@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+{% set idSpear = false %}
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+
+        {% if item.id == 14 %}
+            {% set idSpear = true %}
+        {% endif %}
+    {% endfor %}
+
+<div>
+    <p>
+        Lodged deep in the rib cage of the skeleton is a Spear. It is in good condition.
+        {% if idSpear is same as false %}
+            </br> </br>
+                {% if handItemCount is same as 2  %}
+                    If you want to take the Spear you need to drop one of your weapon.</br>
+                {% else %}
+                    Take the Spear.
+                    <a 
+                        class="btn btn-disciplines rounded-circle"             
+                        href="{{ path( "objAdd", {'itemId':14,'p':p, 'heroId':heroId} ) }}"  
+                    >  
+                        <img 
+                        style="width:80px; "
+                        src="{{ asset ('assets/img/item-spear.png') }}"
+                        alt="a Spear" />      
+                    </a>
+                    </br>
+                {% endif %}
+        {% endif %}
+        </br>
+        Then you leave the clearing.
+
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_14', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 14. #}
+    </p>
+
+     </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+
+    {% if tour > 0 and endE > 0 %}
+        <p>If you wish to evade more combat, you can jump from the speeding caravan
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_fuite', {'heroId':heroId , 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':pageOrigine}) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to fuite. #}
+                    
+        </p>
+    {% endif %}
+        
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight.
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                             {{ path('page_24', {'heroId':heroId }) }} 
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 24. #}
+                    
+                </p>
+        {% endif %}
+
+

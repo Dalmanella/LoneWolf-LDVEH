@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/sillu6.png') }}" alt="a king horseman" />
+    </div>
+    <p>
+    In the distance you can hear the sound of horses galloping nearer. You crouch behind a tree and wait as the riders come closer. They are the cavalry of the King’s Guard wearing the white uniforms of His Majesty’s army.
+    </p>
+    </br>
+    {% for infoHero in hero %}
+    <p>If you wish to call them. 
+            <a class="col-12 mt-5" href="
+            {{ path('page_183', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 183. #}
+    </p>
+    </br>
+    <p>If you wish to let them pass and then continue on your way through the forest. 
+            <a class="col-12 mt-5" href="
+             {{ path('page_200', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 200. #}
+    </p>
+
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

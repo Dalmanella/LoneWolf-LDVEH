@@ -1,0 +1,17 @@
+  
+
+</br>
+    {% if endL > 0 %}
+        {% set combattre = null %} 
+                    <p>You evade the combat.
+                        <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_22', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 22. #}
+                    </p>
+                    </br>
+    {% endif %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You stumble backwards through the front door, clutching your burnt chest with both hands. Smoke is billowing from the shop and you must run before the Sage or his robber son catch you.
+        </br>
+        You make it back to the main street and lose yourself in the rush of the crowds.
+    </p>
+    </br>
+    
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_7', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 7. #}
+    </p>
+    </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+</br>
+    {% if endL > 0 %}
+        {% set combattre = null %} 
+                    <p>You escape the Crypt Spawn.
+                        <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_23', {'heroId':heroId }) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 23. #}
+                    </p>
+                    </br>
+    {% endif %}

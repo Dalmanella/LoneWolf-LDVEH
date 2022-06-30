@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <!--Illustration II -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill2.png') }}" alt="An ornate pin appears to lock the door, but there is also a keyhole in the lockplate." />
+    </div>
+    <p>
+        The corridor soon widens into a large hall. At the far end, a stone staircase leads up to a huge door. 
+        Two black candles on either side of the stone steps dimly illuminate the chamber. You notice that no wax has melted, 
+        and as you get nearer you can feel that they give off no heat. Ancient engravings cover the stone surfaces of the walls.
+        </br>
+        Anxious to leave this evil tomb, you examine the door for a latch. An ornate pin appears to lock the door, but there is also a keyhole in the lockplate.
+    </p>
+    
+    {% for item in items %}
+        {% if item.id == 1 %}
+            <p>If you want to try the Golden Key.      
+                <a class="col-12 mt-5" href="
+                {{ path('page_326', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 326.  #}
+            </p> 
+        {% endif %}
+    {% endfor %}
+    {% for infoHero in hero %}
+
+    {# OPTIONS DE CHOIX SI COMP #}
+        {% if infoHero.kaiMoM %}
+            <p>If you wanna use the Kai Discipline of Mind Over Matter.
+                <a class="col-12 mt-5" href="
+                {{ path('page_151', {'heroId':heroId }) }} 
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a>
+                {# turn to 151.  #}
+            </p>
+            </br>
+        {% endif %}
+        
+    <p>If you wish to remove the pin.
+            <a class="col-12 mt-5" href="
+            {{ path('page_337', {'heroId':heroId }) }} 
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+            {# turn to 337. #}
+    </p>
+    
+    
+
+    {% endfor %}
+    </br>
+</div>
+
+{% endblock %}

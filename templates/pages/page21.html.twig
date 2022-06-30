@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{% set handItemCount = 0 %}
+{% set bpItemsCount = 0 %}
+{% for item in items %}
+    {% if item.place is same as ('hand') %}
+            {% set handItemCount = handItemCount + 1 %}
+    {% endif %}
+    {% if item.place is same as ('backpack') %}
+        {% set bpItemsCount = bpItemsCount + 1 %}
+    {% endif %} 
+{% endfor %}
+
+<div>
+    <p>
+    You have ridden about two miles into the tangle of trees when the ground becomes very marshy.
+
+    {# Pick a number from the Random Number Table.
+        If the number is 5 or above, you manage to steer clear of the morass and may now turn to 189.
+        If it is below 5, your horse has suddenly plunged into thick mud up to its belly. 
+
+        You are stuck, pick another number from the Random Number Table.
+
+        If you scored above 7, you drag yourself onto ﬁrm ground and turn to 189.
+
+        If this time the number is 7 or less, the mud engulfs you up to your armpits. Your horse gives one last despairing scream as its muzzle disappears into the bubbling mud. 
+        If not, then this is your last chance! 
+        pick another number from the Random Number Table
+        if you have picked a 9, turn to 312.
+        If you pick any number except a 9, the foul-smelling bog sucks you under and claims another victim. Your life and your mission end here.  #}
+    </p>
+    </br>
+    {% set lucky = random(9) %}
+        {% if lucky > 4 %}
+            <p> You manage to steer clear of the morass.
+            <a class="col-12 mt-5" href="
+            {{ path('page_189', {'heroId':heroId }) }}
+                ">
+                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                </a> 
+                {# turn to 189.  #}
+            </p>
+        {% else %}
+            <p>Your horse has suddenly plunged into thick mud up to its belly. </p>
+           
+            <button 
+                type="button" 
+                id="btn-luck2" 
+                class="btn btn-primary" 
+                onclick="randomLuck()"
+            >Luck</button>
+            
+            <div id="luck2-s" style="display:none;">
+                <p>you drag yourself onto firm ground
+                        <a class="col-12 mt-5" href="
+                         {{ path('page_189', {'heroId':heroId }) }} 
+                        ">
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 189.  #}
+                </p>
+            </div> 
+            <div id="luck2-f" style="display:none;">   
+                    <p>The mud engulfs you up to your armpits. Your horse gives one last despairing scream as its muzzle disappears into the bubbling mud. </p>
+                        <button type="button" id="btn-last-chance" class="btn btn-primary" onclick="randomLast()">Last Chance</button>
+            </div>
+                        
+            <div id="last-chance-s" style="display:none;">             
+                <p>
+                    <a class="col-12 mt-5" href="
+                     {{ path('page_25', {'heroId':heroId }) }} 
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                    {#  turn to 25. #}
+                </p>
+            </div>                
+            <div id="last-chance-f" style="display:none;">            
+                <p>the foul-smelling bog sucks you under and claims another victim.
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a> 
+                    {# turn to 351.  #}
+                </p>
+            </div>                
+                        
+    {% endif %}
+    </br></br>
+</div>
+
+{% endblock %}

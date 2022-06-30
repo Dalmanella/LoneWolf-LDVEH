@@ -1,0 +1,16 @@
+{% for infoHero in hero %}
+        
+{# SI COMP HEALING & chapter without combat#}
+    {% if infoHero.kaiHeal %}
+        <script>
+            healing()
+        </script>
+    {% endif %}  
+<script>
+function healing() {
+      alert("HEALING");
+    }
+
+</script>
+{% endfor %}
+

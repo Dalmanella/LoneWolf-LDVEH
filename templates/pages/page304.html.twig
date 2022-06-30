@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+{% set heat = fall(em, heroId, 2) %}
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/sillu5.png') }}" alt="a Vordak's gem" />
+    </div>
+    <p>
+    The Gem feels incredibly hot and burns your hand. You lose 2 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points. </br>
+    </br>
+    It’s a Vordak Gem. 
+    You quickly pick it up with the edge of your Kai cloak and slip it into your Backpack. 
+    </br>
+    A Gem that size must be worth hundreds of Crowns. But the Giaks are very close and their arrows whistle past your head as you turn and run for the safety of the forest.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_2', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 2. #}
+    </p>
+
+
+   
+     </br>
+</div>
+
+{% endblock %}

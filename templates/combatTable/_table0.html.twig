@@ -1,0 +1,51 @@
+{% if CR == 0 %}
+    {% if atk == 1 %}
+        {% set ennemyEnd = ennemyEnd - 3 %} 
+        {% set end = end - 5 %}
+    {% endif %}
+
+    {% if atk == 2 %}
+        {% set ennemyEnd = ennemyEnd - 4 %}
+        {% set end = end - 4 %}
+    {% endif %}
+
+    {% if atk == 3 %}
+        {% set ennemyEnd = ennemyEnd - 5 %}
+        {% set end = end - 4 %}
+    {% endif %}
+
+    {% if atk == 4 %}
+        {% set ennemyEnd = ennemyEnd - 6 %}
+        {% set end = end - 3 %}
+    {% endif %}
+
+    {% if atk == 5 %}
+        {% set ennemyEnd = ennemyEnd - 7 %}
+        {% set end = end - 2 %} 
+    {% endif %}
+
+    {% if atk == 6 %}
+         {% set ennemyEnd = ennemyEnd - 8 %}
+        {% set end = end - 2 %}
+    {% endif %}
+
+    {% if atk == 7 %}
+        {% set ennemyEnd = ennemyEnd - 9 %}
+        {% set end = end - 1 %}
+    {% endif %}
+
+    {% if atk == 8 %}
+        {% set ennemyEnd = ennemyEnd - 10 %}
+        {% set end = end - 0 %}
+    {% endif %}
+
+    {% if atk == 9 %}
+        {% set ennemyEnd = ennemyEnd - 11 %}
+        {% set end = end %}
+    {% endif %}
+
+    {% if atk == 10 %}
+        {% set ennemyEnd = ennemyEnd - 12 %}
+        {% set end = end %} 
+    {% endif %}
+{% endif %}

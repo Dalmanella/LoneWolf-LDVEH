@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        Two soldiers and a sergeant run towards you, their crossbows aimed at your head. As they get nearer, they recognize your Kai cloak and a look of relief spreads across their faces.
+        </br>
+        ‘My Lord,’ says the sergeant, ‘where are the other Kai Masters? We are in desperate need of their wisdom. The Darklords press us most cruelly and our casualties are high.’ 
+        </br>
+        You inform the brave soldier of the fate of your kinsmen, and the urgency of your mission to see the King. He takes you back to the barges where an officer accompanies you on horseback towards the high walls and the main gate of Holmgard.
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+             {{ path('page_129', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 129. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}

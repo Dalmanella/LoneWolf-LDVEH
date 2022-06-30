@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        The gallowbrush tears your cloak and scratches deep into your arms and legs as you slowly force your way through. fifteen minutes later you emerge from the briars and stagger onwards between the trees.
+        </br>
+        You loose 2 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points for the wounds you have sustained.
+        </br>
+        You feel a little dizzy as you push on, and your eyelids seem very heavy. You suddenly find yourself at the edge of a steep wooded slope.
+    </p>
+    {% set scratch = fall(em, heroId, 2) %}
+    {% for infoHero in hero %}
+        {% if infoHero.endurance < 1 %}
+            </br>
+            <p>Alas, you die, poisonned by the briars. 
+                                <a class="col-12 mt-5" href="
+                                {{ path('page_351', {'heroId':heroId }) }}
+                                ">
+                                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                                </a>
+                                {# turn to 351. #}
+                            </p>
+
+        {% else %}
+            </br>
+            <p>If you wish to slide down the slope as carefully as you can. 
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_226', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                    {# turn to 226. #}
+            </p>
+            </br>
+            <p>If you do not feel that you are up to the risk of this tricky descent in your present sleepy state, walk around the edge of the ridge. 
+                    <a class="col-12 mt-5" href="
+                    {{ path('page_38', {'heroId':heroId }) }}
+                    ">
+                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    </a>
+                {# turn to 38. #}
+            </p>
+
+        {% endif %}
+    {% endfor %}
+     </br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backpack index{% endblock %}
+
+{% block body %}
+    <h1>Backpack index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for backpack in backpacks %}
+            <tr>
+                <td>{{ backpack.id }}</td>
+                <td>
+                    <a href="{{ path('app_backpack_show', {'id': backpack.id}) }}">show</a>
+                    <a href="{{ path('app_backpack_edit', {'id': backpack.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backpack_new') }}">Create new</a>
+{% endblock %}

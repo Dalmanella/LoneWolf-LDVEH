@@ -1,0 +1,8 @@
+{# CONTOLEUR DE SESSION #}
+<h3>session en cours:  </br>
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <p> 
+    app.user: {{ app.user.pseudo ?? 'Anonymous user'}} | 
+    id utilisateur:{{ app.user.id }} | 
+  </p>
+{% endif %}

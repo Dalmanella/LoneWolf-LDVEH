@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+    {% endfor %}
+
+<div>
+    <p>
+        You black out for only a few minutes before you are revived with a measure of strong spirit. Feeling weary but thankful to be alive, you lean on the shoulders of the King’s men and you stagger towards the outer defences.
+    </p>
+    </br>
+    <p> 
+            <a class="col-12 mt-5" href="
+            {{ path('page_288', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 288. #}
+    </p>
+
+</br>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backpack{% endblock %}
+
+{% block body %}
+    <h1>Backpack</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ backpack.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backpack_index') }}">back to list</a>
+
+    <a href="{{ path('app_backpack_edit', {'id': backpack.id}) }}">edit</a>
+
+    {{ include('backpack/_delete_form.html.twig') }}
+{% endblock %}

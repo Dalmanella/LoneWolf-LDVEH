@@ -1,0 +1,37 @@
+
+    {% if tour > 2 and endE > 0 %}
+        <p>
+            You position yourself so that you can run down the hill.
+        </p>
+        
+        <p>If you wish to evade at this time and chance being wounded as you flee.
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                            {{ path('page_fuite', {'heroId':heroId , 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':pageOrigine}) }}
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to fuite. #}
+                    
+        </p>
+    {% endif %}
+        
+       {% if endE <= 0 and endL > 0 %}
+            {% set combattre = null %} 
+                <p>You win the fight.
+                </br>  
+                       <a  class="col-12 mt-5"
+                            href="
+                             {{ path('page_195', {'heroId':heroId }) }} 
+                            "
+                        >
+                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        </a> 
+                        {# turn to 195. #}
+                    
+                </p>
+        {% endif %}
+
+

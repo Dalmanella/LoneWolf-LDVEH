@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoneWolf chapitre {{p}}{% endblock %}
+
+{% block header %}
+    {{ include('entete/_entetehero.html.twig') }}    
+{% endblock %}
+
+{% block body %}
+ {# variable initialisée pour tester si l'objet a été ramassé #}
+    {% set id10 = false %}
+    {% set id17 = false %}
+{# places dans l'inventaire #}
+    {% set handItemCount = 0 %}
+    {% set bpItemsCount = 0 %}
+    {% for item in items %}
+        {% if item.place is same as ('hand') %}
+                {% set handItemCount = handItemCount + 1 %}
+        {% endif %}
+        {% if item.place is same as ('backpack') %}
+            {% set bpItemsCount = bpItemsCount + 1 %}
+        {% endif %} 
+
+        {# variable actualisée quand l'objet a été ramassé ou déjà possédé #}
+        {% if item.id is same as 10 %}
+            {% set id10 = true %}
+        {% endif %}    
+        {% if item.id is same as 17 %}
+            {% set id17 = true %}
+        {% endif %}
+    {% endfor %}
+
+<div>
+    <!--Illustration -->
+    <div class="d-flex justify-content-center mb-5">
+        <img src="{{ asset ('assets/img/ill17.png') }}" alt="Pushing open the treehouse door, you see an old hermit huddled in the corner of the small cabin." />
+    </div>
+    <p>
+        Your climb is swift and easy. It reminds you of the many trees that you climbed and explored near Toran as a child, when you wanted to pick fruit or to look out over the beautiful countryside of Sommerlund.
+        </br>
+        Pushing open the treehouse door, you see an old hermit huddled in the corner of the small cabin. A look of great relief spreads across his face as he recognizes your green Kai cloak. He tells you that this area is full of Giaks, and that he has counted over forty Kraan flying over his home in the last three hours. They were heading east.
+        </br>
+        He scurries over to a cupboard and returns with a plate of fresh fruit. 
+        {% for infoHero in hero %}
+
+        {# prendre les fruits #}       
+            {% if infoHero.backpack == 1 %}
+                {% if id10 is same as false %}
+                    </br></br>
+                    {% if bpItemsCount is same as 8 %}
+                        If you want to take this Food you need to drop one of your backpack's item.
+                    {% else %}
+                        You thank him and place the fruit in your Backpack. There is enough for one Meal.
+                        <a 
+                            class="btn btn-disciplines rounded-circle"             
+                            href="{{ path( "objAdd", {'itemId':10,'p':p, 'heroId':heroId} ) }}"  
+                        >  
+                            <img 
+                                style="width:80px; "
+                                src="{{ asset ('assets/img/item-food.png') }}"
+                                alt="a meal" />      
+                        </a>
+                        </br></br>
+                    {% endif %} 
+                {% endif %}
+            {% endif %}
+        {# echanger le marteau #}    
+        The hermit also produces a fine Warhammer and lays it upon a table by the door. ‘Your need is greater than mine, Kai Lord,’ he says. ‘Please take this trusty Warhammer if you so wish.’
+        {% if handItemCount > 0 %}
+            {% if id17 == true %}
+                </br>You already have a warhammer.
+            {% else %}                                                                                  
+                                        
+                {% if infoHero.weapon == 4 %}
+                    </br>You may take this Weapon only if you exchange it for another Weapon already in your possession, for it is the only defence that the hermit has against the enemy.        
+                    
+                        {# ouvrir l'armement #}
+                    <!-- Bouton lance popup -->
+                        <button type="button" id="ico-inv" class="btn-disciplines fs-2 " data-bs-toggle="modal" data-bs-target="#armement">
+                            <img class=" img-fluid " style="max-width:80px;" src="{{ asset ('assets/img/cross_mace-sword.png') }}" />
+                            <div> {{handItemCount}}/2 </div> 
+                        </button>
+                                
+                        <!-- popup de l'armement -->
+                            <div class="modal fade" id="armement" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="armementLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-fullscreen ">
+                                    <div class="modal-content  ">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title" id="armementLabel" style="font-family:'Dr Sugiyama', cursive;">armement</h2>
+                                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                                <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
+                                            </button>
+                                        </div>
+                                        <div class="modal-body overflow-auto ">
+                                            {# <p class="fs-2" style="font-family: 'La Belle Aurore', cursive;"> Bientôt, ici se trouvera votre armement. </p>#}
+                                            <div class="column ">
+                                            <!-- Affichage de l'armement -->
+                                                <div class="mb-3">
+                                                            <h2 class="mt-1">Weapons {{handItemCount}}/2</h2>
+                                                            <table class="table table-striped mb-3">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">item</th>
+                                                                        <th scope="col">description</th>     
+                                                                        <th scope="col">Exchange</th>        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {% for item in items %}
+                                                                        {% if item.place is same as ('hand') %}
+                                                                        <tr>
+                                                                            <th scope="row">{{ item.objName}}</th> 
+                                                                            <td>{{ item.objDescription }}</td>
+                                                                            <td>
+                                                                                <a 
+                                                                                    class="btn rounded-circle"             
+                                                                                    href="{{ path( "objEx", {'itemId':item.id,'p':p, 'heroId':heroId} ) }}"  
+                                                                                >  
+                                                                                    <img 
+                                                                                    style="height:25px;"
+                                                                                    src="{{ asset ('assets/img/item-warhammer.png') }}" alt="warhammer" />      
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        {% endif %} 
+                                                                    {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                </div>       
+                                            <!-- fin du tableau des armes -->                                                                                
+                                            </div>                                  
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+
+                    
+
+                {% else %}
+                    </br> You already have a weapon and don't need another.
+                {% endif %}
+            {% endif %}
+        {% else %}
+            </br>You have no weapon to exchange for the warhammer. You can't take it and let the hermit defenceless.
+        {% endif %}
+    
+{% endfor %}
+        </br>
+        Thanking the old man, you carefully descend the tree and continue on your mission.
+
+
+    </p>
+    </br>
+    <p>
+            <a class="col-12 mt-5" href="
+            {{ path('page_213', {'heroId':heroId }) }}
+            ">
+                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+            </a>
+        {# turn to 213. #}
+    </p>
+</br>
+</div>
+
+{% endblock %}
