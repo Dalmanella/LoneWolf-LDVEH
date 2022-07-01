@@ -39,6 +39,18 @@ class CombatEndRepository extends ServiceEntityRepository
         }
     }
 
+    public function clearTable()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'TRUNCATE TABLE combat_end';
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery([]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet->fetchAllAssociative();
+    }
+
 //    /**
 //     * @return CombatEnd[] Returns an array of CombatEnd objects
 //     */

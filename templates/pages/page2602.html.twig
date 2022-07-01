@@ -22,7 +22,7 @@
 
 <div>
     <p>
-    </br>second Giak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL 12 ENDURANCE 17</span>
+    </br>second Giak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL-12 ENDURANCE-17</span>
     </p>
     </br>
     {% for infoHero in hero %}
@@ -47,7 +47,7 @@
         
         </br>
         
-        {% if end == 0 %}
+        {% if end < 1 %}
                 <p>
                     <a class="col-12 mt-5 skull" href="
                         {{ path('page_351', {'heroId':heroId }) }}  

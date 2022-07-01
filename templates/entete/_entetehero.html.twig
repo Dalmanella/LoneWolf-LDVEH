@@ -6,14 +6,14 @@
             </a>
             <p class="symbol"> Lone Wolf </p>
         </div>
-        <div class="col-10 personnage text-center px-2 pt-0">
+        <div class="col-10 personnage text-center pt-0">
             <div class="text-end">
                     <a href="{{ path('app_logout') }}" class="btn"><img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /></a>
             </div>
             {% for infoHero in hero %}
                 
             <h2 class="text-primary"> {{infoHero.name}} </h2> 
-                <table class="col-12 text-center">
+                <table class="col-10 text-center">
                     <tbody>
                     
                         <tr>
@@ -22,9 +22,9 @@
                             <td> <p class="carac fs-1">{{infoHero.gold}}</p></td>
                         </tr>
                         <tr >
-                            <td > <h2 class="skill"> Combat Skill </h2> </td>
-                            <td > <h2 class="skill"> Endurance </h2> </td>
-                            <td> <h2 class="skill"> Gold </h2></td>
+                            <td > <h3 class="skill"> Combat Skill </h3> </td>
+                            <td > <h3 class="skill"> Endurance </h3> </td>
+                            <td> <h3 class="skill"> Gold </h3></td>
                         </tr>
                     </tbody>
                 </table>
@@ -118,11 +118,11 @@
                                 <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
                             </button>
                         </div>
-                        <div class="modal-body overflow-auto ">
+                        <div class="modal-body overflow-y ">
                             {# <p class="fs-2" style="font-family: 'La Belle Aurore', cursive;"> Bientôt, ici se trouvera votre inventaire. </p>#}
-                            <div class="column ">
+                            <div class="d-flex flex-column flex-lg-row ">
                             <!-- Affichage du sac à dos -->
-                                <div class="mb-3">
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
                                     <h2 class="mt-1">Backpack {{bpItemsCount}}/8</h2>
                                     <table class="table table-striped">
                                         <thead>
@@ -178,9 +178,9 @@
                                     </table> 
                                 </div>
                             <!-- Affichage de l'armement -->
-                                <div class="mb-3">
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
                                             <h2 class="mt-1">Weapons {{handItemCount}}/2</h2>
-                                            <table class="table table-striped mb-3">
+                                            <table class="table table-striped ">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">item</th>
@@ -211,8 +211,8 @@
                                             </table>
                                 </div>       
                             <!-- Affichage des objets spéciaux -->
-                                <div class="">
-                                                <h2 class="mt-3"> Special item</h2>
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
+                                                <h2 class="mt-1"> Special item</h2>
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>

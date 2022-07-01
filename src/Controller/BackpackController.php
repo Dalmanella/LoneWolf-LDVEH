@@ -56,6 +56,13 @@ class BackpackController extends AbstractController
                 $item=$this->entityManager->find(Objet::class, $items[$i]->getId());
             
                 if($item->getId() == $itemId){
+                    if($item->getObjType() == "meal"){                  //validation du repas 
+                        $lunch= $hero[0]->setLunchClick(1);  
+                                  
+                        $this->entityManager->flush($lunch);
+                        
+                    }
+
                     $backpack -> removeObjetId($item);        
                     
                 }else{

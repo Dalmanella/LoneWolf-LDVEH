@@ -363,10 +363,19 @@ class pageController extends AbstractController
                 $askLunch = null;
                 $pageLunch = [37, 130, 147, 168, 184, 235, 300];
                 if(in_array($p,$pageLunch,true)==true ){                      
-                    $askLunch=true;                                                  
+                    
+                    if($hero[0]->isKaihunt()== 1){
+                       
+                            $lunch= $hero[0]->setLunchClick(1);            // et on valide le dejeuner
+                 
+                            $this->entityManager->flush($lunch);
+                    }         
+                    $askLunch=true; 
+                                                               
                 }else{
-                    $askLunch = false;
+                        $askLunch = false;
                 }
+                
 
             // Lunch: manger pour ne pas perdre de vie or not Lunch            
                 if($askLunch == true ){

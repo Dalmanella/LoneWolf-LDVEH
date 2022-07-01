@@ -22,7 +22,7 @@
 
 <div>
     <p>
-        Second Giak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL 14  ENDURANCE 11 </span>
+        Second Giak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL-14  ENDURANCE-11 </span>
     </p>
     </br>
     {% for infoHero in hero %}
@@ -47,11 +47,11 @@
         
         </br>
         
-        {% if end == 0 %}
+         {% if end < 1 %}
                 <p>
-                    <a class="col-12 mt-5" href="
-                        {# {{ path('page_351', {'heroId':heroId }) }}  #}
-                        ">Vous êtes mort
+                    <a class="col-12 mt-5 skull" href="
+                        {{ path('page_351', {'heroId':heroId }) }}  
+                        ">you died.
                             <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
