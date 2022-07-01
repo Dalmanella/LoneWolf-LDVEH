@@ -395,17 +395,7 @@ class pageController extends AbstractController
                 }
             //    
             $combatPages = [351,181,188,17,29,34,43,55,63,72,112,1122,133,136,1362,138,1382,169,170,180,1802,1803,188,191,208,220,227,229,231,246,253,2532,2533,2534,255,260,2602,283,336,3362,339,340,];
-            // $view= $this->render('pages/page'.$p.'.html.twig',[
-            //     'items'=>$items, 
-            //     'hero'=>$hero, 
-            //     'heroId'=>$heroId, 
-            //     "p"=>$p,
-            //     'em'=>$this->entityManager, 
-            //     'isLunch'=>$isLunch,
-            //     'test'=> 'Je tente rien'
-            // ]);
-
-                if(in_array($p,$combatPages,false)==true ){
+            if(in_array($p,$combatPages,false)==true ){
                 //    dd($p,$combatPages);
                     return [
                         'hero'=> $hero,

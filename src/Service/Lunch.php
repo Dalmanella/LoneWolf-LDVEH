@@ -36,8 +36,7 @@ class Lunch {
                         $mealCountStart+= 1;
                         
                     };
-                };
-               
+                };               
                
                 
                 if($mealCountStart == 0 && $hero[0]->isLunchClick() == 0){ 
@@ -47,31 +46,9 @@ class Lunch {
                     
                     $lunch= $hero[0]->setLunchClick(1);            // et on valide le dejeuner
                     $this->entityManager->flush($lunch); 
-                   
-
-                }elseif($mealCountStart > 0 && $hero[0]->isLunchClick() == 0) {                                          // Si des repas sont présents
-                   
-                    $mealCount=0; 
-                    
-                    for($i=0; $i < count($items); $i++ ){   
-                        
-                        if($items[$i]->getObjType() == "meal"){ // on compte les  repas restants dans l'inventaire
-                            $mealCount+= 1;
-                        };
-                    };
-                    
-                   
-                    if($mealCount<$mealCountStart){             // on verifie qu'un repas a bien été pris
-                       
-                        $lunch= $hero[0]->setLunchClick(1);  
-                        $this->entityManager->persist($lunch);           // on valide le dejeuner
-                        $this->entityManager->flush($lunch); 
-                       
-                    }
+                
                 }
-            } else{                                              // si competence chasse on valide le déjeuner
-                $lunch= $hero[0]->setLunchClick(1);             
-                $this->entityManager->flush($lunch); 
+           
             }
 
             $isLunch = $hero[0]->isLunchClick();
