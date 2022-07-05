@@ -357,7 +357,7 @@ class pageController extends AbstractController
               
             //mémoriser la page:
                 $page=$hero[0]->setPage($p);
-                $this->entityManager->flush($page);           
+                $this->entityManager->flush($page);       
             
             //Manger ou pas            
                 $askLunch = null;
@@ -488,7 +488,7 @@ class pageController extends AbstractController
                                 $this->entityManager->flush();
                             }
                         }
-
+                    
                 //stockage des pages visitées    
                     $pagesVues=[];
                     array_push($pagesVues, $p);

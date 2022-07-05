@@ -7,17 +7,21 @@
 {% endblock %}
 
 {% block body %}
-<div class="text-align-center">
+<div class="d-block row justify-content-start mt-3 px-0 " id="menuList">
 <!-- Options toujours présentes -->
-    <a class="d-flex text-decoration-none mt-3 justify-content-center" href="{{ path('appli')}}">
-        <div class="col-3 mt-3 "><img class="img-fluid icone" src="{{ asset ('assets/img/ico-openbook.png') }}"/></div>
-        <p class="display-4 mt-5">Infos sur l'appli</p>
+    <a class="d-flex text-decoration-none my-5 justify-content-center" href="{{ path('appli')}}">
+        <div class="">
+            <img class="img-fluid icone" src="{{ asset ('assets/img/ico-openbook.png') }}"/>
+            <p class="display-6 ">Infos</p>
+        </div>
     </a>
     
 
-    <a class="d-flex text-decoration-none mt-3 justify-content-center" href="{{ path('Auteur')}}">
-        <div class="col-3  "><img class="img-fluid icone" src="{{ asset ('assets/img/ico-quill.png') }}"/></div>
-        <p class="display-4  mt-5" >La développeuse </p>
+    <a class="d-flex text-decoration-none mt-5 mb-2 justify-content-center" href="{{ path('Auteur')}}">
+        <div class="">
+            <img class="img-fluid icone" src="{{ asset ('assets/img/ico-quill.png') }}"/>
+            <p class="display-6" >La développeuse </p>
+        </div>
     </a>
 
 
@@ -26,6 +30,6 @@
             <img style="width:100px;" src="{{ asset ('assets/img/ArrowL.png') }}" />
         </a>
     </div>
-    </br></br>
+    </br>
 </div>
 {% endblock %}

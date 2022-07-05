@@ -9,7 +9,7 @@
 {% block body %}
 
 <h2 class="mt-5 mb-3 "> Your Lonewolf heroes </h2>
-<div class="mt-1 text-center">
+<div class="container-fluid mt-1 d-flex justify-content-center">
   <table class="table table-striped ">
     <thead>
       <tr>
@@ -31,6 +31,9 @@
         <td>{% if hero.endurance > 0 %}
           {# concatenation de page_ et du dernier numero de page visitée #}
           {% set p = "page_" ~ hero.page %}
+          {% if hero.page == null %}
+            {% set p = "page_intro" %}
+          {% endif %}
           <a 
             class="btn" 
             id="new_adventure_validation" 

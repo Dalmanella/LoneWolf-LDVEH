@@ -66,11 +66,21 @@ header{
   }
 
   .icone {
-    max-width:100px;
-    max-height: 100px;
+    max-width:51px;
+    max-height: 51px;
   }
   
   .icone:hover{
+    max-width: 105px;
+    max-height: 110px;
+  }
+  
+  .ico-map {
+    max-width: 75px;
+    max-height: 75px;
+  }
+  
+  .ico-map:hover{
     max-width: 105px;
     max-height: 110px;
   }

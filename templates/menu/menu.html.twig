@@ -13,10 +13,10 @@
             if (id_hero){ affichage option } -->
         {% if heroes %}  
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('continue') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-openbook.png') }}" /><p>Continuer</p></button> #}
-        <a class="d-flex text-decoration-none mt-3 justify-content-center" onclick="document.location=`{{ path('continue') }}`">
-            <div class="col-3 mt-3 ">
+        <a class="d-flex text-decoration-none mt-2 justify-content-center" onclick="document.location=`{{ path('continue') }}`">
+            <div class="">
                 <img class="img-fluid icone" src="{{ asset ('assets/img/ico-openbook.png') }}"/>
-                <p class="display-4 mt-1">Continuer</p>
+                <p class="display-6">Continuer</p>
             </div>
             
         </a>
@@ -25,44 +25,44 @@
         <!-- Options toujours présentes -->
          {% if heroesNum < 3 %}   
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('nouvelle') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-books.png') }}" /><p>Nouvelle Aventure</p></button> #}
-        <a class="d-flex text-decoration-none mt-3 justify-content-center" onclick="document.location=`{{ path('nouvelle') }}`">
-            <div class="col-3 mt-3 ">
+        <a class="d-flex text-decoration-none mt-2 justify-content-center" onclick="document.location=`{{ path('nouvelle') }}`">
+            <div class="">
                 <img class="img-fluid icone" src="{{ asset ('assets/img/ico-books.png') }}" />
-                <p class="display-4 mt-1">Nouvelle Aventure</p>
+                <p class="display-6">Nouvelle Aventure</p>
             </div>
             
         </a>
         {% endif %}
 
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('A_propos') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-quill.png') }}" /><p>A Propos</p></button> #}
-        <a class="d-flex text-decoration-none mt-3 justify-content-center" onclick="document.location=`{{ path('A_propos') }}`">
-            <div class="col-3 mt-3 ">
+        <a class="d-flex text-decoration-none mt-2 justify-content-center" onclick="document.location=`{{ path('A_propos') }}`">
+            <div class="">
                 <img class="img-fluid icone" src="{{ asset ('assets/img/ico-quill.png') }}" />
-                <p class="display-4 mt-1">A Propos</p>
+                <p class="display-6">A Propos</p>
             </div>
             
         </a>
 
         <!-- Pour gerer la musique -->
-            <a class="d-flex text-decoration-none mt-3 justify-content-center" href="{{ path('music')}}" target="_blank">
-            <div class="col-3 mt-3 ">
+            <a class="d-flex text-decoration-none mt-2 justify-content-center" href="{{ path('music')}}" target="_blank">
+            <div class="">
                 <img class="img-fluid icone" src="{{ asset ('assets/img/music.png') }}" />
-                <p class="display-4 mt-1">Musique</p>
+                <p class="display-6">Musique</p>
             </div>
             
         </a>
 
             {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('test') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-gear.png') }}" /><p>Tests</p></button> #}
-        {# <a class="d-flex text-decoration-none mt-3 justify-content-center" onclick="document.location=`{{ path('test') }}`">
-            <div class="col-3 mt-3 ">
+        {# <a class="d-flex text-decoration-none mt-2 justify-content-center" onclick="document.location=`{{ path('test') }}`">
+            <div class="">
                 <img class="img-fluid icone" src="{{ asset ('assets/img/ico-gear.png') }}" />
-                <p class="display-4 mt-1">Param</p>
+                <p class="display-6">Param</p>
             </div>
             
         </a> #}
 
         
-        </br></br>
+        </br>
     </div>
 {% endblock %}
 {% block footer %}

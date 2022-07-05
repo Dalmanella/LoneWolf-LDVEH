@@ -103,8 +103,8 @@
     {%  if infoHero.backpack is same as 1 %} 
         {# ouvrir l'inventaire #}
                 <!-- Bouton lance popup -->
-                <button type="button" id="ico-inv" class="btn-disciplines fs-2 " data-bs-toggle="modal" data-bs-target="#inventaire">
-                    <img class=" img-fluid " style="max-width:80px;" src="{{ asset ('assets/img/ico-backpack.png') }}" />
+                <button type="button" id="ico-inv" class="btn-disciplines fs-2" data-bs-toggle="modal" data-bs-target="#inventaire">
+                    <img class=" img-fluid  icone" style="max-width:80px;" src="{{ asset ('assets/img/ico-backpack.png') }}" />
                     <div> {{bpItemsCount}}/8 </div> 
                 </button>
                           
@@ -112,17 +112,17 @@
             <div class="modal fade" id="inventaire" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="inventaireLabel" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen ">
                     <div class="modal-content  ">
-                        <div class="modal-header">
+                        <div class="modal-header justify-content-evenly">
                             <h2 class="modal-title" id="inventaireLabel" style="font-family:'Dr Sugiyama', cursive;">Inventaire</h2>
                             <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                                 <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
                             </button>
                         </div>
-                        <div class="modal-body overflow-y ">
+                        <div class="modal-body ">
                             {# <p class="fs-2" style="font-family: 'La Belle Aurore', cursive;"> Bientôt, ici se trouvera votre inventaire. </p>#}
-                            <div class="d-flex flex-column flex-lg-row ">
+                            <div class="container-fluid ">
                             <!-- Affichage du sac à dos -->
-                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column align-self-start">
                                     <h2 class="mt-1">Backpack {{bpItemsCount}}/8</h2>
                                     <table class="table table-striped">
                                         <thead>
@@ -178,7 +178,7 @@
                                     </table> 
                                 </div>
                             <!-- Affichage de l'armement -->
-                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column align-self-start">
                                             <h2 class="mt-1">Weapons {{handItemCount}}/2</h2>
                                             <table class="table table-striped ">
                                                 <thead>
@@ -211,7 +211,7 @@
                                             </table>
                                 </div>       
                             <!-- Affichage des objets spéciaux -->
-                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column">
+                                <div class="mb-3 mx-2 d-flex justify-content-center flex-column align-self-start">
                                                 <h2 class="mt-1"> Special item</h2>
                                                 <table class="table table-striped">
                                                     <thead>
@@ -243,13 +243,17 @@
     {% endif %}
         {# ouvrir la carte du monde #}
                 <!-- Bouton lance popup -->
-                <button type="button" id="ico-map" class="btn-disciplines fs-3" data-bs-toggle="modal" data-bs-target="#carteMonde"> <img class="me-3 img-fluid" style="width:100px;" src="{{ asset ('assets/img/ico-map.png') }}" /> </button>
+                <button type="button" id="ico-map" class="btn-disciplines fs-3" data-bs-toggle="modal" data-bs-target="#carteMonde">
+                    <img 
+                    class="me-3 img-fluid ico-map" 
+                    src="{{ asset ('assets/img/ico-map.png') }}" /> 
+                </button>
                 <!-- Button trigger modal -->
         <!-- popup de la map en fullscreen -->
             <div class="modal fade" id="carteMonde" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="carteMondeLabel" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen ">
                     <div class="modal-content  ">
-                        <div class="modal-header">
+                        <div class="modal-header justify-content-evenly">
                             <h2 class="modal-title" id="carteMondeLabel" style="font-family:'Dr Sugiyama', cursive;">Magnamund map</h2>
                             <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
                                 <img class="" style="width:36px;" src="{{ asset ('assets/img/cross-ico.png') }}" /> 
