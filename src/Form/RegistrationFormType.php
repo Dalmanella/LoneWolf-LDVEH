@@ -29,7 +29,7 @@ class RegistrationFormType extends AbstractType
             //     ],
             // ])
 
-            ->add('email', EmailType::class,['label'=> "E-mail",'attr'=>['placeholder'=>'Votre e-mail','class'=>"rounded"]])
+            // ->add('email', EmailType::class,['label'=> "E-mail",'attr'=>['placeholder'=>'Votre e-mail','class'=>"rounded"]])
 
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
