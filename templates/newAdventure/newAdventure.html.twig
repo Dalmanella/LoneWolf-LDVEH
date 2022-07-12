@@ -10,11 +10,10 @@
 
 {# {{form(heroForm)}} #}
 {{form_start(heroForm)}}
-{# <form  name="new_adventure" action="{{ path('page_intro') }}" method="post" class="text-align-center p-0 m-0">  #}
+
     {# nom du hero #}
     <div class="text-align-center mt-1">
-        {# <label for="hero">Votre héros</label> 
-        <input class="fs-3" type="text" id="hero" name="hero" placeholder="Nom"/> #}
+       
         {{form_label(heroForm.name)}}
         {{ form_widget(heroForm.name) }}
         
@@ -118,7 +117,7 @@
 
       
   </div>
-{# <input  id="comptage" name="comptage" type="text"> </input>  #}
+
 {# bouton validation #}    
     <div class="validation_bouton " id="validation_bouton" style="display:none;">
        

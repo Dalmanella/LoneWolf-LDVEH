@@ -11,7 +11,7 @@
 
     {{ form_start(inscriptionForm) }}
         {{ form_row(inscriptionForm.pseudo) }}
-        {{ form_row(inscriptionForm.email) }}
+        {# {{ form_row(inscriptionForm.email) }} #}
         {{ form_row(inscriptionForm.plainPassword, {label: 'Password'}) }}
        
 
@@ -20,5 +20,11 @@
 
     <a href="{{ path('accueil') }}" class="text-info mt-4 mb-3 fs-4 ">Connexion</a>
 
+{% endblock %}
+{% block footer %}
+    <div class="sticky-bottom">
+            <img style="width:70px;" src="{{ asset ('assets/img/decoBas.png') }}" />
+            </br></br>
+    </div>
 {% endblock %}
 
