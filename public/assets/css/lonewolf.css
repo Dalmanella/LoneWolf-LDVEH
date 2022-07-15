@@ -4,12 +4,13 @@
     font-family: 'Nanum Brush Script', cursive; 
 */
 body{
-  width:70% !important;
+  width:100% !important;
   box-sizing: border-box;
   padding:0 !important;
 }
 body div{
   padding:0;
+  
 }
 
 header{
@@ -18,7 +19,7 @@ header{
 
 .symbol{
     font-family: 'Dr Sugiyama', cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .majuscules{
     font-family:'Dr Sugiyama', cursive;
@@ -35,7 +36,23 @@ header{
   .connexion{
     font-size: 6vw;
   }
-  
+
+  #menuList{
+    width: 75%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+
+  @media (min-width: 1000px) {
+    #menuList{
+      height: 300px;
+      flex-direction: row;
+      flex-wrap:nowrap;
+    }
+  }
+
   #menuList a{
       cursor: pointer;
   }
@@ -66,18 +83,18 @@ header{
   }
 
   .icone {
-    max-width:51px;
-    max-height: 51px;
+    max-width:100px;
+    max-height: 100px;
   }
   
   .icone:hover{
-    max-width: 105px;
-    max-height: 110px;
+    max-width: 120px;
+    max-height: 135px;
   }
   
   .ico-map {
-    max-width: 75px;
-    max-height: 75px;
+    max-width: 150px;
+    max-height: 150px;
   }
   
   .ico-map:hover{
@@ -137,21 +154,35 @@ header{
   .table{
     /* width:100% !important; */
     align-self: center;
-    max-width: 50%;
+    max-width: 80%;
   }
   .table tr{
     border-top-color:#693B11 ;
     border-bottom-color:#693B11;
     background-color: rgba(253, 253, 245, 0.685);
     color:#693B11 !important;
-    font-size:1.3rem;
+    padding:4px !important;
+    margin:4px !important;
+    font-size:2rem;
   }
 
   .table td{
     font-family: 'Nanum Brush Script', cursive; 
-    font-size:1.3rem;
+    padding:4px  !important;
+    margin:4px !important;
+    font-size:2rem;
   }
   
+  .combat-data p{
+    font-size:3rem;
+  }
+  
+  @media (min-width: 1000px) {
+    .combat-data p{
+      font-size:2.5rem;
+      margin-bottom:5px;
+    }
+  }
   
   .btn-heroDelete img{
     background-color: rgba(161, 4, 4, 0.781);    
@@ -174,7 +205,7 @@ header{
   }
 
   .btn-musique{
-    height:50px; 
+    height:80px; 
     margin-bottom: 5vw;
 
   }

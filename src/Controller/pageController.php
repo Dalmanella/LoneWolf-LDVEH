@@ -87,13 +87,15 @@ class pageController extends AbstractController
                 $CS = $CS + $circonstance;
                     
             // Calcul du Combat Ratio
-                $CR = $CS - $ennemy[0]->getCombatSkill();
+                $ennemyCS =$ennemy[0]->getCombatSkill();
+                $CR = $CS - $ennemyCS;
            
             return [
                 'fightId'=> $fightId,
                 'CR' => $CR,
                 "CS"=> $CS,
-                'ennemy'=> $ennemy                   
+                'ennemy'=> $ennemy,
+                'ennemyCS'=> $ennemyCS                  
             ];
         }
 
@@ -741,6 +743,8 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
+           
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -755,6 +759,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -927,7 +932,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -942,6 +947,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -1179,7 +1185,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -1365,7 +1371,7 @@ class pageController extends AbstractController
                 $circonstance = 4;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -1502,7 +1508,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -1518,6 +1524,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -1651,7 +1658,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -1667,6 +1674,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2210,7 +2218,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -2226,6 +2234,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2252,6 +2261,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -2267,6 +2277,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2559,7 +2570,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -2575,6 +2586,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2627,6 +2639,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -2641,6 +2654,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2667,6 +2681,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -2681,6 +2696,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -2720,6 +2736,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -2734,6 +2751,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }        
@@ -2759,6 +2777,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+            $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -2773,6 +2792,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3239,6 +3259,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3280,6 +3301,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3416,7 +3438,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -3431,6 +3453,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3457,7 +3480,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -3472,6 +3495,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3498,7 +3522,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -3513,6 +3537,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3703,7 +3728,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -3718,6 +3743,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -3937,7 +3963,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -3952,6 +3978,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4111,7 +4138,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4126,6 +4153,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4227,7 +4255,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4242,6 +4270,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4280,7 +4309,7 @@ class pageController extends AbstractController
                 $circonstance = -1;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4295,6 +4324,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4335,7 +4365,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4350,6 +4380,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4546,7 +4577,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4561,6 +4592,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4662,7 +4694,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4677,6 +4709,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4703,7 +4736,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4718,6 +4751,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4744,7 +4778,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4759,6 +4793,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4785,7 +4820,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4800,6 +4835,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4838,7 +4874,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4853,6 +4889,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4927,7 +4964,7 @@ class pageController extends AbstractController
                 $circonstance = -4;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4942,6 +4979,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -4968,7 +5006,7 @@ class pageController extends AbstractController
                 $circonstance = -4;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -4983,6 +5021,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -5285,7 +5324,7 @@ class pageController extends AbstractController
                 
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -5300,6 +5339,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -5965,7 +6005,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -5980,6 +6020,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -6006,7 +6047,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -6021,6 +6062,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -6071,7 +6113,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -6086,6 +6128,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }
@@ -6112,7 +6155,7 @@ class pageController extends AbstractController
                 $circonstance = 0;
 
                 $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                $ennemyCS = $baston["ennemyCS"];
                 $CR = $baston["CR"];
                 $CS = $baston["CS"];
                 $fightId = $baston["fightId"];
@@ -6127,6 +6170,7 @@ class pageController extends AbstractController
                 'ennemy'=>$ennemy,
                 "CS"=>$CS,
                 "CR"=>$CR,
+                "ennemyCS"=>$ennemyCS,
                 'fightId'=>$fightId,
             ]);
         }    
@@ -6166,6 +6210,7 @@ class pageController extends AbstractController
 
             $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
 
+        $ennemyCS = $baston["ennemyCS"];
             $CR = $baston["CR"];
             $CS = $baston["CS"];
             $fightId = $baston["fightId"];
@@ -6334,7 +6379,8 @@ class pageController extends AbstractController
 
         //L'ennemi
         $ennemy= $this->entityManager->getRepository(Ennemy::class)->findById($ennemyId);
-        
+       
+        $ennemyCS = $ennemy[0]->getCombatSkill();
         
         //le combat
         $fight=$this->entityManager->getRepository(CombatEnd::class)->findById($fightId);
@@ -6387,6 +6433,7 @@ class pageController extends AbstractController
         "pageOrigine"=>$pageOrigine,
         'items'=>$items,
         'ennemy'=>$ennemy,
+        'ennemyCS'=>$ennemyCS,
         "ennemyId"=>$ennemyId,
         'ennemyName'=>$ennemyName,
         "CR"=>$CR,

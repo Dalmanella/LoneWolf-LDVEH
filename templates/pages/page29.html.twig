@@ -29,11 +29,11 @@
         </br>He is upon you and you must fight him.
         {% for infoHero in hero %}
             {% if infoHero.kaiMShield == 0 %}
-                </br>2 points are deduct from your <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL</span> unless you have the Kai Discipline of Mindshield, for the creature is attacking you with its Mindforce as well as with a huge black mace.
+                </br>2 points are deduct from your <span style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL</span> unless you have the Kai Discipline of Mindshield, for the creature is attacking you with its Mindforce as well as with a huge black mace.
             {% endif %}
         {% endfor %}
 </br>
-Vordak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
+Vordak: <span style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
 
     </p>
     </br>
@@ -46,10 +46,10 @@ Vordak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">C
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div -block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
     
         <a 
-            class="btn btn-disciplines fs-1"
+            n-disciplines fs-1"
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
@@ -60,7 +60,7 @@ Vordak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">C
         
         {% if end == 0 %}
                 <p>
-                    <a class="col-12 mt-5 skull" href="
+                    <a  mt-5 skull" href="
                          {{ path('page_351', {'heroId':heroId }) }}  
                         ">You died.
                             <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />

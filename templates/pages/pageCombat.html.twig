@@ -18,21 +18,21 @@
        {% set startEndL = combat.startEnd %}
         <div class="fs-2 d-block w-70" style=" font-family: 'Nanum Brush Script', cursive; ">
        </br>
-        <div class="">
+        <div class="combat-data mb-3" >
             <h2> Fight for your life </h2>
            {# combat: {{fightId}} | combat skill{{CS}} #}
                           </br>
-                        <div class='d-flex justify-content-between'>
-                            <div class="text-success">
-                                <h3 > {{infoHero.name}}</h3>
-                                <h3>Endurance {{combat.endL}}</h3>
-                                {# <h3 > Combat Skill {{CS}}  </h3> #}
+                        <div class='d-flex justify-content-evenly' >
+                            <div class="text-success" >
+                                <p class="fw-bold text-uppercase" > {{infoHero.name}}</p>
+                                <p>Endurance {{combat.endL}}</p>
+                                <p > Combat Skill {{CS}}  </p>
                             </div>
                                                     
                             <div class="text-danger">
-                                <h3 > {{ennemyName}}</h3>
-                                <h3 > Endurance {{combat.endE}} </h3>
-                                {# <h3 > Combat Skill  {{ennemyCS}} </h3> #}
+                                <p class="fw-bold text-uppercase"> {{ennemyName}}</p>
+                                <p > Endurance {{combat.endE}} </p>
+                                <p > Combat Skill  {{ennemyCS}} </p> 
                             </div>
                         </div>
                     

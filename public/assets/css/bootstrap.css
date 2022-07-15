@@ -60,7 +60,8 @@
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   /* --bs-body-font-family: var(--bs-font-sans-serif); */
   --bs-body-font-family: 'La Belle Aurore', cursive;
-  --bs-body-font-size: 1.3rem;
+  --bs-body-font-size: 2rem;
+  /* --bs-body-font-size: 1.3rem; */
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #222;
@@ -94,7 +95,7 @@ body {
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   background-image: url("../img/bckg2_h.png");
-  background-size: 200%;
+  background-size: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -137,12 +138,12 @@ h1, .h1 {
 h2, .h2 {
   font-family: 'La Belle Aurore', cursive;
   /* font-size: calc(1.325rem + 0.9vw); */
-  font-size: calc(1.8rem + 0.9vw);
+  font-size: calc(2rem + 1vw);
 }
 
 @media (min-width: 1200px) {
   h2, .h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
@@ -177,6 +178,7 @@ h6, .h6 {
 }
 
 p {
+  font-size: 2.2rem;
   margin-top: 0;
   margin-bottom: 1rem;
 }
