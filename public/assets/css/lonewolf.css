@@ -36,6 +36,15 @@ header{
   .connexion{
     font-size: 6vw;
   }
+  label{
+    margin-top:100px;
+  }
+  input{
+    height:110px;
+    width: 60%;
+    margin-bottom:100px;
+    
+  }
 
   #menuList{
     width: 75%;   
