@@ -39,17 +39,17 @@
         You may take the Sword if you wish.
         
         <a 
-            class="btn btn-disciplines rounded-circle"             
+            class="btn btn-disciplines rounded-circle d-flex mx-auto"             
             href="{{ path( "objAdd", {'itemId':18,'p':p, 'heroId':heroId} ) }}"  
         >  
             <img 
-                    style="width:100px; "
+                    class="fleches"
                     src="{{ asset ('assets/img/item-sword1.png') }}"
                     alt="a sword" />      
         </a>
     {% endif %}    
 {% endif %}
-    </br></br>
+    </br>
         There are three exits from the clearing.
     </p>
     </br>
@@ -58,7 +58,7 @@
             <a class="col-12 mt-5" href="
              {{ path('page_207', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
                 {# turn to 207.  #}
         </p>
@@ -67,7 +67,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_201', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 201. #}
         </p>
@@ -76,7 +76,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_35', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 35. #}
     </p>

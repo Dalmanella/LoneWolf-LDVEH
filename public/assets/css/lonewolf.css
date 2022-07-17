@@ -3,6 +3,8 @@
     font-family: 'La Belle Aurore', cursive;
     font-family: 'Nanum Brush Script', cursive; 
 */
+
+
 body{
   width:100% !important;
   box-sizing: border-box;
@@ -13,13 +15,17 @@ body div{
   
 }
 
+.nanum{
+  font-family: 'Nanum Brush Script', cursive;
+}
+
 header{
   box-sizing: border-box;
 }
 
 .symbol{
     font-family: 'Dr Sugiyama', cursive;
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
   .majuscules{
     font-family:'Dr Sugiyama', cursive;
@@ -32,18 +38,42 @@ header{
   }
   .skill{
     font-family: 'Nanum Brush Script', cursive;
+    font-size:3rem;
   }
+  .rappel-comp{
+    font-size:3rem;
+  }
+  @media (min-width: 1000px) {
+    .skill{
+      font-size:2rem;
+    }
+    .rappel-comp{
+      font-size:1.8rem;
+    }
+  }
+
   .connexion{
     font-size: 6vw;
   }
   label{
     margin-top:100px;
+    font-size:3.5rem;
   }
   input{
     height:110px;
     width: 60%;
-    margin-bottom:100px;
-    
+    margin-bottom:100px;    
+  }
+
+  input[type="checkbox"]{
+  height:70px;
+  width:70px;
+  margin-bottom: 0;
+  }
+
+  .check-label span{
+    margin-left:2vw;
+    font-size:3.5rem;
   }
 
   #menuList{
@@ -76,13 +106,14 @@ header{
   }
 
   .paperRoll img{
-    width:25vw;
-    max-width: 100px;  
+    height:80px;
+    max-width: 200px;  
     color:#693B11;  
   }
 
-  .paperRoll span{
+  .paperRoll p{
     color:#693B11;
+    font-size:3rem;
   }
 
   .paperRoll :hover{
@@ -107,26 +138,63 @@ header{
   }
   
   .ico-map:hover{
-    max-width: 105px;
-    max-height: 110px;
+    max-width: 160px;
+    max-height: 170px;
   }
-  
+  @media (min-width: 1000px) {
+    .ico-map {
+      max-width: 100px;
+      max-height: 100px;
+    }
+    .ico-map:hover{
+      max-width: 105px;
+      max-height: 115px;
+    }
+    .icone {
+      max-width:80px;
+      max-height: 80px;
+    }
+    
+    .icone:hover{
+      max-width: 90px;
+      max-height: 105px;
+    }
+  }
+
+  #rolldice{
+    width:130px;
+    height:130px;
+    font-size:4rem;
+  }
   #combat, #endurance, #gold{
     border-radius:100%;
-    width:51px;
-    height:51px;
-    
+    width:130px;
+    height:130px;
+    font-size:53rem;
+  }
+  .comp p{
+    margin-top:50px;
+    font-size:4.5rem;
   }
   
   #new_adventure_validation{
     background-color: var(--bs-primary); 
     background-image: url("../img/pawprint-brown-ico.png");
+    background-size: 129px;
     background-repeat: no-repeat;
     background-position: center; 
     border-radius: 100%;
-    width:36px;
-    height:36px;
+    width:130px;
+    height:130px;
   }
+  @media (min-width: 1000px) {
+    #new_adventure_validation{
+      background-size: 50px;
+      width:51px;
+      height:51px;
+    }    
+  }
+
   #new_adventure_validation:hover{
     background-color: #915a03;
     border: 2px solid #704501; 
@@ -155,6 +223,25 @@ header{
     width: fit-content;
     box-shadow: 10px 10px 30px 10px inset #693c118f;
   }
+  .btn-luck{
+    
+    height:100px !important;
+    font-size: 3rem;
+  }
+
+  .fleches{
+    width:130px;
+  }
+  @media (min-width: 1000px) {
+    .fleches{
+      width:100px;
+    }
+    .btn-luck{
+      
+      height:80px !important;
+      font-size: 2.5rem;
+    }
+  }
 
   .ruinSearch{
     text-decoration-line: none !important;
@@ -163,8 +250,10 @@ header{
   .table{
     /* width:100% !important; */
     align-self: center;
-    max-width: 80%;
+    max-width: 90%;
+    margin-bottom: 10vw;
   }
+
   .table tr{
     border-top-color:#693B11 ;
     border-bottom-color:#693B11;
@@ -172,18 +261,35 @@ header{
     color:#693B11 !important;
     padding:4px !important;
     margin:4px !important;
-    font-size:2rem;
+    font-size:3.5rem;
   }
 
   .table td{
     font-family: 'Nanum Brush Script', cursive; 
     padding:4px  !important;
     margin:4px !important;
-    font-size:2rem;
+    font-size:3.5rem;
+  }
+  @media (min-width: 1000px) {
+    .table{
+      /* width:100% !important; */
+      align-self: center;
+      max-width: 70%;
+      margin-bottom: 10vw;
+    }
+    .table tr{
+      font-size:2rem;
+    }
+    .table td{
+      font-size:2rem;
+    }
   }
   
   .combat-data p{
     font-size:3rem;
+  }
+  #combattre{
+    font-size:4rem !important;
   }
   
   @media (min-width: 1000px) {
@@ -191,11 +297,22 @@ header{
       font-size:2.5rem;
       margin-bottom:5px;
     }
+    #combattre{
+      font-size:3rem !important;
+    }
   }
   
   .btn-heroDelete img{
     background-color: rgba(161, 4, 4, 0.781);    
+    width:130px;
+    height:130px;
     border-radius: 100%;
+  }
+  @media (min-width: 1000px) {
+    .btn-heroDelete img{
+      width:70px;
+      height:70px
+    }
   }
 
  .btn-heroDelete :hover{
@@ -217,4 +334,25 @@ header{
     height:80px; 
     margin-bottom: 5vw;
 
+  }
+  .illustration{
+    width:50%;
+    height:auto;
+  }
+  .illustrationG{
+    width:80%;
+    height:auto;
+  }
+  @media (min-width: 1000px) {
+    .logo{
+      width:100px;
+    }
+    .illustration {
+      width:auto;
+      height:auto;
+    }
+    .illustrationG{
+      width:35%;
+      height:auto;
+    }
   }

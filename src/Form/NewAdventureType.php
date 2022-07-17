@@ -22,11 +22,13 @@ class NewAdventureType extends AbstractType
                 'label'=> "Votre héros", 
                 'attr'=>[
                     'placeholder'=>'Nom',
-                    'class'=>"fs-3"
+                    'style'=>"font-size:5rem;"
                 ]])
             
             ->add('combatSkill', IntegerType::class, [
-                'label'=> "Combat Skill" ])
+                'label'=> "Combat Skill",
+                
+            ])
 
             ->add('endurance', IntegerType::class, [
                 'label'=> "Endurance" ])
@@ -49,7 +51,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Sixth sens", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
                     
                 ]])
@@ -58,7 +60,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Tracking", 
                 'required'=>false,
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount ',
                     'onclick'=>'updateCount();',
                 ]])
             
@@ -66,7 +68,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Healing", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount ',
                     'onclick'=>'updateCount();',
                 ]])
             
@@ -74,7 +76,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Weapon mastery", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2',
+                    'class'=>'kaicount ',
                     'onclick'=>'updateCount(); kaiWeaponCheck();'
                 ]])
 
@@ -82,7 +84,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Mindshield", 
                 'required'=>false,
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
                 ]])
 
@@ -90,35 +92,35 @@ class NewAdventureType extends AbstractType
                 'label'=> "Mindblast", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
                 ]])
             ->add('kaiAnimal',CheckboxType::class, [
                 'label'=> "Animal kinship", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
                 ]])
             ->add('kaiMoM',CheckboxType::class, [
                 'label'=> "Mind over matter", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount check-label',
                     'onclick'=>'updateCount();',
                 ]])
             ->add('kaiCamou',CheckboxType::class, [
                 'label'=> "Camouflage", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
                 ]])
             ->add('kaiHunt',CheckboxType::class, [
                 'label'=> "Hunting", 
                 'required'=>false, 
                 'attr'=>[
-                    'class'=>'kaicount mt-2 mb-0 me-2 ',
+                    'class'=>'kaicount ',
                     'onclick'=>'updateCount();',
             ]])
 

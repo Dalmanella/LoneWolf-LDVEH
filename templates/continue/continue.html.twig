@@ -8,16 +8,16 @@
 
 {% block body %}
 
-<h2 class="mt-5 mb-3 "> Your Lonewolf heroes </h2>
+<h2 class="mt-3 mb-3 "> Your Lonewolf heroes </h2>
 <div class="container-fluid mt-1 d-flex justify-content-center">
   <table class="table table-striped ">
-    <thead>
+    <thead class="nanum">
       <tr>
           <th scope="col">  </th>
           <th scope="col">Hero</th>
-          <th scope="col">Combat Skill</th>
-          <th scope="col">Endurance</th>
-          <th scope="col">Gold</th>
+          <th scope="col">C.S.</th>
+          <th scope="col">End.</th>
+          <th scope="col">Page</th>
           <th scope="col">  </th>
             
       </tr>
@@ -44,7 +44,13 @@
         <th scope="row">{{hero.name}}</th>
         <td>{{hero.combatSkill}}</td>
         <td>{{hero.endurance}}</td>
-        <td>{{hero.gold}}</td>
+        <td>       
+        {% if hero.page == null %}
+            intro
+        {% else %}
+           {{hero.page}}
+        {% endif %}
+        </td>
         <td >
           {# Bouton-SUPPR  #}
           <a 
@@ -52,8 +58,8 @@
             href="{{ path( "heroDel", {'heroId':hero.id} ) }}" 
           >  
             <img 
-            style="width:36px; height:36px"
-             src="{{ asset ('assets/img/ico-skullTrash.png') }}" alt="trash - delete hero" />      
+              src="{{ asset ('assets/img/ico-skullTrash.png') }}" alt="trash - delete hero" 
+            />      
           </a>
         </td>
       </tr>
@@ -76,7 +82,7 @@
 {# retour menu #}
 <div class="mb-5 ">
   <a class="col-8 mt-5" href="{{ path('menu')}}">
-    <img style="width:100px;" src="{{ asset ('assets/img/ArrowL.png') }}" />
+    <img class="fleches" src="{{ asset ('assets/img/ArrowL.png') }}" />
   </a>
   
 </div>

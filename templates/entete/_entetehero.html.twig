@@ -2,7 +2,7 @@
     <div class="d-inline-flex justify-content-between p-0 w-100" >
         <div class="col-2 symbol">
             <a href="{{ path('menu', {'heroId':heroId }) }}">
-            <img class="img-fluid " src="{{ asset ('assets/img/wolf.png') }}" alt="wolf face symbole" />
+            <img class="img-fluid logo " src="{{ asset ('assets/img/wolf.png') }}" alt="wolf face symbole" />
             </a>
             <p class="symbol"> Lone Wolf </p>
         </div>
@@ -22,9 +22,9 @@
                             <td> <p class="carac fs-1">{{infoHero.gold}}</p></td>
                         </tr>
                         <tr >
-                            <td > <h3 class="skill"> Combat Skill </h3> </td>
-                            <td > <h3 class="skill"> Endurance </h3> </td>
-                            <td> <h3 class="skill"> Gold </h3></td>
+                            <td > <p class="skill"> Combat Skill </p> </td>
+                            <td > <p class="skill"> Endurance </p> </td>
+                            <td> <p class="skill"> Gold </p></td>
                         </tr>
                     </tbody>
                 </table>
@@ -33,8 +33,8 @@
     </div>
     <!-- rappel des comp du héros-->
     <div class="d-flex flex-row align-text-top justify-content-center mb-2">
-        <h3 class="m-0 me-2 text-primary" style="font-family: 'La Belle Aurore', cursive; line-height: 1.6;"> Kai disciplines </h3>
-        <div  style="font-family:'Nanum Brush Script', cursive;">
+        <p class="m-0 me-2 text-primary" style="font-family: 'La Belle Aurore', cursive; line-height: 1.6;"> Kai disciplines </p>
+        <div  class="nanum rappel-comp">
             {% if infoHero.kaiCamou %}
                 <span > Camouflage. </span>
             {% endif %}

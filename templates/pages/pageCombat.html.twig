@@ -16,9 +16,9 @@
   
     {% for combat in combats %}  
        {% set startEndL = combat.startEnd %}
-        <div class="fs-2 d-block w-70" style=" font-family: 'Nanum Brush Script', cursive; ">
+        <div class="fs-2 d-block w-70 nanum" >
        </br>
-        <div class="combat-data mb-3" >
+        <div class="combat-data mb-2" >
             <h2> Fight for your life </h2>
            {# combat: {{fightId}} | combat skill{{CS}} #}
                           </br>
@@ -61,8 +61,8 @@
                                             <a  class="btn rounded-circle fs-4" 
                                                 href="{{ path( "objDrink", {'itemId':item.id,'p':p, 'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'pO':pageOrigine} ) }}" 
                                             > 
-                                                <img style="width:100px;" src="{{ asset ('assets/img/item-potion.png') }}" alt="Strength Potion" />
-                                            </br> Drink potion, COMBAT SKILL +2 for the fight.
+                                                <img class="fleches" src="{{ asset ('assets/img/item-potion.png') }}" alt="Strength Potion" />
+                                            </br> Drink potion, COMBAT&#160;SKILL +2 for the fight.
                                             </a>
                                         
                                 </div>
@@ -101,7 +101,7 @@
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351. #}
                 </p>
@@ -222,7 +222,7 @@
         {% endif %}
         
 
-        </br></br>
+        </br>
     </div>
 
     {% endfor %}  

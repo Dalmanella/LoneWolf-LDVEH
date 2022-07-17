@@ -51,9 +51,9 @@
                     href="{{ path( "Add_Backpack", {'p':p, 'heroId':heroId} ) }}"  
                 >  
                     <img 
-                        style="width:80px; "
+                        style="width:90px; "
                         src="{{ asset ('assets/img/ico-backpack.png') }}"
-                        alt="a sword" />      
+                        alt="a backpack" />      
                 </a>
             {% endif %}
     {% endfor %}
@@ -70,9 +70,9 @@
                     href="{{ path( "objAdd", {'itemId':33,'p':p, 'heroId':heroId} ) }}"  
                 >  
                     <img 
-                        style="width:80px; "
+                        class="fleches"
                         src="{{ asset ('assets/img/item-food.png') }}"
-                        alt="a sword" />      
+                        alt="a meal" />      
                 </a>
             {% endif %} 
         {% endif %}
@@ -88,9 +88,9 @@
                     href="{{ path( "objAdd", {'itemId':34,'p':p, 'heroId':heroId} ) }}"  
                 >  
                     <img 
-                    style="width:80px; "
+                    class="fleches"
                     src="{{ asset ('assets/img/item-food.png') }}"
-                    alt="a sword" />      
+                    alt="a meal" />      
                 </a>
             {% endif %} 
         {% endif %}
@@ -107,9 +107,9 @@
                     href="{{ path( "objAdd", {'itemId':13,'p':p, 'heroId':heroId} ) }}"  
                 >  
                     <img 
-                    style="width:80px; "
+                    class="fleches"
                     src="{{ asset ('assets/img/item-dagger.png') }}"
-                    alt="a sword" />      
+                    alt="a dagger" />      
                 </a>
             {% endif %}
         {% endif %}
@@ -124,7 +124,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_273', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 273. #}
     </p>

@@ -44,7 +44,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_189', {'heroId':heroId }) }}
                 ">
-                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                 </a> 
                 {# turn to 189.  #}
             </p>
@@ -54,7 +54,7 @@
             <button 
                 type="button" 
                 id="btn-luck2" 
-                class="btn btn-primary" 
+                class="btn btn-primary btn-luck" 
                 onclick="randomLuck()"
             >Luck</button>
             
@@ -63,14 +63,14 @@
                         <a class="col-12 mt-5" href="
                          {{ path('page_189', {'heroId':heroId }) }} 
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                         </a> 
                         {# turn to 189.  #}
                 </p>
             </div> 
             <div id="luck2-f" style="display:none;">   
                     <p>The mud engulfs you up to your armpits. Your horse gives one last despairing scream as its muzzle disappears into the bubbling mud. </p>
-                        <button type="button" id="btn-last-chance" class="btn btn-primary" onclick="randomLast()">Last Chance</button>
+                        <button type="button" id="btn-last-chance" class="btn btn-primary btn-luck" onclick="randomLast()">Last Chance</button>
             </div>
                         
             <div id="last-chance-s" style="display:none;">             
@@ -78,7 +78,7 @@
                     <a class="col-12 mt-5" href="
                      {{ path('page_25', {'heroId':heroId }) }} 
                     ">
-                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                     {#  turn to 25. #}
                 </p>
@@ -88,7 +88,7 @@
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }}
                     ">
-                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                     {# turn to 351.  #}
                 </p>
