@@ -40,6 +40,8 @@
 
     <div class="d-block  text-center nanum" >
     
+         <div class="d-block  text-center nanum" >
+    
         <a 
             class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
@@ -50,7 +52,7 @@
         
       
         
-        {% if end == 0 %}
+        {% if end < 1 %}
                 <p>
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
