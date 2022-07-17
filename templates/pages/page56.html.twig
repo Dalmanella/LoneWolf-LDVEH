@@ -21,7 +21,7 @@
 
 <div>
     <div class="d-flex justify-content-center mb-5">
-        <img src="{{ asset ('assets/img/sillu22.png') }}" alt="a Kraan flying above" />
+        <img class="illustration" src="{{ asset ('assets/img/sillu22.png') }}" alt="a Kraan flying above" />
     </div>
     <p>
         You hear the scream of a large winged beast above the trees. It is a Kraan, a deadly servant of the Darklords. Quickly you hide beneath the thick fronds of fern until the horrible shrieks have passed away.
@@ -29,12 +29,12 @@
     </br>
     {% for infoHero in hero %}
     
-    </br>
+    
     <p>
         <a class="col-12 mt-5" href="
             {{ path('page_222', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 222. #}
     </p>

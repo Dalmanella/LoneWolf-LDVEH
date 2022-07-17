@@ -26,21 +26,21 @@
 <div>
     <!--Illustration III -->
     <div class="d-flex justify-content-center mb-5">
-        <img src="{{ asset ('assets/img/ill3.png') }}" alt="A terrible apparition in red robes swoops down from the sky on the back of a Kraan." />
+        <img class="illustrationG" src="{{ asset ('assets/img/ill3.png') }}" alt="A terrible apparition in red robes swoops down from the sky on the back of a Kraan." />
     </div>
     <p>
         Without warning, a terrible apparition in red robes swoops down from the sky on the back of a Kraan. Its cry freezes your blood. The beast is a Vordak, a fierce lieutenant of the Darklords. 
         </br>
         He is above you and you must fight him. 
         </br>
-        2 points are deduct from your <span style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL</span> unless you have the Kai Discipline of Mindshield, for the creature is attacking you with its Mindforce as well as with a huge black mace.
+        2 points are deduct from your <span class="nanum">COMBAT SKILL</span> unless you have the Kai Discipline of Mindshield, for the creature is attacking you with its Mindforce as well as with a huge black mace.
         </br>
-        Vordak: <span style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
+        Vordak: <span class="nanum">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
     </p>
-    </br>
+   
     {# {{dump(_context|keys)}} #}
     
-    <span style="font-family: 'Nanum Brush Script', cursive;">{% for infoHero in hero %}</span>
+   {% for infoHero in hero %}
      
       
     {% for ennemyInfo in ennemy %} 
@@ -52,24 +52,23 @@
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div class="d-block  text-center nanum">
     
         <a 
-            class="btn btn-disciplines fs-1"
+            class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
         >combattre</a>
-        </br>
+        </br></br>
         
-        </br>
         
         {% if end == 0 %}
                 <p>
                     <a class="col-12 mt-5 skull" href="
                          {{ path('page_351', {'heroId':heroId }) }} 
                         ">You died
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
                 </p>
