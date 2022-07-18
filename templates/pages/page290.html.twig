@@ -30,7 +30,7 @@
 <div>
     <!--Illustration -->
         <div class="d-flex justify-content-center mb-5">
-            <img src="{{ asset ('assets/img/sillu29.png') }}" alt="a Quarterstaff wrapped in leather inside a long box." />
+            <img class="illustration" src="{{ asset ('assets/img/sillu29.png') }}" alt="a Quarterstaff wrapped in leather inside a long box." />
         </div>
     <p>
         Inside the long box is a Quarterstaff wrapped in leather. 
@@ -48,7 +48,7 @@
                         href="{{ path( "objAdd", {'itemId':21,'p':p, 'heroId':heroId} ) }}"  
                     >  
                         <img 
-                        style="width:80px; "
+                        class="fleches"
                         src="{{ asset ('assets/img/item-quarterstaff.png') }}"
                         alt="a staff" />      
                     </a>
@@ -65,7 +65,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_140', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 140. #}
     </p>

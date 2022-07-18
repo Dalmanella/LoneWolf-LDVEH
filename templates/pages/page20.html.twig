@@ -44,14 +44,14 @@
         </br>You can take these items: 
     {% for infoHero in hero %}
             {% if infoHero.backpack == 0 %}
-                </br>
+                </br></br>
                 Take the backpack.
                 <a 
                     class="btn btn-disciplines rounded-circle"             
                     href="{{ path( "Add_Backpack", {'p':p, 'heroId':heroId} ) }}"  
                 >  
                     <img 
-                        style="width:90px; "
+                        class="fleches"
                         src="{{ asset ('assets/img/ico-backpack.png') }}"
                         alt="a backpack" />      
                 </a>

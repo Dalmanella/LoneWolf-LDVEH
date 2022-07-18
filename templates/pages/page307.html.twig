@@ -31,9 +31,9 @@
     {% endfor %}
 
 <div>
-    <!--Illustration -->
+    <!--Illustration XVII -->
     <div class="d-flex justify-content-center mb-5">
-        <img src="{{ asset ('assets/img/ill17.png') }}" alt="Pushing open the treehouse door, you see an old hermit huddled in the corner of the small cabin." />
+        <img class="illustrationG" src="{{ asset ('assets/img/ill17.png') }}" alt="Pushing open the treehouse door, you see an old hermit huddled in the corner of the small cabin." />
     </div>
     <p>
         Your climb is swift and easy. It reminds you of the many trees that you climbed and explored near Toran as a child, when you wanted to pick fruit or to look out over the beautiful countryside of Sommerlund.
@@ -56,7 +56,7 @@
                             href="{{ path( "objAdd", {'itemId':10,'p':p, 'heroId':heroId} ) }}"  
                         >  
                             <img 
-                                style="width:80px; "
+                                class="fleches"
                                 src="{{ asset ('assets/img/item-food.png') }}"
                                 alt="a meal" />      
                         </a>
@@ -77,7 +77,7 @@
                         {# ouvrir l'armement #}
                     <!-- Bouton lance popup -->
                         <button type="button" id="ico-inv" class="btn-disciplines fs-2 " data-bs-toggle="modal" data-bs-target="#armement">
-                            <img class=" img-fluid " style="max-width:80px;" src="{{ asset ('assets/img/cross_mace-sword.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/cross_mace-sword.png') }}" />
                             <div> {{handItemCount}}/2 </div> 
                         </button>
                                 
@@ -157,7 +157,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_213', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 213. #}
     </p>

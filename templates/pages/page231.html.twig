@@ -24,9 +24,9 @@
     <p>
     You are about to ask the price of the potions when the bamboo screen crashes down and a young man leaps at you. He has a long curved dagger in his hand.
     </br>He is upon you and you must fight for your life. 
-    </br>Robber: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;13 ENDURANCE&#160;20</span>
+    </br>Robber: <span class="nanum">COMBAT&#160;SKILL&#160;13 ENDURANCE&#160;20</span>
     </p>
-    </br>
+    
     {% for infoHero in hero %}
     {% for ennemyInfo in ennemy %}
     
@@ -36,24 +36,24 @@
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div class="d-block  text-center nanum" >
     
         <a 
-            class="btn btn-disciplines fs-1"
+            class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
         >combattre</a>
         </br>
         
-        </br>
+      
         
         {% if end < 1 %}
                 <p>
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
                         ">you died.
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches mt-5" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
                 </p>

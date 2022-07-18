@@ -44,7 +44,7 @@
                         href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
                     >  
                         <img 
-                            style="width:80px; "
+                            class="fleches"
                             src="{{ asset ('assets/img/item-pouch.png') }}"
                             alt="Gold Crowns" />      
                     </a>
@@ -54,19 +54,20 @@
                 </br>You already have a Short Sword.
             {% endif %}
             {% if idShortSword == false %}
-                </br> </br>
+                
                 {% if handItemCount is same as 2  %}
+                </br>
                     If you want to take the Short sword you need to drop one of your weapon.
                 {% else %}
-                    Take the Short Sword.
+                   </br> Take the Short Sword.
                     <a 
                         class="btn btn-disciplines rounded-circle"             
                         href="{{ path( "objAdd", {'itemId':16,'p':p, 'heroId':heroId} ) }}"  
                     >  
                         <img 
-                        style="width:80px; "
+                        class="fleches"
                         src="{{ asset ('assets/img/item-shsword.png') }}"
-                        alt="a sword" />      
+                        alt="a short sword" />      
                     </a>
                     </br>
                 {% endif %}
@@ -81,7 +82,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_172', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 172. #}
     </p>

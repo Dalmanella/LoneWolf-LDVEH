@@ -75,7 +75,7 @@ class pageController extends AbstractController
                 $CS = $this->combatSkillCalc->CsCalculation($heroId,$ennemyId);
                 
                     // malus / bonus spécifique au combat p283
-                        if ($circonstance=283){
+                        if ($circonstance==283){
                             $tour= $combat->getTour();
                             if($tour < 1 ){
                                 $circonstance = +2;
@@ -3244,7 +3244,7 @@ class pageController extends AbstractController
                     $circonstance = 0;
 
                     $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                    $ennemyCS = $baston["ennemyCS"];
                     $CR = $baston["CR"];
                     $CS = $baston["CS"];
                     $fightId = $baston["fightId"];
@@ -3286,7 +3286,7 @@ class pageController extends AbstractController
                     $circonstance = 0;
 
                     $baston = $this->getInfoCombat($ennemyId, $heroId, $circonstance);
-
+                    $ennemyCS = $baston["ennemyCS"];
                     $CR = $baston["CR"];
                     $CS = $baston["CS"];
                     $fightId = $baston["fightId"];

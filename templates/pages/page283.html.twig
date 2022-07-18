@@ -26,18 +26,18 @@
         </br>
         You must fight him.
         </br>
-        Due to the surprise of your attack, you gain 2 points to your <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL</span> for the first round.
+        Due to the surprise of your attack, you gain 2 points to your <span class="nanum">COMBAT SKILL</span> for the first round.
         {% for infoHero in hero %}
             {% if infoHero.kaiMshield == 0 %}
-                You do not have the Kai Discipline of Mindshield, 2 points are deducted from your <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT SKILL</span> for the fight, for the creature is attacking you with the power of its Mindforce as well as with a large black mace!
+                You do not have the Kai Discipline of Mindshield, 2 points are deducted from your <span class="nanum">COMBAT SKILL</span> for the fight, for the creature is attacking you with the power of its Mindforce as well as with a large black mace!
             {% else %}
                 </br>Thanks to your Kai Discipline of Mindshield you are immune to the power of its MindForce, but the creature is attacking you with a large black mace!
             {% endif %}
         {% endfor %}
-    </br>Vordak: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
+    </br>Vordak: <span class="nanum">COMBAT&#160;SKILL&#160;17 ENDURANCE&#160;25</span>
 
     </p>
-    </br>
+    
     {% for infoHero in hero %}
     {% for ennemyInfo in ennemy %}
     
@@ -47,24 +47,24 @@
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div class="d-block  text-center nanum" >
     
         <a 
-            class="btn btn-disciplines fs-1"
+            class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
         >combattre</a>
         </br>
         
-        </br>
+      
         
         {% if end < 1 %}
                 <p>
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
                         ">you died.
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches mt-5" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
                 </p>

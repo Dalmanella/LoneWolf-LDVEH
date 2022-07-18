@@ -24,9 +24,9 @@
     <p>
         They see you raise your weapon, and they instantly attack you.
         If you decide to fight them, you must fight them one at a time.
-        </br>Leader: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;15 ENDURANCE&#160;22</span>
-        </br>First Soldier: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;13 ENDURANCE&#160;20</span>
-        </br>Second Soldier: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;12 ENDURANCE&#160;20</span>
+        </br>Leader: <span class="nanum">COMBAT&#160;SKILL&#160;15 ENDURANCE&#160;22</span>
+        </br>First Soldier: <span class="nanum">COMBAT&#160;SKILL&#160;13 ENDURANCE&#160;20</span>
+        </br>Second Soldier: <span class="nanum">COMBAT&#160;SKILL&#160;12 ENDURANCE&#160;20</span>
     </p>
 
     {% for infoHero in hero %}
@@ -38,24 +38,24 @@
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div class="d-block  text-center nanum" >
     
         <a 
-            class="btn btn-disciplines fs-1"
+            class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
         >combattre</a>
         </br>
         
-     
+      
         
         {% if end < 1 %}
                 <p>
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
                         ">you died.
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches mt-5" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
                 </p>

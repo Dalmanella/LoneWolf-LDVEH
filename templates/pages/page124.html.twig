@@ -40,7 +40,7 @@
                         href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
                     >  
                         <img 
-                            style="width:80px; "
+                           class="fleches"
                             src="{{ asset ('assets/img/item-pouch.png') }}"
                             alt="Gold Crowns" />      
                     </a>
@@ -58,7 +58,7 @@
                         href="{{ path( "objAdd", {'itemId':4,'p':p, 'heroId':heroId} ) }}"  
                     >  
                         <img 
-                            style="width:80px; "
+                           class="fleches"
                             src="{{ asset ('assets/img/item-key.png') }}"
                             alt="a silver key" />      
                     </a>
@@ -70,7 +70,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_211', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 211. #}
     </p>
@@ -79,7 +79,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_106', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 106. #}
     </p>

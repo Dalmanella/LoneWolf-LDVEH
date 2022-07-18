@@ -9,11 +9,13 @@ class Armure {
 
     public function __construct(
         EntityManagerInterface $entityManager,
-        BackpackRepository $backpackRep
+        BackpackRepository $backpackRep,
+        Hero $hero
         )
     {
         $this->entityManager = $entityManager;
         $this->backpackRep = $backpackRep; 
+        $this->hero = $hero;
     }
 
     public function armure($heroId){
@@ -28,7 +30,7 @@ class Armure {
 
         if($protectionH){
             
-            $end= $this->setEndurance($end+2);
+            $end= $this->hero->setEndurance($end+2);
 
             $this->entityManager->persist($end);
             $this->entityManager->flush();

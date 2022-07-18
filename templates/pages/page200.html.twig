@@ -23,7 +23,7 @@
 <div>
     <!--Illustration XII -->
     <div class="d-flex justify-content-center mb-5">
-        <img src="{{ asset ('assets/img/ill12.png') }}" alt="You notice a large merchant’s caravan in the centre of the dusty turnpike." />
+        <img class="illustrationG" src="{{ asset ('assets/img/ill12.png') }}" alt="You notice a large merchant’s caravan in the centre of the dusty turnpike." />
     </div>
     <p>
         Night is starting to close in. The shadows of the forest are growing longer and darker. Just as you are about to stop and rest, you see through the trees a line of people moving south along a wide highway. Moving closer, you notice a large merchant’s caravan in the centre of the dusty turnpike. It is drawn by six large horses and is moving much faster than any of the other traffic. This could be your chance to reach the capital as quickly as possible.
@@ -39,7 +39,7 @@
                 {# changer les num de page ci dessous #}
                 {{ path('page_168', {'heroId':heroId }) }}  
                 ">
-                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                 </a>
                 {# turn to 168.  #}
             </p>
@@ -49,7 +49,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_78', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 78. #}
     </p>

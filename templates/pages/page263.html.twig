@@ -26,7 +26,7 @@
         Carefully, you follow the stream as it makes its way towards the east. Suddenly you notice something in the distance that brings you to a halt.
         <!--Illustration -->
         <div class="d-flex justify-content-center mb-5">
-            <img src="{{ asset ('assets/img/sillu26.png') }}" alt="Arrows in Kraan corpse" />
+            <img class="illustration" src="{{ asset ('assets/img/sillu26.png') }}" alt="Arrows in Kraan corpse" />
         </div>
         Lying in the rushing water like a great black dam is a dead Kraan. You creep nearer, under cover of the foliage, until you see three arrows deep in the beast’s chest. Trapped beneath the beast is the body of its rider. 
         </br>
@@ -44,7 +44,7 @@
                         href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
                     >  
                         <img 
-                            style="width:80px; "
+                            class="fleches"
                             src="{{ asset ('assets/img/item-pouch.png') }}"
                             alt="Gold Crowns" />      
                     </a>
@@ -58,7 +58,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_70', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 70. #}
     </p>
@@ -67,7 +67,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_157', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 157. #}
     </p>

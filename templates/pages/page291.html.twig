@@ -50,7 +50,7 @@
                         href="{{ path( "add_gold", {'p':p, 'heroId':heroId, 'coins':coins} ) }}"  
                     >  
                         <img 
-                            style="width:80px; "
+                            class="fleches"
                             src="{{ asset ('assets/img/item-pouch.png') }}"
                             alt="Gold Crowns" />      
                     </a>
@@ -61,17 +61,17 @@
                 </br>You already have a dagger.
     {% endif %}
     {% if id13 is same as false %}
-            </br> </br>
+            
                 {% if handItemCount is same as 2  %}
-                    If you want to take the dagger you need to drop one of your weapon.
+                     </br>If you want to take the dagger you need to drop one of your weapon.
                 {% else %}
-                    Take the dagger.
+                    </br> Take the dagger.
                     <a 
                         class="btn btn-disciplines rounded-circle"             
                         href="{{ path( "objAdd", {'itemId':13,'p':p, 'heroId':heroId} ) }}"  
                     >  
                         <img 
-                        style="width:80px; "
+                        class="fleches"
                         src="{{ asset ('assets/img/item-dagger.png') }}"
                         alt="a dagger" />      
                     </a>
@@ -82,17 +82,17 @@
                 </br>You already have a spear.
     {% endif %}
     {% if id14 is same as false %}
-            </br> </br>
+          
                 {% if handItemCount is same as 2  %}
-                    If you want to take a spear you need to drop one of your weapon.
+                   </br> If you want to take a spear you need to drop one of your weapon.
                 {% else %}
-                    Take a spear.
+                   </br>  Take a spear.
                     <a 
                         class="btn btn-disciplines rounded-circle"             
                         href="{{ path( "objAdd", {'itemId':14,'p':p, 'heroId':heroId} ) }}"  
                     >  
                         <img 
-                        style="width:80px; "
+                        style="width: 170px;"
                         src="{{ asset ('assets/img/item-spear.png') }}"
                         alt="a spear" />      
                     </a>
@@ -111,7 +111,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_272', {'heroId':heroId }) }} 
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
         {# turn to 272. #}
     </p>

@@ -24,7 +24,7 @@
 <div>
     <p>
     The Key fits and the lock opens. You pull back the door to find yourself face to face with a strange old man. In his right hand is a staff. Suddenly a bolt of lightning shoots from the staff and hits you square in the chest. 
-You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points.</p>
+You lose 6 <span class="nanum">ENDURANCE</span> points.</p>
 {% set choc = fall(em,heroId,6)%}
 {% for infoHero in hero %}
     {% if infoHero.endurance < 1 %}
@@ -33,7 +33,7 @@ You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }} 
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351. #}
         </p>
@@ -51,14 +51,14 @@ You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;
                         <a class="col-12 mt-5" href="
                         {{ path('page_106', {'heroId':heroId }) }} 
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                         </a>
                     {# turn to 106. #}
                 </p>
         {% else %} 
             {% set choc = fall(em,heroId,4)%}
             <p>
-                you have been hit in the back you lose a further 4 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points.
+                you have been hit in the back you lose a further 4 <span class="nanum">ENDURANCE</span> points.
             </p>
             {% if infoHero.endurance < 1 %}
                 <p>Your life ends here.
@@ -66,7 +66,7 @@ You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;
                         <a class="col-12 mt-5" href="
                             {{ path('page_351', {'heroId':heroId }) }} 
                             ">
-                                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                         </a> 
                             {# turn to 351. #}
                 </p>
@@ -79,7 +79,7 @@ You lose 6 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;
                         <a class="col-12 mt-5" href="
                         {{ path('page_106', {'heroId':heroId }) }} 
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                         </a>
                     {# turn to 106. #}
                 </p>

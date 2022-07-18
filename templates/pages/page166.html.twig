@@ -24,7 +24,7 @@
     <p>
     You are in the presence of a great evil. Your mind is being probed by a powerful and timeless being and you must shield yourself.
 The struggle has begun and your sanity is at stake. It is a long and torturous ordeal, during which you experience many fantastic and terrible apparitions that tempt and appeal you. 
-After this you lose 4 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> points,  
+After this you lose 4 <span class="nanum">ENDURANCE</span> points,  
 {% set torture = fall(em,heroId,4) %}
     {% for infoHero in hero %}
         {% if infoHero.endurance < 1 %}
@@ -34,7 +34,7 @@ After this you lose 4 <span class="fs-5" style="font-family: 'Nanum Brush Script
                     <a class="col-12 mt-5" href="
                         {{ path('page_351', {'heroId':heroId }) }}  
                         ">
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                        {# turn to 351. #}
                 </p>
@@ -45,7 +45,7 @@ After this you lose 4 <span class="fs-5" style="font-family: 'Nanum Brush Script
                     <a class="col-12 mt-5" href="
                     {{ path('page_104', {'heroId':heroId }) }} 
                     ">
-                        <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                        <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a>
                     {# turn to 104. #}
             </p>

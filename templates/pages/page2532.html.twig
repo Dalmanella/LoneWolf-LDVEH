@@ -22,9 +22,9 @@
 
 <div>
     <p>
-        </br>Second Doomwolf: <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">COMBAT&#160;SKILL&#160;14 ENDURANCE&#160;23</span>
+        </br>Second Doomwolf: <span class="nanum">COMBAT&#160;SKILL&#160;14 ENDURANCE&#160;23</span>
     </p>
-    </br>
+    
     {% for infoHero in hero %}
     {% for ennemyInfo in ennemy %}
     
@@ -34,25 +34,24 @@
     {% set ennemyId = ennemyInfo.id %}
     {% set ennemyName = ennemyInfo.name %}
 
-    <div class="fs-2 d-block  text-center" style=" font-family: 'Nanum Brush Script', cursive; ">
+    <div class="d-block  text-center nanum" >
     
         <a 
-            class="btn btn-disciplines fs-1"
-            {# style="width:100%;" #}
+            class="btn btn-disciplines "
             href="{{ path('page_combat',{'heroId':heroId, 'ennemyId':ennemyId,'ennemyName':ennemyName, 'CS':CS, 'CR':CR, 'fightId': fightId,'p':p }) }}"
             type="button" 
             id="combattre"      
         >combattre</a>
         </br>
         
-        </br>
+      
         
-        {% if end == 0 %}
+        {% if end < 1 %}
                 <p>
-                    <a class="col-12 mt-5 skull" href="
-                        {{ path('page_351', {'heroId':heroId }) }}  
+                    <a class="col-12 mt-5" href="
+                        {{ path('page_351', {'heroId':heroId }) }} 
                         ">you died.
-                            <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                            <img class="fleches mt-5" src="{{ asset ('assets/img/ArrowR.png') }}" />
                     </a> 
                         {# turn to 351.  #}
                 </p>

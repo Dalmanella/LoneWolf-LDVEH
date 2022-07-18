@@ -25,7 +25,7 @@
     <p>
         The stable door is open and you can hear the breathing of a horse from inside the darkened interior. Suddenly, the horse senses your presence and rushes past, knocking you to the ground. 
         </br>
-       You lose 1 <span class="fs-5" style="font-family: 'Nanum Brush Script', cursive;">ENDURANCE</span> point.
+       You lose 1 <span class="nanum">ENDURANCE</span> point.
     </p>
     
     {% for infoHero in hero %}
@@ -38,7 +38,7 @@
                 <a class="col-12 mt-5" href="
                 {{ path('page_122', {'heroId':heroId }) }} 
                 ">
-                    <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                    <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
                 </a>
                 {# turn to 122.  #}
             </p>
@@ -49,7 +49,7 @@
             <a class="col-12 mt-5" href="
             {{ path('page_233', {'heroId':heroId }) }}
             ">
-                <img style="width:100px;" src="{{ asset ('assets/img/ArrowR.png') }}" />
+                <img class="fleches" src="{{ asset ('assets/img/ArrowR.png') }}" />
             </a>
             {# turn to 233. #}
     </p>
