@@ -7,23 +7,23 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="mt-5 display-3">Inscription</h1>
-
+    <p class="connexion mt-3 mb-1" style="font-family:'Dr Sugiyama', cursive;" >Inscription</p>
+    <div class="form">
     {{ form_start(inscriptionForm) }}
         {{ form_row(inscriptionForm.pseudo) }}
         {# {{ form_row(inscriptionForm.email) }} #}
         {{ form_row(inscriptionForm.plainPassword, {label: 'Password'}) }}
        
-
-        <button type="submit" class="btn btn-primary rounded-circle p-0 fs-2"><img style="width:51px;" src="{{ asset ('assets/img/pawprint-brown.png') }}" alt="validation button"/></button>
+    
+        <button type="submit" class="btn btn-primary p-0 mb-5"><img class="fleches" src="{{ asset ('assets/img/pawprint-brown.png') }}" alt="validation button"/></button>
     {{ form_end(inscriptionForm) }}
-
-    <a href="{{ path('accueil') }}" class="text-info mt-4 mb-3 fs-4 ">Connexion</a>
+    </div>
+    <a href="{{ path('accueil') }}" class="text-info mt-5 display-3">Connexion</a>
 
 {% endblock %}
 {% block footer %}
     <div class="sticky-bottom">
-            <img style="width:70px;" src="{{ asset ('assets/img/decoBas.png') }}" />
+            <img class="fleches mt-5" src="{{ asset ('assets/img/decoBas.png') }}" />
             </br></br>
     </div>
 {% endblock %}

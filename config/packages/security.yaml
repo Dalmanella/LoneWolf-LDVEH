@@ -22,7 +22,9 @@ security:
                 # ma page de login se nomme "accueil"
                 login_path: accueil
                 check_path: accueil
-            
+
+    # role_hierarchy:
+    #     ROLE_ADMIN: ROLE_USER        
 
             #ajout d'une deco de session:
             logout:

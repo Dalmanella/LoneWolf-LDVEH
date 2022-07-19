@@ -34,7 +34,7 @@ class HeroController extends AbstractController
             
         };
 
-        $this->addFlash('succes','Hero deleted.');  //permet d'afficher des alertes
+        $this->addFlash('success','Hero deleted.');  //permet d'afficher des alertes
         return $this->redirectToRoute('continue');
 
     }

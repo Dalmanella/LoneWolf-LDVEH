@@ -16,10 +16,10 @@ class TableManagerController extends AbstractController
     public function clearCombatInfo(CombatEndRepository $clearcombat)
     {
         $clearcombat->clearTable();
+        $this->addFlash('success','table vidée.');
 
+        // return new Response('table clear success');
 
-        return new Response('table clear success');
-
-        //$this->redirectToRoute('');
+        return $this->redirectToRoute('gestion');
     }
 }

@@ -13,10 +13,10 @@
             if (id_hero){ affichage option } -->
         {% if heroes %}  
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('continue') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-openbook.png') }}" /><p>Continuer</p></button> #}
-        <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" onclick="document.location=`{{ path('continue') }}`">
+        <a class="d-flex text-decoration-none justify-content-center icone" onclick="document.location=`{{ path('continue') }}`">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/ico-openbook.png') }}"/>
-                <p class="display-6">Continuer</p>
+                <img class="img-fluid" src="{{ asset ('assets/img/ico-openbook.png') }}"/>
+                <p class="">Continuer</p>
             </div>
             
         </a>
@@ -25,44 +25,46 @@
         <!-- Options toujours présentes -->
          {% if heroesNum < 3 %}   
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('nouvelle') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-books.png') }}" /><p>Nouvelle Aventure</p></button> #}
-        <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" onclick="document.location=`{{ path('nouvelle') }}`">
+        <a class="d-flex text-decoration-none justify-content-center icone" onclick="document.location=`{{ path('nouvelle') }}`">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/ico-books.png') }}" />
-                <p class="display-6">Nouvelle Aventure</p>
+                <img class="img-fluid" src="{{ asset ('assets/img/ico-books.png') }}" />
+                <p class="">Nouvelle Aventure</p>
             </div>
             
         </a>
         {% endif %}
 
         {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('A_propos') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-quill.png') }}" /><p>A Propos</p></button> #}
-        <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" onclick="document.location=`{{ path('A_propos') }}`">
+        <a class="d-flex text-decoration-none justify-content-center icone" onclick="document.location=`{{ path('A_propos') }}`">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/ico-quill.png') }}" />
-                <p class="display-6">A Propos</p>
+                <img class="img-fluid " src="{{ asset ('assets/img/ico-quill.png') }}" />
+                <p class="">A Propos</p>
             </div>
             
         </a>
 
         <!-- Pour gerer la musique -->
-            <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" href="{{ path('music')}}" target="_blank">
+            <a class="d-flex text-decoration-none justify-content-center icone" href="{{ path('music')}}" target="_blank">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/music.png') }}" />
-                <p class="display-6">Musique</p>
+                <img class="img-fluid" src="{{ asset ('assets/img/music.png') }}" />
+                <p class="">Musique</p>
             </div>
             
         </a>
-
-            {# <button type="button" class="btn-menu" onclick="document.location=`{{ path('test') }}`"> <img class=""style="max-width:60px;" src="{{ asset ('assets/img/ico-gear.png') }}" /><p>Tests</p></button> #}
-        {# <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" onclick="document.location=`{{ path('test') }}`">
+    
+    
+   
+        {% if admin is same as true %}    
+        <a class="d-flex text-decoration-none justify-content-center icone" onclick="document.location=`{{ path('gestion') }}`">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/ico-gear.png') }}" />
-                <p class="display-6">Param</p>
+                <img class="img-fluid" src="{{ asset ('assets/img/ico-gear.png') }}" />
+                <p class="">Gestion</p>
             </div>
             
-        </a> #}
-
+        </a>
+        {% endif %}
         
-        </br>
+       
     </div>
 {% endblock %}
 {% block footer %}

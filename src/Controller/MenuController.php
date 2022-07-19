@@ -27,7 +27,8 @@ class MenuController extends AbstractController
     * @Route("/menu", name="menu")
     */
     public function viewMenu(ManagerRegistry $doctrine, UtilisateurRepository $UtilisateurRepository) : Response
-    {        
+    {    
+        $admin=false;    
         // recuperer l'Id de l'utilisateur connecté:
             /** @var Utilisateur $user */
             
@@ -35,16 +36,26 @@ class MenuController extends AbstractController
             if(!empty($user))
             {
                 $userId = $user->getId();
+                $roles= $user->getRoles();
+
+                if(in_array ('ROLE_ADMIN', $roles, true )){
+                    $admin=true;
+                }
+
             }
 
+            
+           
             //tous les heros du $userId
             $heroes= $this->entityManager->getRepository(Hero::class)-> findBy(['userId'=>$userId]);
             $length= count($heroes);
-            
+           
        
         return $this->render('menu/menu.html.twig', [
             'heroes'=>$heroes, 
-            'heroesNum'=>$length 
+            'heroesNum'=>$length,
+            'admin'=>$admin,
+           
         ]);
     }
 
