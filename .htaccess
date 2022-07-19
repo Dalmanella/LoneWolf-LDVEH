@@ -1,2 +1,3 @@
+# essai pour la redirection vers le dossier public depuis le dossier source dans l'hebergement
 RewriteEngine On
-RewriteRule (.*) http://www.lonewolf-ldveh.dalmanella.com/LoneWolf-projet/public/index\.php [R=301,L]
+RewriteRule (.*) http://www.lonewolf-ldveh.dalmanella.com/sites/lonewolf-ldveh.dalmanella.com/public/index\.php [R=301,L]
