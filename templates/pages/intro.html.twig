@@ -104,7 +104,7 @@
   
 {# Ramassage du butin dans les ruines #}
 
-    {% if rand == 9 and me.goldTake == 0 %}
+    {% if rand == 9 and me.goldTake == 0 me.isItem == 0 %}
       {% set coins = 12 %}
       <div class=" align-self-center" id="roll">
           <a 

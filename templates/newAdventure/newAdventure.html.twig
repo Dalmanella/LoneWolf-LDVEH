@@ -8,6 +8,7 @@
 
 {% block body %}
 
+<div class="form-crea">
 {# {{form(heroForm)}} #}
 {{form_start(heroForm)}}
 
@@ -59,9 +60,9 @@
   <div class="col-12 mt-1 text-center">
     {# compétence liste détaillée #}
     <!-- Bouton lance popup -->
-    <a class="d-flex d-inline btn text-decoration-none d-inline justify-content-center my-4 paperRoll" data-bs-toggle="modal" data-bs-target="#listeDisciplines">
+    <a class="btn text-decoration-none paperRoll" data-bs-toggle="modal" data-bs-target="#listeDisciplines">
       <img class=""  src="{{ asset ('assets/img/ico-paperRoll.png') }}" />
-      <p class="ms-3 nanum" style=" font-size:3.5rem;">Detailed Disciplines </p>
+      {# <p class="ms-3 nanum" style=" ">Disciplines </p> #}
     </a>
   
     <!-- popup disciplines -->
@@ -82,24 +83,24 @@
       </div>
 
     {# choix des 5 disciplines Kai #}
-      <p class="display-3 mt-5" > Choisissez 5 disciplines Kai </p>
+      <p class="mt-5" > Choisissez 5 disciplines Kai </p>
             
       <div class="d-flex justify-content-around ">
           <div class="nanum  check-label">
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiSix) }}   <span> Sixth sens </span>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiSix) }}   <span > Sixth sens </span>
              {# {{form_label(heroForm.kaiSix)}}  #}
             </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiTrack) }}  <span> Tracking </span> </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiHeal) }}    <span> Healing </span></div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiCamou) }}  <span> Camouflage </span> </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiWeapon) }} <span> Weapon Mastery </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiTrack) }}  <span > Tracking </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiHeal) }}    <span > Healing </span></div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiCamou) }}  <span > Camouflage </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiWeapon) }} <span > Weapon Mastery </span> </div>
           </div>
           <div class="nanum check-label text-start mx-3"> 
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMBlast) }}  <span> Mindblast </span> </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMShield) }} <span> Mindshield </span> </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiAnimal) }}  <span> Animal Kinship </span>  </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiHunt) }}    <span> Hunting </span> </div>
-            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMoM) }}     <span> Mind over Matter </span>  </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMBlast) }}  <span > Mindblast </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMShield) }} <span > Mindshield </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiAnimal) }}  <span > Animal Kinship </span>  </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiHunt) }}    <span > Hunting </span> </div>
+            <div class="d-flex mb-5">  {{ form_widget(heroForm.kaiMoM) }}     <span > Mind over Matter </span>  </div>
           </div>
       </div>
  
@@ -127,6 +128,7 @@
      
 {# </form> #}
 {{ form_end(heroForm) }}
+</div>
 </br> </br>
  
 {% endblock %}

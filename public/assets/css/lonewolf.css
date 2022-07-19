@@ -76,6 +76,22 @@ margin-bottom: 0;
   font-size:3.5rem;
 }
 
+#rolldice{
+  width:130px;
+  height:130px;
+  font-size:4rem;
+}
+#combat, #endurance, #gold{
+  border-radius:100%;
+  width:130px;
+  height:130px;
+  font-size:6rem;
+}
+.comp p{
+  margin-top:50px;
+  font-size:4.5rem;
+}
+
   @media (min-width: 1000px) {
     .skill{
       font-size:2rem;
@@ -100,10 +116,50 @@ margin-bottom: 0;
     .connexion{
       font-size: 3.2rem;
     }
+    .form-crea{
+      width:50%;
+      font-size:2rem;
+    }
+    .form-crea label{
+      margin-top:2vw;
+      font-size:2rem;
+    }
+    .form-crea input{
+      height:50px;
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+    .form-crea h2{
+      font-size:2.4rem;
+    }
+    
+    .form-crea .comp p{
+      margin-top:20px;
+      font-size:2.3rem;
+    }
+    .form-crea .check-label span{
+      margin-left:10px;
+      font-size:2.1rem;
+    }
+    input[type="checkbox"]{
+      height:36px;
+      width:36px;
+      margin-bottom: 0;
+      }
+    #combat, #endurance, #gold{
+      border-radius:100%;
+      width:51px;
+      height:51px;
+      font-size:3rem;
+    }
+    #rolldice{
+      width:70px;
+      height:70px;
+      font-size:2rem;
+    }
+    
+
   }
-
-  
-
   
 
   #menuList{
@@ -129,28 +185,22 @@ margin-bottom: 0;
     border:1px solid #693c11ad;
     border-radius: 10px;
   }
-  .kaiWisdom :hover{
+  .kaiWisdom:hover{
     color: #915a03 !important; 
     cursor: pointer !important;
 
   }
 
+  a .paperRoll {
+    width:200px !important;
+    padding:0;
+    
+  }
   .paperRoll img{
-    height:80px;
-    max-width: 200px;  
-    color:#693B11;  
-  }
-
-  .paperRoll p{
-    color:#693B11;
-    font-size:3rem;
-  }
-
-  .paperRoll :hover{
-    color: #915a03;  
-    width:30vw;
-    max-width: 120px;    
-  }
+    /* height:80px; */
+    width:200px;
+    
+  }  
 
   .icone {
     max-width:50%;
@@ -166,12 +216,7 @@ margin-bottom: 0;
     max-height: auto;
         
   }
-  
-  /* .icone:hover{
-    max-width: 120px;
-    max-height: 135px;
-  } */
-  
+   
   .ico-map {
     max-width: 150px;
     max-height: 150px;
@@ -200,22 +245,15 @@ margin-bottom: 0;
       max-width: 150px;
       max-height: 165px;
     }
-  }
-
-  #rolldice{
-    width:130px;
-    height:130px;
-    font-size:4rem;
-  }
-  #combat, #endurance, #gold{
-    border-radius:100%;
-    width:130px;
-    height:130px;
-    font-size:53rem;
-  }
-  .comp p{
-    margin-top:50px;
-    font-size:4.5rem;
+    .paperRoll {
+      max-width:200px;
+      max-height: 70px;
+    }
+    .paperRoll:hover img{
+      width:auto;
+      height:65px;    
+    }
+    
   }
   
   #new_adventure_validation{
@@ -230,9 +268,9 @@ margin-bottom: 0;
   }
   @media (min-width: 1000px) {
     #new_adventure_validation{
-      background-size: 50px;
-      width:51px;
-      height:51px;
+      background-size: 68px;
+      width:70px;
+      height:70px;
     }    
   }
 
@@ -243,9 +281,7 @@ margin-bottom: 0;
     background-repeat: no-repeat;
     background-position: center; 
     border-radius: 100%;
-    /* width:51px;
-    height:51px; */
-  }
+      }
   
   .btn-disciplines{
     background: none;
@@ -293,6 +329,7 @@ margin-bottom: 0;
     align-self: center;
     max-width: 90%;
     margin-bottom: 10vw;
+    
   }
 
   .table tr{
@@ -300,8 +337,7 @@ margin-bottom: 0;
     border-bottom-color:#693B11;
     background-color: rgba(253, 253, 245, 0.685);
     color:#693B11 !important;
-    padding:4px !important;
-    margin:4px !important;
+    
     font-size:3.5rem;
   }
 

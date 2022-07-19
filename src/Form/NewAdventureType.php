@@ -22,7 +22,7 @@ class NewAdventureType extends AbstractType
                 'label'=> "Votre héros", 
                 'attr'=>[
                     'placeholder'=>'Nom',
-                    'style'=>"font-size:5rem;"
+                    'style'=>"font-size:3rem;"
                 ]])
             
             ->add('combatSkill', IntegerType::class, [
