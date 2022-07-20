@@ -420,6 +420,11 @@ margin-bottom: 0;
     width:80%;
     height:auto;
   }
+  blockquote {
+    font-family: 'Dr Sugiyama', cursive;
+    width:75%;
+    font-size:3.2rem;
+  }
 
   @media (min-width: 1000px) {
     .logo{
@@ -432,6 +437,9 @@ margin-bottom: 0;
     .illustrationG{
       width:35%;
       height:auto;
+    }
+    blockquote {
+           font-size:2.2rem;
     }
     
   }
