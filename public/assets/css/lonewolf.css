@@ -425,6 +425,11 @@ margin-bottom: 0;
     width:75%;
     font-size:3.2rem;
   }
+  .ico-inventaire{
+    width:45px;
+    height:45px;
+   
+  }
 
   @media (min-width: 1000px) {
     .logo{
