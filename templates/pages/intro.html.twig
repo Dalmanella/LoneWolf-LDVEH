@@ -103,8 +103,8 @@
     </p>
   
 {# Ramassage du butin dans les ruines #}
-
-    {% if rand == 9 and me.goldTake == 0 me.isItem == 0 %}
+<p>
+    {% if rand == 9 and me.goldTake == 0 and me.isItem == 0 %}
       {% set coins = 12 %}
       <div class=" align-self-center" id="roll">
           <a 
@@ -116,7 +116,7 @@
           > You also find:</br>
             12 gold Crowns.
             <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-pouch.png') }}"
                               alt="Gold Crowns" /> 
           </a>
@@ -132,7 +132,7 @@
               two meals.
               
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-food.png') }}"
                               alt="two meals" />
             </a>
@@ -149,7 +149,7 @@
               You also find:</br>
               A Kai lord Sword.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-sword2.png') }}"
                               alt="A Kai lord sword." 
               />
@@ -157,7 +157,7 @@
               You also find:</br>
               A Helmet.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-helmet.png') }}"
                               alt="a helmet." 
               />
@@ -165,7 +165,7 @@
               You also find:</br>
               A Chainmail Waistcoat.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-chainmail.png') }}"
                               alt="A chainmail." 
               />
@@ -173,7 +173,7 @@
               You also find:</br>
               A Mace.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-mace.png') }}"
                               alt="A mace." 
               />
@@ -181,7 +181,7 @@
               You also find:</br>
               one Healing Potion.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-potion.png') }}"
                               alt="Healing potion." 
               />
@@ -189,7 +189,7 @@
               You also find:</br>
               A Quarterstaff.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-quarterstaff.png') }}"
                               alt="A quarterstaff." 
               />
@@ -197,7 +197,7 @@
               You also find:</br>
               A Spear.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-spear.png') }}"
                               alt="A spear." 
               />
@@ -205,7 +205,7 @@
               You also find:</br>
               A Broadsword.
               <img 
-                              style="width:80px; "
+                              class="fleches"
                               src="{{ asset ('assets/img/item-bsword.png') }}"
                               alt="A broadsword." 
               />
@@ -213,7 +213,7 @@
             </a>
         </div> 
     {% endif %}
-
+</p>
 <a class="text-decoration-none kaiWisdom" data-bs-toggle="modal" data-bs-target="#kaiWisdom"><h3 class="mt-1 kaiWisdom">Kai Wisdom</h3></a>
 <div class="modal fade" id="kaiWisdom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="kaiWisdomLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -225,11 +225,13 @@
             </button>
           </div>
           <div class="modal-body">
+          <p>
             Your mission will be one of great danger, for the Darklords and their servants are a cruel and fierce enemy who give and expect no mercy. Use the map to help you steer a correct course for the capital. Make notes as you progress through the story, for they will be of great help in future adventures.
             Many things that you find will aid you during the adventure. Some Special Items will be of use in future Lone Wolf adventures and others may be red herrings of no real use at all, so be selective in what you decide to keep.
             There are many routes to the King, but only one involves a minimum of danger. With a wise choice of Kai Disciplines and a great deal of courage, any player should be able to complete the mission, no matter how weak their initial <span style="font-family: 'Nanum Brush Script', cursive; ">COMBAT SKILL</span> or <span style="font-family: 'Nanum Brush Script', cursive; ">ENDURANCE</span> points score.
             The honour and memory of the Kai Lords will go with you on your perilous journey.
             Good luck!
+          </p>
           </div>
         </div>
       </div>
