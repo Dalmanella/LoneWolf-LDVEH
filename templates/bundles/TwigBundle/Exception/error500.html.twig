@@ -1,11 +1,10 @@
-{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{# templates/bundles/TwigBundle/Exception/error500.html.twig #}
 {% extends 'base.html.twig' %}
-
+{% block title %}La page 500{% endblock %}
 {% block body %}
-    <h1>Page not found</h1>
+    <h1>Chapitre 500</h1>
 
-    <p>c'est un test!
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{ path('homepage') }}">return to the homepage</a>.
+    <p>Votre boussole tourbillone sans cesse.</br>
+   Le serveur est en dérangement momentané, revenez nous voir plus tard.
     </p>
 {% endblock %}

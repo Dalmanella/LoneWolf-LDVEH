@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Hero;
 use App\Entity\Utilisateur;
+use App\Repository\HeroRepository;
 use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,14 +22,14 @@ class GestionController extends AbstractController
     public function __construct(
         EntityManagerInterface $entityManager, 
         RequestStack $requestStack, 
-        UtilisateurRepository $utilisateurRep
-        
+        UtilisateurRepository $utilisateurRep,
+        HeroRepository $heroesRep
         )
     {
         $this->entityManager = $entityManager;
         $this->requestStack = $requestStack;     
         $this->utilisateurRep =$utilisateurRep;
-        
+        $this->heroesRep =$heroesRep;
     }
 
     /**
@@ -37,10 +38,12 @@ class GestionController extends AbstractController
     public function viewGestion()
     {
         $utilisateurs= $this->utilisateurRep->findAll();
-        
+        $heroes= $this->heroesRep->findAll();
         
         return $this->render('gestion/gestion.html.twig',[
-            'utilisateurs'=>$utilisateurs
+            'utilisateurs'=>$utilisateurs,
+            'heroes'=>$heroes,
+            // dd($heroes) 
         ]);
     }
 

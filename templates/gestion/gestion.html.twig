@@ -11,11 +11,13 @@
 <h2 class="mt-3 mb-3 "> base de données des combats </h2>
 <a class="d-flex text-decoration-none mt-2 justify-content-center mb-5  mx-4" href="{{ path('clearTable') }}">
             <div class="">
-                <img class="img-fluid icone" src="{{ asset ('assets/img/ico-skullTrash.png') }}" />
-                <p class="display-6">RAZ table des combats</p>
-            </div>
-            
+                <img class="img-fluid icone mb-0" src="{{ asset ('assets/img/ico-skullTrash.png') }}" />
+                <p class="mt-0 ">RAZ table des combats</p>
+            </div>            
 </a>
+<div class="col-12 mt-1 text-center">
+    <img style="width:100px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+</div>
 <h2 class="mt-3 mb-3 "> tableau des users </h2>
 <div class="container-lg mt-1 d-flex justify-content-center">
     <table class="table table-striped ">
@@ -47,7 +49,7 @@
                     src="{{ asset ('assets/img/ico-openbook.png') }}" /> 
                 </button>
 
-                <!-- popup de la map en fullscreen -->
+                <!-- popup du user -->
                 <div class="modal fade" id="{{agir}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="{{agir}}Label" aria-hidden="true">
                     <div class="modal-dialog modal-fullscreen ">
                         <div class="modal-content  ">
@@ -61,8 +63,53 @@
                                 {{user.pseudo}}</br>
                                 {{user.email}}</br>
                                 <div class="container overflow-auto">{{user.password}}</br></div>
+                                </br>
+
+                                <div class="col-12 mt-1 text-center">
+                                    <img style="width:100px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+                                </div>
+                                
+                                <h2 class="mt-3 mb-3"> tableau des héros </h2>
+                                <div class="container-lg mt-1 d-flex justify-content-center">
+                                    <table class="table table-striped mb-3 ">
+                                        <thead>
+                                        <tr>
+                                            
+                                            <th scope="col">HERO</th>          
+                                            <th scope="col">Combat Skill</th>
+                                            <th scope="col">Endurance</th>
+                                            <th scope="col">page</th>
+                                            <th scope="col">user</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for hero in heroes %}
+                                                {% if userId == hero.userId.id %}
+                                                    <tr>
+                                                        <th scope="row">{{hero.name}} | {{ hero.id }}</th>       
+                                                        <td>{{hero.combatSkill}}</td>
+                                                        <td>{{hero.endurance}}</td>
+                                                        <td>{{hero.page}}</td>
+                                                        <td>
+                                                        {{hero.userId.id}}
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
+                                        {% endfor %} 
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-12 mt-1 text-center">
+                                    <img style="width:100px;" src="{{ asset ('assets/img/decodiv.png') }}" />
+                                </div>
+
                                  {% if user.roles[0] is not same as 'ROLE_ADMIN' %}
                                     {# Bouton-SUPPR  #}
+                                    <h2 class="mt-3 mb-3"> Supprimer l'utilisateur </h2>
+                                    <p class="text-warning text-bold " style="font-family: 'La Belle Aurore', cursive;"> Attention! Cette action est définitive.</p>
                                         <a 
                                         class="btn-heroDelete"             
                                         href="{{ path( "userDel", {'userId':userId} ) }}" 
@@ -71,6 +118,8 @@
                                                 src="{{ asset ('assets/img/ico-skullTrash.png') }}" alt="trash - delete user" 
                                             />      
                                         </a>
+                                    </br>
+                                    </br>
                                 {% endif %}
                                                                 
                             </div>
