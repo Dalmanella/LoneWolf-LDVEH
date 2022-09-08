@@ -115,7 +115,7 @@ class NewAdventureType extends AbstractType
                 'attr'=>[
                     'class'=>'kaicount  ',
                     'onclick'=>'updateCount();',
-                ]])
+            ]])
             ->add('kaiHunt',CheckboxType::class, [
                 'label'=> "Hunting", 
                 'required'=>false, 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use Symfony\Component\Validator\Constraints\IsFalse;
@@ -29,27 +28,18 @@ class pageController extends AbstractController
     private $rollDice;
     private $requestStack;
     public function __construct(
-        EntityManagerInterface $entityManager, 
-        RequestStack $requestStack, 
-        RollDice $rollDice,   
-        BackpackRepository $backpackRep,
-        Inventory $inventory,
-        HealingOverTime $healing,
-        Lunch $lunch,
-        CombatSkillCalc $combatSkillCalc,
-        CombatTables $combatTables
+        EntityManagerInterface $entityManager,         RequestStack $requestStack,         RollDice $rollDice,           BackpackRepository $backpackRep,
+        Inventory $inventory,        HealingOverTime $healing,        Lunch $lunch,        
+        CombatSkillCalc $combatSkillCalc,        CombatTables $combatTables
     )
         {
             $this->requestStack = $requestStack;
-            $this->entityManager = $entityManager;
-                
+            $this->entityManager = $entityManager;                
             $this->rollDice = $rollDice;
-
             $this->backpackRep = $backpackRep; 
             $this->inventory=$inventory;
             $this->healing=$healing;
             $this->lunch=$lunch;
-
             $this->combatSkillCalc = $combatSkillCalc;
             $this->combatTables = $combatTables;
       
@@ -6370,16 +6360,13 @@ class pageController extends AbstractController
     {   
         $pageOrigine=$p;
         $pName='combat';
-        // dd($pageOrigine,$ennemyId);
 
         //le hero par son id
         $hero= $this->entityManager->getRepository(Hero::class) -> findBy(['id'=>$heroId]);
         //objets de l'inventaire du héros
         $items = $this->inventory->inventory($heroId);
-
         //L'ennemi
-        $ennemy= $this->entityManager->getRepository(Ennemy::class)->findById($ennemyId);
-       
+        $ennemy= $this->entityManager->getRepository(Ennemy::class)->findById($ennemyId);       
         $ennemyCS = $ennemy[0]->getCombatSkill();
         
         //le combat
@@ -6412,16 +6399,14 @@ class pageController extends AbstractController
                 $CS+=2;
                 $CR = $CS - $ennemy[0]->getCombatSkill();
             }
-        // dd($CS, $CR);
-        
+        // 
                 $endLw= $fight[0]->getEndL();
 
                 $endA= $fight[0]->getEndE();
                                
                 $this->entityManager->persist($fight[0]);
                 $this->entityManager->flush();
-                // dd($fight);
-                // dd($CS, $CR, $fight);
+
             $cT=$this->combatTables;
             $em=$this->entityManager;
 
