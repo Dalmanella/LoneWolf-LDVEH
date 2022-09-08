@@ -12,156 +12,100 @@ body{
 }
 
 body div{
-  padding:0;
-  
-}
-
-.nanum{
-  font-family: 'Nanum Brush Script', cursive;
+  padding:0;  
 }
 
 header{
   box-sizing: border-box;
 }
 
-.symbol{
-    font-family: 'Dr Sugiyama', cursive;
-    font-size: 2.8rem;
+/* logo et polices */
+  .symbol{
+      font-family: 'Dr Sugiyama', cursive;
+      font-size: 2.8rem;
+    }
+    
+  .majuscules{
+    font-family:'Dr Sugiyama', cursive;
   }
-  
-.majuscules{
-  font-family:'Dr Sugiyama', cursive;
-}
 
-form{
-  margin-bottom:5vw;
-}
-
-.carac{
-    padding: 0 4vw;
-    margin: 2px 4vw;
-    border-radius: 75px;
-    background-color: rgb(243, 240, 236) ;
-}
-
-.skill{
+  .nanum{
     font-family: 'Nanum Brush Script', cursive;
-    font-size:3rem;
-}
-
-.rappel-comp{
-    font-size:3rem;
-}
-.connexion{
-  font-size: 5rem;
-}
-label{
-  margin-top:80px;
-  font-size:3.5rem;
-}
-input{
-  height:100px;
-  width: 60%;
-  margin-bottom:100px;    
-}
-
-input[type="checkbox"]{
-height:70px;
-width:70px;
-margin-bottom: 0;
-}
-
-.check-label span{
-  margin-left:2vw;
-  font-size:3.5rem;
-}
-
-#rolldice{
-  width:130px;
-  height:130px;
-  font-size:4rem;
-}
-#combat, #endurance, #gold{
-  border-radius:100%;
-  width:130px;
-  height:130px;
-  font-size:6rem;
-}
-.comp p{
-  margin-top:50px;
-  font-size:4.5rem;
-}
-
-  @media (min-width: 1000px) {
-    .skill{
-      font-size:2rem;
-    }
-    .rappel-comp{
-      font-size:1.8rem;
-    }
-
-    .form{
-      width:500px;
-      font-size:2rem;
-    }
-    .form input{
-      height:50px;
-      margin-bottom: 30px;
-      margin-top: 0;
-    }
-    .form label{
-      margin-top:2vw;
-      font-size:2rem;
-    }
-    .connexion{
-      font-size: 3.2rem;
-    }
-    .form-crea{
-      width:50%;
-      font-size:2rem;
-    }
-    .form-crea label{
-      margin-top:2vw;
-      font-size:2rem;
-    }
-    .form-crea input{
-      height:50px;
-      margin-bottom: 30px;
-      margin-top: 0;
-    }
-    .form-crea h2{
-      font-size:2.4rem;
-    }
-    
-    .form-crea .comp p{
-      margin-top:20px;
-      font-size:2.3rem;
-    }
-    .form-crea .check-label span{
-      margin-left:10px;
-      font-size:2.1rem;
-    }
-    input[type="checkbox"]{
-      height:36px;
-      width:36px;
-      margin-bottom: 0;
-      }
-    #combat, #endurance, #gold{
-      border-radius:100%;
-      width:51px;
-      height:51px;
-      font-size:3rem;
-    }
-    #rolldice{
-      width:70px;
-      height:70px;
-      font-size:2rem;
-    }
-    
-
   }
-  
 
+/* formulaire */
+  form{
+    margin-bottom:5vw;
+  }
+
+/* page création de personnage */
+  .carac{
+      padding: 0 4vw;
+      margin: 2px 4vw;
+      border-radius: 75px;
+      background-color: rgb(243, 240, 236) ;
+  }
+
+  .skill{
+      font-family: 'Nanum Brush Script', cursive;
+      font-size:3rem;
+  }
+
+  .rappel-comp{
+      font-size:3rem;
+  }
+  .connexion{
+    font-size: 5rem;
+  }
+  label{
+    margin-top:80px;
+    font-size:3.5rem;
+  }
+  input{
+    height:100px;
+    width: 60%;
+    margin-bottom:100px;    
+  }
+
+  input[type="checkbox"]{
+  height:70px;
+  width:70px;
+  margin-bottom: 0;
+  }
+
+  .check-label span{
+    margin-left:2vw;
+    font-size:3.5rem;
+  }
+
+  #rolldice{
+    width:130px;
+    height:130px;
+    font-size:4rem;
+  }
+  #combat, #endurance, #gold{
+    border-radius:100%;
+    width:130px;
+    height:130px;
+    font-size:6rem;
+  }
+  .comp p{
+    margin-top:50px;
+    font-size:4.5rem; 
+  }
+
+  #new_adventure_validation{
+    background-color: var(--bs-primary); 
+    background-image: url("../img/pawprint-brown-ico.png");
+    background-size: 129px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-radius: 100%;
+    width:130px;
+    height:130px;
+  }
+
+/* page de menu */
   #menuList{
     width: 75%;   
     display: flex;
@@ -170,67 +114,286 @@ margin-bottom: 0;
     flex-wrap: nowrap;
   }
 
+  #menuList a{
+      cursor: pointer;
+  }
+
+/* page d'intro */
+    .kaiWisdom a{
+      border:1px solid #693c11ad;
+      border-radius: 10px;
+    }
+    .kaiWisdom:hover{
+      color: #915a03 !important; 
+      cursor: pointer !important;
+
+    }
+
+/* icones, bouton */
+    a .paperRoll {
+      width:200px !important;
+      padding:0;      
+    }
+
+    .paperRoll img{
+      width:200px;      
+    }  
+
+    .icone {
+      max-width:50%;
+      max-height: auto;
+      margin-top: 0;
+      margin-bottom:5vw;
+      margin-left:auto;
+      margin-right:auto;      
+    }
+
+    .icone img{
+      max-width:70%;
+      max-height: auto;          
+    }
+    
+    .ico-map {
+      max-width: 150px;
+      max-height: 150px;
+    }
+    
+    .ico-map:hover{
+      max-width: 160px;
+      max-height: 170px;
+    }
+
+    .ico-inventaire{
+      width:45px;
+      height:45px;
+    
+    }
+    
+    #new_adventure_validation:hover{
+      background-color: #915a03;
+      border: 2px solid #704501; 
+      background-image: url("../img/pawprint-brown-ico.png");
+      background-repeat: no-repeat;
+      background-position: center; 
+      border-radius: 100%;
+    }
+    
+    .btn-disciplines{
+      background: none;
+      width: fit-content ;
+      border: none;
+      color: #693B11;
+      margin: 0;
+      padding: 2px;
+      border-radius: 75px;
+      width: 25vw;
+      max-width:fit-content;
+    }
+  
+    .btn-disciplines:hover{
+      color: #904907;  
+      width: fit-content;
+      box-shadow: 10px 10px 30px 10px inset #693c118f;
+    }
+
+    .btn-luck{      
+      height:100px !important;
+      font-size: 3rem;
+    }
+
+    .btn-musique{
+      height:80px; 
+      margin-bottom: 5vw;
+    }  
+  
+    .fleches{
+      width:130px;
+    }
+
+    .btn-heroDelete img{
+      background-color: rgba(161, 4, 4, 0.781);    
+      width:130px;
+      height:130px;
+      border-radius: 100%;
+    }
+    
+   .btn-heroDelete :hover{
+      background-color: rgba(245, 71, 71);
+      padding: auto 0;
+      border-radius: 100%;
+    }
+
+.ruinSearch{
+    text-decoration-line: none !important;
+}
+
+blockquote {
+  font-family: 'Dr Sugiyama', cursive;
+  width:75%;
+  font-size:3.2rem;
+}
+
+.skull{
+  text-decoration-line: none;
+}
+
+#fin{
+  font-size: 8vw;
+}
+
+
+/* les tableaux */
+  .table{
+    align-self: center;
+    max-width: 90%;
+    margin-bottom: 10vw;    
+  }
+
+  .table tr{
+    border-top-color:#693B11 ;
+    border-bottom-color:#693B11;
+    background-color: rgba(253, 253, 245, 0.685);
+    color:#693B11 !important;    
+    font-size:3.5rem;
+  }
+
+  .table td{
+    font-family: 'Nanum Brush Script', cursive; 
+    padding:4px  !important;
+    margin:4px !important;
+    font-size:3.5rem;
+  }
+    
+/* combat */
+    .combat-data p{
+      font-size:3rem;
+    }
+
+    #combattre{
+      font-size:4rem !important;
+    }
+  
+ /* illustrations */
+  .illustration{
+    width:50%;
+    height:auto;
+  }
+  .illustrationG{
+    width:80%;
+    height:auto;
+  }
+
+
+/*
+  Adaptation écran tablette et PC (Large)
+*/
+     
   @media (min-width: 1000px) {
+      /* création de personnage */
+      .skill{
+        font-size:2rem;
+      }
+
+      .rappel-comp{
+        font-size:1.8rem;
+      }
+
+      .form{
+        width:500px;
+        font-size:2rem;
+      }
+
+      .form input{
+        height:50px;
+        margin-bottom: 30px;
+        margin-top: 0;
+      }
+
+      .form label{
+        margin-top:2vw;
+        font-size:2rem;
+      }
+
+      .connexion{
+        font-size: 3.2rem;
+      }
+
+      .form-crea{
+        width:50%;
+        font-size:2rem;
+      }
+
+      .form-crea label{
+        margin-top:2vw;
+        font-size:2rem;
+      }
+
+      .form-crea input{
+        height:50px;
+        margin-bottom: 30px;
+        margin-top: 0;
+      }
+
+      .form-crea h2{
+        font-size:2.4rem;
+      }
+      
+      .form-crea .comp p{
+        margin-top:20px;
+        font-size:2.3rem;
+      }
+
+      .form-crea .check-label span{
+        margin-left:10px;
+        font-size:2.1rem;
+      }
+
+      input[type="checkbox"]{
+        height:36px;
+        width:36px;
+        margin-bottom: 0;
+      }
+
+      #combat, #endurance, #gold{
+        border-radius:100%;
+        width:51px;
+        height:51px;
+        font-size:3rem;
+      }
+
+      #rolldice{
+        width:70px;
+        height:70px;
+        font-size:2rem;
+      }
+
+      #new_adventure_validation{
+        background-size: 68px;
+        width:70px;
+        height:70px;
+      }
+
+  /* page de menu et à propos */
     #menuList{
       height: 300px;
       flex-direction: row;
       flex-wrap:nowrap;
     }
-  }
 
-  #menuList a{
-      cursor: pointer;
-  }
-  .kaiWisdom a{
-    border:1px solid #693c11ad;
-    border-radius: 10px;
-  }
-  .kaiWisdom:hover{
-    color: #915a03 !important; 
-    cursor: pointer !important;
+    blockquote {
+      font-size:2.2rem;
+    }
 
-  }
+  /* icones, bouton */
+    .logo{
+      width:100px;
+    }
 
-  a .paperRoll {
-    width:200px !important;
-    padding:0;
-    
-  }
-  .paperRoll img{
-    /* height:80px; */
-    width:200px;
-    
-  }  
-
-  .icone {
-    max-width:50%;
-    max-height: auto;
-    margin-top: 0;
-    margin-bottom:5vw;
-    margin-left:auto;
-    margin-right:auto;
-    
-  }
-  .icone img{
-    max-width:70%;
-    max-height: auto;
-        
-  }
-   
-  .ico-map {
-    max-width: 150px;
-    max-height: 150px;
-  }
-  
-  .ico-map:hover{
-    max-width: 160px;
-    max-height: 170px;
-  }
-  @media (min-width: 1000px) {
     .ico-map {
       max-width: 100px;
       max-height: 100px;
     }
+
     .ico-map:hover{
       max-width: 105px;
       max-height: 115px;
@@ -245,111 +408,38 @@ margin-bottom: 0;
       max-width: 150px;
       max-height: 165px;
     }
+
     .paperRoll {
       max-width:200px;
       max-height: 70px;
     }
+
     .paperRoll:hover img{
       width:auto;
       height:65px;    
     }
     
-  }
-  
-  #new_adventure_validation{
-    background-color: var(--bs-primary); 
-    background-image: url("../img/pawprint-brown-ico.png");
-    background-size: 129px;
-    background-repeat: no-repeat;
-    background-position: center; 
-    border-radius: 100%;
-    width:130px;
-    height:130px;
-  }
-  @media (min-width: 1000px) {
-    #new_adventure_validation{
-      background-size: 68px;
-      width:70px;
-      height:70px;
-    }    
-  }
-
-  #new_adventure_validation:hover{
-    background-color: #915a03;
-    border: 2px solid #704501; 
-    background-image: url("../img/pawprint-brown-ico.png");
-    background-repeat: no-repeat;
-    background-position: center; 
-    border-radius: 100%;
-      }
-  
-  .btn-disciplines{
-    background: none;
-    width: fit-content ;
-    border: none;
-    color: #693B11;
-    margin: 0;
-    padding: 2px;
-    border-radius: 75px;
-    width: 25vw;
-    max-width:fit-content;
-  }
-
-  .btn-disciplines:hover{
-    color: #904907;  
-    width: fit-content;
-    box-shadow: 10px 10px 30px 10px inset #693c118f;
-  }
-  .btn-luck{
-    
-    height:100px !important;
-    font-size: 3rem;
-  }
-
-  .fleches{
-    width:130px;
-  }
-  @media (min-width: 1000px) {
     .fleches{
       width:100px;
     }
-    .btn-luck{
-      
+
+    .btn-luck{      
       height:80px !important;
       font-size: 2.5rem;
+    }   
+
+    /* illustrations */
+    .illustration {
+      width:auto;
+      height:auto;
     }
-  }
+    .illustrationG{
+      width:35%;
+      height:auto;
+    }    
 
-  .ruinSearch{
-    text-decoration-line: none !important;
-  }
-
-  .table{
-    /* width:100% !important; */
-    align-self: center;
-    max-width: 90%;
-    margin-bottom: 10vw;
-    
-  }
-
-  .table tr{
-    border-top-color:#693B11 ;
-    border-bottom-color:#693B11;
-    background-color: rgba(253, 253, 245, 0.685);
-    color:#693B11 !important;
-    
-    font-size:3.5rem;
-  }
-
-  .table td{
-    font-family: 'Nanum Brush Script', cursive; 
-    padding:4px  !important;
-    margin:4px !important;
-    font-size:3.5rem;
-  }
-  @media (min-width: 1000px) {
+    /* les tableaux */
     .table{
-      /* width:100% !important; */
       align-self: center;
       max-width: 70%;
       margin-bottom: 10vw;
@@ -360,16 +450,13 @@ margin-bottom: 0;
     .table td{
       font-size:2rem;
     }
-  }
-  
-  .combat-data p{
-    font-size:3rem;
-  }
-  #combattre{
-    font-size:4rem !important;
-  }
-  
-  @media (min-width: 1000px) {
+
+    .btn-heroDelete img{
+      width:70px;
+      height:70px
+    }
+
+    /* combat */
     .combat-data p{
       font-size:2.5rem;
       margin-bottom:5px;
@@ -377,74 +464,4 @@ margin-bottom: 0;
     #combattre{
       font-size:3rem !important;
     }
-  }
-  
-  .btn-heroDelete img{
-    background-color: rgba(161, 4, 4, 0.781);    
-    width:130px;
-    height:130px;
-    border-radius: 100%;
-  }
-  @media (min-width: 1000px) {
-    .btn-heroDelete img{
-      width:70px;
-      height:70px
-    }
-  }
-
- .btn-heroDelete :hover{
-    background-color: rgba(245, 71, 71);
-    padding: auto 0;
-    /* width:51px;
-    height:51px; */
-    border-radius: 100%;
-  }
-
-  #fin{
-    font-size: 8vw;
-  }
-  .skull{
-    text-decoration-line: none;
-  }
-
-  .btn-musique{
-    height:80px; 
-    margin-bottom: 5vw;
-
-  }
-  .illustration{
-    width:50%;
-    height:auto;
-  }
-  .illustrationG{
-    width:80%;
-    height:auto;
-  }
-  blockquote {
-    font-family: 'Dr Sugiyama', cursive;
-    width:75%;
-    font-size:3.2rem;
-  }
-  .ico-inventaire{
-    width:45px;
-    height:45px;
-   
-  }
-
-  @media (min-width: 1000px) {
-    .logo{
-      width:100px;
-    }
-    .illustration {
-      width:auto;
-      height:auto;
-    }
-    .illustrationG{
-      width:35%;
-      height:auto;
-    }
-    blockquote {
-           font-size:2.2rem;
-    }
-    
   }

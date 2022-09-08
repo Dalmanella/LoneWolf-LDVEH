@@ -27,10 +27,10 @@ class AccueilController extends AbstractController
     {
         $session = $this->requestStack->getSession();
        
-        // if($session->has('name')){
-        //     dd($session);
-        //     session_destroy();
-        // }
+        if($session->has('name')){
+            // dd($session);
+            session_destroy();
+        }
        
 
         // get the login error if there is one
